@@ -1,0 +1,217 @@
+<svg viewBox="0 0 1100 780" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10b981"/></marker>
+    <marker id="ap" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8b5cf6"/></marker>
+    <marker id="ao" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f97316"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker>
+    <marker id="ay" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#eab308"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="780" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="550" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#0f172a">End-to-End Secure Software Supply Chain</text>
+  <text x="550" y="56" text-anchor="middle" font-size="12" fill="#64748b">Cosign Keyless · SLSA L2 · Kyverno · Falco · ArgoCD · SBOM · Distroless · GHCR</text>
+
+  <!-- LEGEND -->
+  <rect x="20" y="70" width="12" height="12" rx="2" fill="#3b82f6"/><text x="36" y="81" font-size="11" fill="#475569">CI Pipeline</text>
+  <rect x="120" y="70" width="12" height="12" rx="2" fill="#10b981"/><text x="136" y="81" font-size="11" fill="#475569">GitOps / ArgoCD</text>
+  <rect x="250" y="70" width="12" height="12" rx="2" fill="#8b5cf6"/><text x="266" y="81" font-size="11" fill="#475569">Signing / Attestation</text>
+  <rect x="400" y="70" width="12" height="12" rx="2" fill="#ef4444"/><text x="416" y="81" font-size="11" fill="#475569">Security Gates</text>
+  <rect x="520" y="70" width="12" height="12" rx="2" fill="#f97316"/><text x="536" y="81" font-size="11" fill="#475569">Admission / Runtime</text>
+  <rect x="670" y="70" width="12" height="12" rx="2" fill="#eab308"/><text x="686" y="81" font-size="11" fill="#475569">GHCR Registry</text>
+
+  <!-- ══ ROW 1: Developer → GitHub → CI Pipeline ══ -->
+  <rect x="30" y="100" width="110" height="55" rx="10" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="85" y="124" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">Developer</text>
+  <text x="85" y="142" text-anchor="middle" font-size="10" fill="#0369a1">git push / PR</text>
+
+  <line x1="140" y1="127" x2="195" y2="127" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+
+  <rect x="195" y="100" width="150" height="55" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="270" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">GitHub</text>
+  <text x="270" y="138" text-anchor="middle" font-size="10" fill="#94a3b8">app-source repo</text>
+  <text x="270" y="150" text-anchor="middle" font-size="9" fill="#64748b">CODEOWNERS enforced</text>
+
+  <line x1="345" y1="127" x2="400" y2="127" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="372" y="120" text-anchor="middle" font-size="9" fill="#3b82f6">main push</text>
+
+  <!-- CI Pipeline box -->
+  <rect x="400" y="92" width="680" height="78" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="740" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">GitHub Actions — ci.yml (4 jobs, main branch only)</text>
+
+  <!-- Job 1: build -->
+  <rect x="412" y="116" width="130" height="44" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="477" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#1e40af">① build</text>
+  <text x="477" y="145" text-anchor="middle" font-size="9" fill="#3b82f6">docker build @digest</text>
+  <text x="477" y="157" text-anchor="middle" font-size="9" fill="#3b82f6">push to GHCR</text>
+
+  <line x1="542" y1="138" x2="558" y2="138" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Job 2: scan -->
+  <rect x="558" y="116" width="145" height="44" rx="7" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="630" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#991b1b">② scan</text>
+  <text x="630" y="145" text-anchor="middle" font-size="9" fill="#dc2626">Trivy (gate) + Grype (audit)</text>
+  <text x="630" y="157" text-anchor="middle" font-size="9" fill="#dc2626">Syft SBOM generated</text>
+
+  <line x1="703" y1="138" x2="719" y2="138" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Job 3: sign -->
+  <rect x="719" y="116" width="155" height="44" rx="7" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="796" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#5b21b6">③ sign + attest</text>
+  <text x="796" y="145" text-anchor="middle" font-size="9" fill="#6d28d9">cosign keyless (OIDC)</text>
+  <text x="796" y="157" text-anchor="middle" font-size="9" fill="#6d28d9">SBOM attest → GHCR</text>
+
+  <line x1="874" y1="138" x2="890" y2="138" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Job 4: provenance + gitops -->
+  <rect x="890" y="116" width="182" height="44" rx="7" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="981" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#065f46">④ provenance + gitops</text>
+  <text x="981" y="145" text-anchor="middle" font-size="9" fill="#059669">SLSA L2 (isolated signer)</text>
+  <text x="981" y="157" text-anchor="middle" font-size="9" fill="#059669">kustomize set image @sha256</text>
+
+  <!-- ══ ROW 2: GHCR + GitOps Repo ══ -->
+  <!-- GHCR -->
+  <rect x="30" y="205" width="490" height="110" rx="12" fill="#fefce8" stroke="#eab308" stroke-width="2"/>
+  <text x="275" y="225" text-anchor="middle" font-size="13" font-weight="bold" fill="#713f12">GHCR — GitHub Container Registry</text>
+  <text x="275" y="241" text-anchor="middle" font-size="10" fill="#854d0e">ghcr.io/your-org/my-app@sha256:&lt;digest&gt;</text>
+
+  <rect x="45" y="250" width="140" height="55" rx="8" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+  <text x="115" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#713f12">Image</text>
+  <text x="115" y="282" text-anchor="middle" font-size="9" fill="#854d0e">distroless · @sha256</text>
+  <text x="115" y="295" text-anchor="middle" font-size="9" fill="#854d0e">no mutable tags</text>
+
+  <rect x="200" y="250" width="140" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="270" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">Cosign Signature</text>
+  <text x="270" y="282" text-anchor="middle" font-size="9" fill="#6d28d9">keyless OIDC</text>
+  <text x="270" y="295" text-anchor="middle" font-size="9" fill="#6d28d9">Rekor transparency log</text>
+
+  <rect x="355" y="250" width="150" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="430" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">Attestations</text>
+  <text x="430" y="282" text-anchor="middle" font-size="9" fill="#6d28d9">SBOM (Syft/CycloneDX)</text>
+  <text x="430" y="295" text-anchor="middle" font-size="9" fill="#6d28d9">SLSA L2 provenance</text>
+
+  <!-- GitOps Repo -->
+  <rect x="540" y="205" width="540" height="110" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="810" y="225" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">gitops-config repo</text>
+  <text x="810" y="241" text-anchor="middle" font-size="10" fill="#059669">CI commits digest → ArgoCD detects diff → syncs cluster</text>
+
+  <rect x="555" y="250" width="155" height="55" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+  <text x="632" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">overlays/production</text>
+  <text x="632" y="282" text-anchor="middle" font-size="9" fill="#059669">image: @sha256:&lt;digest&gt;</text>
+  <text x="632" y="295" text-anchor="middle" font-size="9" fill="#059669">pinned by CI · immutable</text>
+
+  <rect x="725" y="250" width="155" height="55" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+  <text x="802" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">ArgoCD</text>
+  <text x="802" y="282" text-anchor="middle" font-size="9" fill="#059669">auto-sync · self-heal</text>
+  <text x="802" y="295" text-anchor="middle" font-size="9" fill="#059669">AppProject scoped RBAC</text>
+
+  <rect x="895" y="250" width="170" height="55" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+  <text x="980" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">Kustomize Overlays</text>
+  <text x="980" y="282" text-anchor="middle" font-size="9" fill="#059669">base · staging · production</text>
+  <text x="980" y="295" text-anchor="middle" font-size="9" fill="#059669">NetworkPolicy · PDB</text>
+
+  <!-- ══ ROW 3: Kubernetes Cluster ══ -->
+  <rect x="30" y="345" width="1050" height="310" rx="14" fill="#fafafa" stroke="#94a3b8" stroke-width="2"/>
+  <text x="555" y="366" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Kubernetes Cluster</text>
+  <text x="555" y="382" text-anchor="middle" font-size="10" fill="#64748b">context: kind-elunic-challenge · namespace: production</text>
+
+  <!-- Admission layer -->
+  <rect x="50" y="392" width="480" height="240" rx="12" fill="#fff1f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="290" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">Admission Layer — Kyverno Webhook</text>
+  <text x="290" y="428" text-anchor="middle" font-size="10" fill="#dc2626">Every pod creation passes through all 3 policies before scheduling</text>
+
+  <rect x="65" y="438" width="210" height="180" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="170" y="456" text-anchor="middle" font-size="10" font-weight="bold" fill="#991b1b">verify-image-signature</text>
+  <line x1="75" y1="464" x2="265" y2="464" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="170" y="478" text-anchor="middle" font-size="9" fill="#dc2626">✓ cosign sig valid</text>
+  <text x="170" y="492" text-anchor="middle" font-size="9" fill="#dc2626">✓ subject = ci.yml@main</text>
+  <text x="170" y="506" text-anchor="middle" font-size="9" fill="#dc2626">✓ SBOM attestation present</text>
+  <text x="170" y="520" text-anchor="middle" font-size="9" fill="#dc2626">✓ SLSA provenance present</text>
+  <text x="170" y="534" text-anchor="middle" font-size="9" fill="#dc2626">✓ signer = slsa-github-generator</text>
+  <text x="170" y="548" text-anchor="middle" font-size="9" fill="#dc2626">✓ ref contains @sha256:</text>
+  <text x="170" y="562" text-anchor="middle" font-size="9" fill="#dc2626">mode: Enforce</text>
+  <text x="170" y="576" text-anchor="middle" font-size="9" fill="#dc2626">excludes: kube-system · argocd</text>
+  <text x="170" y="590" text-anchor="middle" font-size="9" fill="#dc2626">kyverno · cert-manager</text>
+
+  <rect x="290" y="438" width="225" height="180" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="402" y="456" text-anchor="middle" font-size="10" font-weight="bold" fill="#991b1b">restrict-privileged</text>
+  <line x1="300" y1="464" x2="505" y2="464" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="402" y="478" text-anchor="middle" font-size="9" fill="#dc2626">✗ privileged containers</text>
+  <text x="402" y="492" text-anchor="middle" font-size="9" fill="#dc2626">✗ hostNetwork / hostPID</text>
+  <text x="402" y="506" text-anchor="middle" font-size="9" fill="#dc2626">✗ :latest tag</text>
+  <text x="402" y="520" text-anchor="middle" font-size="9" fill="#dc2626">✗ no resource limits</text>
+  <text x="402" y="534" text-anchor="middle" font-size="9" fill="#dc2626">✗ runAsRoot</text>
+  <text x="402" y="548" text-anchor="middle" font-size="9" fill="#dc2626">PSS restricted profile</text>
+  <text x="402" y="562" text-anchor="middle" font-size="9" fill="#dc2626">seccomp: RuntimeDefault</text>
+  <text x="402" y="576" text-anchor="middle" font-size="9" fill="#dc2626">mode: Enforce</text>
+
+  <!-- Runtime layer -->
+  <rect x="550" y="392" width="510" height="240" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="805" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">Runtime Layer</text>
+
+  <!-- Pod -->
+  <rect x="565" y="425" width="220" height="195" rx="10" fill="#fef3c7" stroke="#f97316" stroke-width="1.5"/>
+  <text x="675" y="443" text-anchor="middle" font-size="11" font-weight="bold" fill="#9a3412">Running Pod</text>
+  <text x="675" y="459" text-anchor="middle" font-size="9" fill="#c2410c">image: @sha256:&lt;digest&gt;</text>
+  <line x1="575" y1="467" x2="775" y2="467" stroke="#f97316" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="675" y="481" text-anchor="middle" font-size="9" fill="#9a3412">distroless · non-root</text>
+  <text x="675" y="495" text-anchor="middle" font-size="9" fill="#9a3412">seccomp: RuntimeDefault</text>
+  <text x="675" y="509" text-anchor="middle" font-size="9" fill="#9a3412">readOnlyRootFilesystem</text>
+  <text x="675" y="523" text-anchor="middle" font-size="9" fill="#9a3412">topologySpreadConstraints</text>
+  <text x="675" y="537" text-anchor="middle" font-size="9" fill="#9a3412">graceful shutdown (preStop)</text>
+  <text x="675" y="551" text-anchor="middle" font-size="9" fill="#9a3412">NetworkPolicy: default-deny</text>
+  <text x="675" y="565" text-anchor="middle" font-size="9" fill="#9a3412">PDB: minAvailable 1</text>
+  <text x="675" y="579" text-anchor="middle" font-size="9" fill="#9a3412">resource limits enforced</text>
+  <text x="675" y="600" text-anchor="middle" font-size="9" fill="#9a3412">namespace: production</text>
+
+  <!-- Falco -->
+  <rect x="800" y="425" width="245" height="195" rx="10" fill="#fff1f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="922" y="443" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Falco — Runtime Monitor</text>
+  <line x1="810" y1="451" x2="1035" y2="451" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="922" y="465" text-anchor="middle" font-size="9" fill="#dc2626">syscall-level monitoring</text>
+  <text x="922" y="479" text-anchor="middle" font-size="9" fill="#dc2626">deviation-from-known-good</text>
+  <line x1="810" y1="487" x2="1035" y2="487" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="922" y="501" text-anchor="middle" font-size="10" font-weight="bold" fill="#991b1b">Custom Rules</text>
+  <text x="922" y="515" text-anchor="middle" font-size="9" fill="#dc2626">shell spawned in container</text>
+  <text x="922" y="529" text-anchor="middle" font-size="9" fill="#dc2626">unexpected outbound conn</text>
+  <text x="922" y="543" text-anchor="middle" font-size="9" fill="#dc2626">sensitive file read (/etc/shadow)</text>
+  <text x="922" y="557" text-anchor="middle" font-size="9" fill="#dc2626">privilege escalation attempt</text>
+  <text x="922" y="571" text-anchor="middle" font-size="9" fill="#dc2626">write to /etc or /bin</text>
+  <text x="922" y="585" text-anchor="middle" font-size="9" fill="#dc2626">→ alert / kill / audit</text>
+
+  <!-- ══ ROW 4: Trust model summary ══ -->
+  <rect x="30" y="675" width="1050" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="555" y="697" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">Trust Model — 3 Independent Enforcement Layers</text>
+  <text x="555" y="713" text-anchor="middle" font-size="10" fill="#94a3b8">Defeating the invariant requires compromising all three simultaneously</text>
+
+  <rect x="50" y="720" width="300" height="36" rx="8" fill="#312e81" stroke="#6366f1" stroke-width="1"/>
+  <text x="200" y="735" text-anchor="middle" font-size="10" font-weight="bold" fill="#a5b4fc">Layer 1 — Registry</text>
+  <text x="200" y="749" text-anchor="middle" font-size="9" fill="#818cf8">Cosign keyless sig · Rekor log · OIDC-scoped to ci.yml@main</text>
+
+  <rect x="400" y="720" width="300" height="36" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="550" y="735" text-anchor="middle" font-size="10" font-weight="bold" fill="#fca5a5">Layer 2 — Admission</text>
+  <text x="550" y="749" text-anchor="middle" font-size="9" fill="#f87171">Kyverno verifyImages · sig + SBOM + SLSA required · no bypass via kubectl</text>
+
+  <rect x="750" y="720" width="300" height="36" rx="8" fill="#431407" stroke="#f97316" stroke-width="1"/>
+  <text x="900" y="735" text-anchor="middle" font-size="10" font-weight="bold" fill="#fdba74">Layer 3 — Runtime</text>
+  <text x="900" y="749" text-anchor="middle" font-size="9" fill="#fb923c">Falco syscall rules · post-compromise lateral movement detection</text>
+
+  <!-- ══ ARROWS ══ -->
+  <!-- CI job 4 → gitops-config -->
+  <line x1="981" y1="170" x2="810" y2="205" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)"/>
+  <!-- CI job 3 → GHCR attestations -->
+  <line x1="796" y1="170" x2="430" y2="205" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#ap)"/>
+  <!-- CI job 1 → GHCR image -->
+  <line x1="477" y1="170" x2="115" y2="205" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <!-- ArgoCD → Kyverno (deploy attempt) -->
+  <line x1="802" y1="315" x2="290" y2="392" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)"/>
+  <!-- Kyverno → Pod (if passes) -->
+  <line x1="530" y1="510" x2="565" y2="510" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ar)"/>
+  <!-- GHCR → Kyverno (image pull for verification) -->
+  <line x1="270" y1="315" x2="170" y2="392" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ap)"/>
+  <!-- Falco monitors Pod -->
+  <line x1="800" y1="510" x2="785" y2="510" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#ar)"/>
+</svg>

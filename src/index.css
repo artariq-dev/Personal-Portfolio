@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+a, button, a *, button * { cursor: pointer; }
+
+/* Animated hero gradient */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-gradient {
+  background: linear-gradient(-45deg, #f8fafc, #eff6ff, #f0f9ff, #f1f5f9);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0c1a2e, #111827);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* Tech strip */
+.tech-strip .rfm-marquee-container {
+  background-color: #f3f4f6;
+  padding: 8px 0;
+}
+
+.dark .tech-strip .rfm-marquee-container {
+  background-color: #1f2937;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 0.8s step-start infinite; }
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}

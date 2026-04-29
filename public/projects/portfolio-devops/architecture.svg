@@ -1,0 +1,271 @@
+<svg viewBox="0 0 1100 720" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1100" height="720" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#0f172a">Azure DevOps Pipeline — Portfolio-Devops</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#64748b">AKS · ACR · Key Vault · OPA Policy-as-Code · Ansible · GitHub Actions</text>
+
+  <!-- ── LEGEND ── -->
+  <rect x="20" y="72" width="12" height="12" rx="2" fill="#3b82f6"/>
+  <text x="36" y="83" font-size="11" fill="#475569">CI/CD Flow</text>
+  <rect x="110" y="72" width="12" height="12" rx="2" fill="#10b981"/>
+  <text x="126" y="83" font-size="11" fill="#475569">Azure Resources</text>
+  <rect x="230" y="72" width="12" height="12" rx="2" fill="#f59e0b"/>
+  <text x="246" y="83" font-size="11" fill="#475569">Policy / Security</text>
+  <rect x="360" y="72" width="12" height="12" rx="2" fill="#8b5cf6"/>
+  <text x="376" y="83" font-size="11" fill="#475569">Config Mgmt</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 1 — Developer + Git Push
+  ══════════════════════════════════════════════ -->
+
+  <!-- Developer -->
+  <rect x="30" y="105" width="110" height="60" rx="10" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="85" y="130" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">Developer</text>
+  <text x="85" y="148" text-anchor="middle" font-size="10" fill="#0369a1">git push</text>
+
+  <!-- Arrow: Dev → GitHub -->
+  <line x1="140" y1="135" x2="195" y2="135" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- GitHub Repo -->
+  <rect x="195" y="105" width="130" height="60" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="260" y="128" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">GitHub</text>
+  <text x="260" y="144" text-anchor="middle" font-size="10" fill="#94a3b8">Portfolio-Devops</text>
+  <text x="260" y="158" text-anchor="middle" font-size="9" fill="#64748b">main branch</text>
+
+  <!-- Arrow: GitHub → 4 Pipelines label -->
+  <line x1="325" y1="135" x2="390" y2="135" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="357" y="128" text-anchor="middle" font-size="9" fill="#3b82f6">path triggers</text>
+
+  <!-- 4 Pipelines box -->
+  <rect x="390" y="95" width="680" height="80" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="730" y="113" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">4 Parallel GitHub Actions Pipelines (path-triggered)</text>
+
+  <!-- Pipeline 1 -->
+  <rect x="405" y="118" width="145" height="44" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="477" y="136" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">① Infrastructure</text>
+  <text x="477" y="150" text-anchor="middle" font-size="9" fill="#3b82f6">infrastructure/**</text>
+
+  <!-- Pipeline 2 -->
+  <rect x="562" y="118" width="145" height="44" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="634" y="136" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">② App Build</text>
+  <text x="634" y="150" text-anchor="middle" font-size="9" fill="#3b82f6">app/**</text>
+
+  <!-- Pipeline 3 -->
+  <rect x="719" y="118" width="145" height="44" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="791" y="136" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">③ Docker Build</text>
+  <text x="791" y="150" text-anchor="middle" font-size="9" fill="#3b82f6">docker/**</text>
+
+  <!-- Pipeline 4 -->
+  <rect x="876" y="118" width="180" height="44" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="966" y="136" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">④ Ansible / K8s Deploy</text>
+  <text x="966" y="150" text-anchor="middle" font-size="9" fill="#3b82f6">ansible/** · kubernetes/**</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 2 — Infrastructure Pipeline Detail
+  ══════════════════════════════════════════════ -->
+
+  <!-- Infra pipeline steps -->
+  <rect x="30" y="215" width="500" height="130" rx="10" fill="#fefce8" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="280" y="233" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">① Infrastructure Pipeline — Validate → OPA Policy Check → Deploy</text>
+
+  <!-- Step boxes inside -->
+  <rect x="45" y="242" width="110" height="50" rx="7" fill="#fff7ed" stroke="#f59e0b" stroke-width="1"/>
+  <text x="100" y="262" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">tf fmt / init</text>
+  <text x="100" y="276" text-anchor="middle" font-size="9" fill="#b45309">validate / plan</text>
+  <text x="100" y="288" text-anchor="middle" font-size="9" fill="#b45309">save artifact</text>
+
+  <line x1="155" y1="267" x2="175" y2="267" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+  <rect x="175" y="242" width="130" height="50" rx="7" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="240" y="260" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">OPA Policy Check</text>
+  <text x="240" y="274" text-anchor="middle" font-size="9" fill="#b45309">aks-security.rego</text>
+  <text x="240" y="286" text-anchor="middle" font-size="9" fill="#b45309">naming-convention.rego</text>
+
+  <line x1="305" y1="267" x2="325" y2="267" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+  <rect x="325" y="242" width="110" height="50" rx="7" fill="#fff7ed" stroke="#f59e0b" stroke-width="1"/>
+  <text x="380" y="262" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">tf apply</text>
+  <text x="380" y="276" text-anchor="middle" font-size="9" fill="#b45309">main branch only</text>
+  <text x="380" y="288" text-anchor="middle" font-size="9" fill="#b45309">env: production</text>
+
+  <!-- OPA Rules callout -->
+  <rect x="45" y="300" width="460" height="38" rx="6" fill="#fffbeb" stroke="#fbbf24" stroke-width="1"/>
+  <text x="275" y="315" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">OPA Rules: no public AKS API · no 0.0.0.0/0 · mandatory Environment+Project tags · naming conventions (-rg, -aks, acr[n])</text>
+  <text x="275" y="330" text-anchor="middle" font-size="9" fill="#b45309">Violations → pipeline fails before any resource is created</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 2 — App + Docker + Ansible pipelines
+  ══════════════════════════════════════════════ -->
+
+  <!-- App Build pipeline -->
+  <rect x="548" y="215" width="175" height="130" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="635" y="233" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">② App Build</text>
+  <rect x="560" y="240" width="150" height="30" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+  <text x="635" y="252" text-anchor="middle" font-size="9" fill="#065f46">Node 18 · npm ci</text>
+  <text x="635" y="264" text-anchor="middle" font-size="9" fill="#065f46">npm test --coverage</text>
+  <rect x="560" y="278" width="150" height="30" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+  <text x="635" y="290" text-anchor="middle" font-size="9" fill="#065f46">npm run build</text>
+  <text x="635" y="302" text-anchor="middle" font-size="9" fill="#065f46">upload artifact</text>
+  <rect x="560" y="316" width="150" height="22" rx="6" fill="#bbf7d0" stroke="#10b981" stroke-width="1"/>
+  <text x="635" y="331" text-anchor="middle" font-size="9" font-weight="bold" fill="#065f46">React 18 + Tailwind CSS</text>
+
+  <!-- Docker Build pipeline -->
+  <rect x="738" y="215" width="165" height="130" rx="10" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="820" y="233" text-anchor="middle" font-size="11" font-weight="bold" fill="#6b21a8">③ Docker Build</text>
+  <rect x="750" y="240" width="140" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7" stroke-width="1"/>
+  <text x="820" y="252" text-anchor="middle" font-size="9" fill="#6b21a8">az acr build</text>
+  <text x="820" y="264" text-anchor="middle" font-size="9" fill="#6b21a8">multi-stage Dockerfile</text>
+  <rect x="750" y="278" width="140" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7" stroke-width="1"/>
+  <text x="820" y="290" text-anchor="middle" font-size="9" fill="#6b21a8">push to ACR</text>
+  <text x="820" y="302" text-anchor="middle" font-size="9" fill="#6b21a8">tag: portfolio:$SHA</text>
+  <rect x="750" y="316" width="140" height="22" rx="6" fill="#e9d5ff" stroke="#a855f7" stroke-width="1"/>
+  <text x="820" y="331" text-anchor="middle" font-size="9" font-weight="bold" fill="#6b21a8">nginx:alpine final image</text>
+
+  <!-- Ansible pipeline -->
+  <rect x="918" y="215" width="162" height="130" rx="10" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="999" y="233" text-anchor="middle" font-size="11" font-weight="bold" fill="#9f1239">④ Ansible</text>
+  <rect x="930" y="240" width="138" height="30" rx="6" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1"/>
+  <text x="999" y="252" text-anchor="middle" font-size="9" fill="#9f1239">SSH key setup</text>
+  <text x="999" y="264" text-anchor="middle" font-size="9" fill="#9f1239">update inventory.ini</text>
+  <rect x="930" y="278" width="138" height="30" rx="6" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1"/>
+  <text x="999" y="290" text-anchor="middle" font-size="9" fill="#9f1239">playbook.yml</text>
+  <text x="999" y="302" text-anchor="middle" font-size="9" fill="#9f1239">Docker · kubectl · az CLI</text>
+  <rect x="930" y="316" width="138" height="22" rx="6" fill="#fecdd3" stroke="#f43f5e" stroke-width="1"/>
+  <text x="999" y="331" text-anchor="middle" font-size="9" font-weight="bold" fill="#9f1239">Node Exporter (monitoring)</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 3 — Azure Resource Group
+  ══════════════════════════════════════════════ -->
+
+  <!-- Azure Resource Group wrapper -->
+  <rect x="30" y="375" width="1050" height="260" rx="14" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="555" y="396" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">Azure Resource Group — rg-portfolio-dev</text>
+  <text x="555" y="412" text-anchor="middle" font-size="10" fill="#059669">Provisioned by Terraform · eastus</text>
+
+  <!-- VNet -->
+  <rect x="50" y="420" width="200" height="200" rx="10" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="150" y="438" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">Azure VNet</text>
+  <text x="150" y="452" text-anchor="middle" font-size="9" fill="#059669">10.0.0.0/16</text>
+
+  <!-- Bastion subnet -->
+  <rect x="62" y="460" width="170" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+  <text x="147" y="476" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">Bastion Host</text>
+  <text x="147" y="490" text-anchor="middle" font-size="9" fill="#059669">Ubuntu VM</text>
+  <text x="147" y="503" text-anchor="middle" font-size="9" fill="#059669">Docker · kubectl · az CLI</text>
+  <text x="147" y="516" text-anchor="middle" font-size="9" fill="#059669">Node Exporter :9100</text>
+
+  <!-- AKS subnet -->
+  <rect x="62" y="540" width="170" height="68" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+  <text x="147" y="556" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">AKS Subnet</text>
+  <text x="147" y="570" text-anchor="middle" font-size="9" fill="#059669">aks-portfolio-dev</text>
+  <text x="147" y="583" text-anchor="middle" font-size="9" fill="#059669">System node pool</text>
+  <text x="147" y="596" text-anchor="middle" font-size="9" fill="#059669">RBAC enabled</text>
+
+  <!-- AKS Cluster -->
+  <rect x="270" y="420" width="340" height="200" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="440" y="438" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">AKS Cluster — aks-portfolio-dev</text>
+
+  <!-- Namespace box -->
+  <rect x="282" y="448" width="315" height="160" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="440" y="464" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">Namespace: portfolio</text>
+
+  <!-- Deployment -->
+  <rect x="292" y="472" width="140" height="55" rx="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="362" y="488" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">Deployment</text>
+  <text x="362" y="502" text-anchor="middle" font-size="9" fill="#1d4ed8">portfolio-app</text>
+  <text x="362" y="515" text-anchor="middle" font-size="9" fill="#1d4ed8">2 replicas · nginx</text>
+
+  <!-- Service -->
+  <rect x="447" y="472" width="140" height="55" rx="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="517" y="488" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">Service</text>
+  <text x="517" y="502" text-anchor="middle" font-size="9" fill="#1d4ed8">LoadBalancer</text>
+  <text x="517" y="515" text-anchor="middle" font-size="9" fill="#1d4ed8">port 80</text>
+
+  <!-- ServiceAccount + RBAC -->
+  <rect x="292" y="535" width="295" height="62" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1"/>
+  <text x="440" y="551" text-anchor="middle" font-size="10" font-weight="bold" fill="#3730a3">RBAC</text>
+  <text x="440" y="565" text-anchor="middle" font-size="9" fill="#4338ca">ServiceAccount: portfolio-sa</text>
+  <text x="440" y="578" text-anchor="middle" font-size="9" fill="#4338ca">Role: get/list/watch pods, services, deployments</text>
+
+  <!-- ACR -->
+  <rect x="630" y="420" width="200" height="90" rx="10" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="730" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="#6b21a8">ACR</text>
+  <text x="730" y="456" text-anchor="middle" font-size="10" fill="#7e22ce">acrportfoliodev</text>
+  <text x="730" y="470" text-anchor="middle" font-size="9" fill="#7e22ce">portfolio:$SHA</text>
+  <text x="730" y="484" text-anchor="middle" font-size="9" fill="#7e22ce">Basic SKU · admin enabled</text>
+  <text x="730" y="498" text-anchor="middle" font-size="9" fill="#7e22ce">AKS pull integration</text>
+
+  <!-- Key Vault -->
+  <rect x="630" y="525" width="200" height="100" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="730" y="545" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">Key Vault</text>
+  <text x="730" y="561" text-anchor="middle" font-size="10" fill="#c2410c">kv-portfolio-dev</text>
+  <text x="730" y="577" text-anchor="middle" font-size="9" fill="#c2410c">ARM_CLIENT_SECRET</text>
+  <text x="730" y="591" text-anchor="middle" font-size="9" fill="#c2410c">SSH_PRIVATE_KEY</text>
+  <text x="730" y="605" text-anchor="middle" font-size="9" fill="#c2410c">AZURE_CREDENTIALS</text>
+
+  <!-- GitHub Secrets -->
+  <rect x="850" y="420" width="210" height="200" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="955" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">GitHub Secrets</text>
+  <text x="955" y="458" text-anchor="middle" font-size="9" fill="#94a3b8">ARM_CLIENT_ID</text>
+  <text x="955" y="472" text-anchor="middle" font-size="9" fill="#94a3b8">ARM_CLIENT_SECRET</text>
+  <text x="955" y="486" text-anchor="middle" font-size="9" fill="#94a3b8">ARM_SUBSCRIPTION_ID</text>
+  <text x="955" y="500" text-anchor="middle" font-size="9" fill="#94a3b8">ARM_TENANT_ID</text>
+  <text x="955" y="514" text-anchor="middle" font-size="9" fill="#94a3b8">TF_API_TOKEN</text>
+  <text x="955" y="528" text-anchor="middle" font-size="9" fill="#94a3b8">AZURE_CREDENTIALS</text>
+  <text x="955" y="542" text-anchor="middle" font-size="9" fill="#94a3b8">SSH_PRIVATE_KEY</text>
+  <text x="955" y="556" text-anchor="middle" font-size="9" fill="#94a3b8">BASTION_IP</text>
+  <line x1="870" y1="566" x2="1050" y2="566" stroke="#334155" stroke-width="1"/>
+  <text x="955" y="582" text-anchor="middle" font-size="9" font-weight="bold" fill="#60a5fa">Injected at runtime</text>
+  <text x="955" y="596" text-anchor="middle" font-size="9" fill="#60a5fa">never in source code</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 4 — Terraform Cloud
+  ══════════════════════════════════════════════ -->
+  <rect x="30" y="650" width="500" height="60" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="280" y="672" text-anchor="middle" font-size="12" font-weight="bold" fill="#4c1d95">Terraform Cloud</text>
+  <text x="280" y="690" text-anchor="middle" font-size="10" fill="#6d28d9">Remote state backend · TF_API_TOKEN auth · plan artifact passed between jobs</text>
+
+  <!-- Terraform modules callout -->
+  <rect x="548" y="650" width="532" height="60" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+  <text x="814" y="672" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">Terraform Modules</text>
+  <text x="814" y="690" text-anchor="middle" font-size="10" fill="#059669">resource-group · networking (VNet/subnet) · aks · container-registry · key-vault</text>
+
+  <!-- ══════════════════════════════════════════════
+       ARROWS — pipelines → azure resources
+  ══════════════════════════════════════════════ -->
+
+  <!-- Infra pipeline → Terraform Cloud -->
+  <line x1="380" y1="345" x2="280" y2="650" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-purple)"/>
+
+  <!-- Docker pipeline → ACR -->
+  <line x1="820" y1="345" x2="730" y2="420" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- K8s deploy → AKS -->
+  <line x1="966" y1="345" x2="500" y2="448" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Ansible → Bastion -->
+  <line x1="999" y1="345" x2="147" y2="460" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-red)"/>
+
+  <!-- ACR → AKS (image pull) -->
+  <line x1="630" y1="460" x2="610" y2="490" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-purple)"/>
+
+  <!-- ══════════════════════════════════════════════
+       ARROW MARKERS
+  ══════════════════════════════════════════════ -->
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f43f5e"/>
+    </marker>
+  </defs>
+</svg>

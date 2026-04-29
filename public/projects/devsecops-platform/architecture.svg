@@ -1,0 +1,219 @@
+<svg viewBox="0 0 1100 755" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10b981"/></marker>
+    <marker id="ap" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8b5cf6"/></marker>
+    <marker id="ao" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f97316"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="755" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="550" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#0f172a">Multi-Environment GitOps Platform — DevSecOps-Platform</text>
+  <text x="550" y="56" text-anchor="middle" font-size="12" fill="#64748b">K3s on Azure · ArgoCD · Helm · Sealed Secrets · Trivy · dev / staging / prod</text>
+
+  <!-- LEGEND -->
+  <rect x="20" y="70" width="12" height="12" rx="2" fill="#3b82f6"/><text x="36" y="81" font-size="11" fill="#475569">CI/CD</text>
+  <rect x="100" y="70" width="12" height="12" rx="2" fill="#10b981"/><text x="116" y="81" font-size="11" fill="#475569">GitOps / ArgoCD</text>
+  <rect x="230" y="70" width="12" height="12" rx="2" fill="#8b5cf6"/><text x="246" y="81" font-size="11" fill="#475569">Secrets</text>
+  <rect x="320" y="70" width="12" height="12" rx="2" fill="#f97316"/><text x="336" y="81" font-size="11" fill="#475569">Azure Infra</text>
+  <rect x="420" y="70" width="12" height="12" rx="2" fill="#ef4444"/><text x="436" y="81" font-size="11" fill="#475569">Security</text>
+
+  <!-- ══ ROW 1: Developer + GitHub ══ -->
+  <rect x="30" y="100" width="110" height="55" rx="10" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="85" y="124" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">Developer</text>
+  <text x="85" y="142" text-anchor="middle" font-size="10" fill="#0369a1">git push</text>
+
+  <line x1="140" y1="127" x2="195" y2="127" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+
+  <rect x="195" y="100" width="150" height="55" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="270" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">GitHub</text>
+  <text x="270" y="138" text-anchor="middle" font-size="10" fill="#94a3b8">DevSecOps-Platform</text>
+  <text x="270" y="150" text-anchor="middle" font-size="9" fill="#64748b">main · develop · feature/**</text>
+
+  <!-- path trigger label -->
+  <line x1="345" y1="127" x2="400" y2="127" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="372" y="120" text-anchor="middle" font-size="9" fill="#3b82f6">apps/portfolio/**</text>
+
+  <!-- CI Pipeline box -->
+  <rect x="400" y="95" width="680" height="70" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="740" y="113" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">GitHub Actions — Build and Push Portfolio App</text>
+
+  <rect x="415" y="120" width="120" height="36" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="475" y="135" text-anchor="middle" font-size="9" font-weight="bold" fill="#1e40af">Docker Buildx</text>
+  <text x="475" y="148" text-anchor="middle" font-size="9" fill="#3b82f6">multi-platform build</text>
+
+  <line x1="535" y1="138" x2="555" y2="138" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <rect x="555" y="120" width="130" height="36" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="620" y="135" text-anchor="middle" font-size="9" font-weight="bold" fill="#1e40af">Push to Docker Hub</text>
+  <text x="620" y="148" text-anchor="middle" font-size="9" fill="#3b82f6">branch · sha · latest tags</text>
+
+  <line x1="685" y1="138" x2="705" y2="138" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <rect x="705" y="120" width="130" height="36" rx="7" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="770" y="135" text-anchor="middle" font-size="9" font-weight="bold" fill="#991b1b">Trivy Scan</text>
+  <text x="770" y="148" text-anchor="middle" font-size="9" fill="#dc2626">SARIF → GitHub Security</text>
+
+  <line x1="835" y1="138" x2="855" y2="138" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <rect x="855" y="120" width="210" height="36" rx="7" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="960" y="135" text-anchor="middle" font-size="9" font-weight="bold" fill="#065f46">ArgoCD auto-sync triggered</text>
+  <text x="960" y="148" text-anchor="middle" font-size="9" fill="#059669">new image tag → GitOps reconcile</text>
+
+  <!-- ══ ROW 2: Azure Infrastructure ══ -->
+  <rect x="30" y="195" width="500" height="200" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="280" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="#9a3412">Azure Infrastructure (Terraform)</text>
+  <text x="280" y="230" text-anchor="middle" font-size="10" fill="#c2410c">Modules: resource_group · vnet · k3s-vm</text>
+
+  <!-- VNet -->
+  <rect x="45" y="240" width="200" height="140" rx="8" fill="#ffedd5" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="145" y="258" text-anchor="middle" font-size="10" font-weight="bold" fill="#9a3412">Azure VNet</text>
+  <text x="145" y="272" text-anchor="middle" font-size="9" fill="#c2410c">k3s-subnet · services-subnet</text>
+
+  <rect x="57" y="280" width="175" height="88" rx="7" fill="#fed7aa" stroke="#f97316" stroke-width="1"/>
+  <text x="144" y="296" text-anchor="middle" font-size="10" font-weight="bold" fill="#9a3412">K3s VM (Azure Free Tier)</text>
+  <text x="144" y="310" text-anchor="middle" font-size="9" fill="#c2410c">Ubuntu 22.04 LTS</text>
+  <text x="144" y="323" text-anchor="middle" font-size="9" fill="#c2410c">Static Public IP</text>
+  <text x="144" y="336" text-anchor="middle" font-size="9" fill="#c2410c">NSG: 22 · 6443 · 80 · 443</text>
+  <text x="144" y="349" text-anchor="middle" font-size="9" fill="#c2410c">cloud-init: k3s-install.sh</text>
+
+  <!-- Terraform Cloud -->
+  <rect x="260" y="240" width="255" height="140" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="387" y="258" text-anchor="middle" font-size="10" font-weight="bold" fill="#4c1d95">Terraform Cloud</text>
+  <text x="387" y="274" text-anchor="middle" font-size="9" fill="#6d28d9">Remote state backend</text>
+  <text x="387" y="290" text-anchor="middle" font-size="9" fill="#6d28d9">Variables: ssh_public_key · k3s_token</text>
+  <text x="387" y="306" text-anchor="middle" font-size="9" fill="#6d28d9">location · vnet_address_space</text>
+  <line x1="270" y1="318" x2="505" y2="318" stroke="#7c3aed" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="387" y="332" text-anchor="middle" font-size="9" font-weight="bold" fill="#4c1d95">Outputs</text>
+  <text x="387" y="346" text-anchor="middle" font-size="9" fill="#6d28d9">vm_public_ip · k3s_api_url · ssh_cmd</text>
+  <text x="387" y="360" text-anchor="middle" font-size="9" fill="#6d28d9">resource_group_name · vnet_id</text>
+
+  <!-- ══ ROW 2 RIGHT: K3s Cluster ══ -->
+  <rect x="548" y="195" width="532" height="200" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="814" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">K3s Cluster (on Azure VM)</text>
+
+  <!-- ArgoCD -->
+  <rect x="562" y="228" width="160" height="155" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <text x="642" y="246" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">ArgoCD</text>
+  <text x="642" y="262" text-anchor="middle" font-size="9" fill="#059669">namespace: argocd</text>
+  <line x1="572" y1="270" x2="712" y2="270" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="642" y="284" text-anchor="middle" font-size="9" font-weight="bold" fill="#065f46">Applications</text>
+  <text x="642" y="298" text-anchor="middle" font-size="9" fill="#059669">portfolio-dev</text>
+  <text x="642" y="312" text-anchor="middle" font-size="9" fill="#059669">sealed-secrets</text>
+  <text x="642" y="326" text-anchor="middle" font-size="9" fill="#059669">auto-sync · self-heal · prune</text>
+  <text x="642" y="340" text-anchor="middle" font-size="9" fill="#059669">CreateNamespace=true</text>
+  <text x="642" y="354" text-anchor="middle" font-size="9" fill="#059669">watches: GitHub repo</text>
+  <text x="642" y="368" text-anchor="middle" font-size="9" fill="#059669">branch: develop</text>
+
+  <!-- Sealed Secrets -->
+  <rect x="736" y="228" width="160" height="155" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="816" y="246" text-anchor="middle" font-size="11" font-weight="bold" fill="#5b21b6">Sealed Secrets</text>
+  <text x="816" y="262" text-anchor="middle" font-size="9" fill="#6d28d9">Bitnami v2.13.0</text>
+  <line x1="746" y1="270" x2="886" y2="270" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="816" y="284" text-anchor="middle" font-size="9" font-weight="bold" fill="#5b21b6">Flow</text>
+  <text x="816" y="298" text-anchor="middle" font-size="9" fill="#6d28d9">kubeseal encrypts secret</text>
+  <text x="816" y="312" text-anchor="middle" font-size="9" fill="#6d28d9">SealedSecret → Git</text>
+  <text x="816" y="326" text-anchor="middle" font-size="9" fill="#6d28d9">controller decrypts</text>
+  <text x="816" y="340" text-anchor="middle" font-size="9" fill="#6d28d9">→ K8s Secret in cluster</text>
+  <text x="816" y="354" text-anchor="middle" font-size="9" fill="#6d28d9">0 plaintext in Git</text>
+  <text x="816" y="368" text-anchor="middle" font-size="9" fill="#6d28d9">dockerhub creds sealed</text>
+
+  <!-- Helm Chart -->
+  <rect x="910" y="228" width="155" height="155" rx="8" fill="#fef9c3" stroke="#eab308" stroke-width="1.5"/>
+  <text x="987" y="246" text-anchor="middle" font-size="11" font-weight="bold" fill="#713f12">Helm Chart</text>
+  <text x="987" y="262" text-anchor="middle" font-size="9" fill="#854d0e">apps/portfolio/chart</text>
+  <line x1="920" y1="270" x2="1055" y2="270" stroke="#eab308" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="987" y="284" text-anchor="middle" font-size="9" font-weight="bold" fill="#713f12">Templates</text>
+  <text x="987" y="298" text-anchor="middle" font-size="9" fill="#854d0e">Deployment</text>
+  <text x="987" y="312" text-anchor="middle" font-size="9" fill="#854d0e">Service (ClusterIP)</text>
+  <text x="987" y="326" text-anchor="middle" font-size="9" fill="#854d0e">Ingress (nginx)</text>
+  <text x="987" y="340" text-anchor="middle" font-size="9" fill="#854d0e">HPA</text>
+  <text x="987" y="354" text-anchor="middle" font-size="9" fill="#854d0e">cert-manager TLS</text>
+  <text x="987" y="368" text-anchor="middle" font-size="9" fill="#854d0e">letsencrypt-prod</text>
+
+  <!-- ══ ROW 3: 3 Environments ══ -->
+  <rect x="30" y="420" width="1050" height="200" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="555" y="440" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Kustomize Overlays — 3 Environments</text>
+
+  <!-- Dev -->
+  <rect x="50" y="452" width="310" height="155" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="205" y="470" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">dev</text>
+  <text x="205" y="486" text-anchor="middle" font-size="9" fill="#3b82f6">portfolio-dev.example.com</text>
+  <line x1="60" y1="494" x2="350" y2="494" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="205" y="508" text-anchor="middle" font-size="9" fill="#1d4ed8">replicas: 1</text>
+  <text x="205" y="522" text-anchor="middle" font-size="9" fill="#1d4ed8">image tag: dev-latest</text>
+  <text x="205" y="536" text-anchor="middle" font-size="9" fill="#1d4ed8">cpu: 50m–100m</text>
+  <text x="205" y="550" text-anchor="middle" font-size="9" fill="#1d4ed8">memory: 64Mi–128Mi</text>
+  <text x="205" y="564" text-anchor="middle" font-size="9" fill="#1d4ed8">autoscaling: disabled</text>
+  <rect x="65" y="572" width="275" height="26" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="202" y="589" text-anchor="middle" font-size="9" fill="#1e40af">ArgoCD App: portfolio-dev · branch: develop</text>
+
+  <!-- Staging -->
+  <rect x="380" y="452" width="310" height="155" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+  <text x="535" y="470" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">staging</text>
+  <text x="535" y="486" text-anchor="middle" font-size="9" fill="#059669">portfolio-staging.example.com</text>
+  <line x1="390" y1="494" x2="680" y2="494" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="535" y="508" text-anchor="middle" font-size="9" fill="#065f46">replicas: 2</text>
+  <text x="535" y="522" text-anchor="middle" font-size="9" fill="#065f46">image tag: staging-latest</text>
+  <text x="535" y="536" text-anchor="middle" font-size="9" fill="#065f46">cpu: 75m–150m</text>
+  <text x="535" y="550" text-anchor="middle" font-size="9" fill="#065f46">memory: 96Mi–192Mi</text>
+  <text x="535" y="564" text-anchor="middle" font-size="9" fill="#065f46">autoscaling: disabled</text>
+  <rect x="395" y="572" width="275" height="26" rx="5" fill="#dcfce7" stroke="#10b981" stroke-width="1"/>
+  <text x="532" y="589" text-anchor="middle" font-size="9" fill="#065f46">Sealed Secrets per environment</text>
+
+  <!-- Prod -->
+  <rect x="710" y="452" width="355" height="155" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="887" y="470" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">prod</text>
+  <text x="887" y="486" text-anchor="middle" font-size="9" fill="#c2410c">portfolio.example.com</text>
+  <line x1="720" y1="494" x2="1055" y2="494" stroke="#f97316" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="887" y="508" text-anchor="middle" font-size="9" fill="#9a3412">replicas: 3</text>
+  <text x="887" y="522" text-anchor="middle" font-size="9" fill="#9a3412">image tag: prod-latest</text>
+  <text x="887" y="536" text-anchor="middle" font-size="9" fill="#9a3412">cpu: 150m–300m · memory: 256Mi–512Mi</text>
+  <text x="887" y="550" text-anchor="middle" font-size="9" fill="#9a3412">HPA: min 3 · max 10 · CPU 80%</text>
+  <text x="887" y="564" text-anchor="middle" font-size="9" fill="#9a3412">TLS: cert-manager + letsencrypt-prod</text>
+  <rect x="725" y="572" width="325" height="26" rx="5" fill="#fed7aa" stroke="#f97316" stroke-width="1"/>
+  <text x="887" y="589" text-anchor="middle" font-size="9" fill="#9a3412">Ingress: nginx · TLS secret: portfolio-tls</text>
+
+  <!-- ══ ROW 4: Docker Hub + Security ══ -->
+  <rect x="30" y="640" width="340" height="100" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="200" y="660" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">Docker Hub</text>
+  <text x="200" y="678" text-anchor="middle" font-size="10" fill="#94a3b8">&lt;user&gt;/portfolio:branch-sha</text>
+  <text x="200" y="694" text-anchor="middle" font-size="10" fill="#94a3b8">&lt;user&gt;/portfolio:latest</text>
+  <text x="200" y="710" text-anchor="middle" font-size="9" fill="#64748b">GHA cache: type=gha · mode=max</text>
+  <text x="200" y="724" text-anchor="middle" font-size="9" fill="#64748b">Sealed Secret pulls image in cluster</text>
+
+  <!-- Trivy / Security -->
+  <rect x="390" y="640" width="340" height="100" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="560" y="660" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">Security</text>
+  <text x="560" y="678" text-anchor="middle" font-size="10" fill="#dc2626">Trivy: image vuln scan (SARIF)</text>
+  <text x="560" y="694" text-anchor="middle" font-size="10" fill="#dc2626">GitHub Security tab integration</text>
+  <text x="560" y="710" text-anchor="middle" font-size="9" fill="#b91c1c">Sealed Secrets: 0 plaintext creds in Git</text>
+  <text x="560" y="724" text-anchor="middle" font-size="9" fill="#b91c1c">NSG: only 22/6443/80/443 open</text>
+
+  <!-- GitHub Secrets -->
+  <rect x="750" y="640" width="330" height="100" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="915" y="660" text-anchor="middle" font-size="12" font-weight="bold" fill="#f1f5f9">GitHub Secrets / Vars</text>
+  <text x="915" y="678" text-anchor="middle" font-size="9" fill="#94a3b8">DOCKERHUB_TOKEN · vars.DOCKERHUB_USERNAME</text>
+  <text x="915" y="694" text-anchor="middle" font-size="9" fill="#94a3b8">ARM_* (for Terraform Cloud)</text>
+  <text x="915" y="710" text-anchor="middle" font-size="9" fill="#94a3b8">SSH_PUBLIC_KEY · K3S_TOKEN</text>
+  <text x="915" y="724" text-anchor="middle" font-size="9" fill="#64748b">injected at runtime · never in source</text>
+
+  <!-- ══ ARROWS ══ -->
+  <!-- CI → Docker Hub -->
+  <line x1="740" y1="155" x2="200" y2="640" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ab)"/>
+  <!-- CI → Trivy -->
+  <line x1="770" y1="165" x2="560" y2="640" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ar)"/>
+  <!-- CI → ArgoCD trigger -->
+  <line x1="960" y1="165" x2="642" y2="228" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)"/>
+  <!-- ArgoCD → Environments -->
+  <line x1="642" y1="383" x2="205" y2="452" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)"/>
+  <line x1="642" y1="383" x2="535" y2="452" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)"/>
+  <line x1="642" y1="383" x2="887" y2="452" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)"/>
+  <!-- Terraform → K3s VM -->
+  <line x1="530" y1="320" x2="548" y2="310" stroke="#f97316" stroke-width="1.5" marker-end="url(#ao)"/>
+  <!-- Docker Hub → K3s (image pull) -->
+  <line x1="370" y1="680" x2="562" y2="383" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ap)"/>
+</svg>
