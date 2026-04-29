@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://abdurrehman924.github.io/Personal-Portfolio",
+  "homepage": "https://artariq.dev",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
