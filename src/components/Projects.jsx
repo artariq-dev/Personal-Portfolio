@@ -170,8 +170,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
 const CompactCard = ({ project, badge }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden cursor-pointer hover:border-blue-200 dark:hover:border-blue-800 transition-colors"
-      onClick={() => project.images && setOpen(o => !o)}>
+    <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
       <div className="relative p-4 flex flex-col gap-2 min-h-36 sm:min-h-48 pb-8">
         <div className="flex items-start justify-between gap-2">
           <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug">{project.title}</p>
@@ -190,7 +189,8 @@ const CompactCard = ({ project, badge }) => {
           </a>
         )}
         {project.images && (
-          <svg className={`absolute bottom-3 right-3 w-4 h-4 text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={`absolute bottom-3 right-3 w-4 h-4 text-gray-400 transition-transform duration-200 cursor-pointer hover:text-blue-600 ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            onClick={() => setOpen(o => !o)}>
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         )}
