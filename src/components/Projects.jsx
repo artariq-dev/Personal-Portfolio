@@ -77,7 +77,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
         {/* Expand button */}
         <button
           onClick={() => setOpen(o => !o)}
-          className="mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 rounded-lg py-2 transition-colors"
+          className={`mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold rounded-lg py-2 transition-colors ${open ? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 border border-gray-200 dark:border-gray-700 hover:border-blue-300' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
         >
           {open ? 'Collapse case study' : 'View full case study'}
           <svg className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
