@@ -55,12 +55,38 @@ const CoreProjectCard = ({ project, onLightbox }) => {
       {/* Always-visible header */}
       <div className="bg-gray-50 dark:bg-gray-800 px-6 py-5">
         <div className="mb-4">
-          <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-full mb-2 inline-block">
-            {project.tag}
-          </span>
+          {/* GitHub buttons — above capsule on mobile, inline on desktop */}
+          <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+            <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-full inline-block self-start">
+              {project.tag}
+            </span>
+            <div className="flex items-center gap-2 shrink-0">
+              {project.github && (
+                <a href={project.github} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-gray-900 text-white border border-gray-600 px-3 py-1 rounded-lg hover:bg-gray-700 transition-colors text-xs font-semibold">
+                  <GitHubIcon /> GitHub
+                </a>
+              )}
+              {project.githubAlt && (
+                <a href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-gray-700 text-white border border-gray-500 px-3 py-1 rounded-lg hover:bg-gray-600 transition-colors text-xs font-semibold">
+                  <GitHubIcon /> {project.githubAlt.label}
+                </a>
+              )}
+            </div>
+          </div>
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{project.title}</h3>
+          {project.source && (
+            <a href={project.source.url} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-mono text-gray-400 hover:text-blue-600 transition-colors mb-1">
+              <ExternalIcon /> {project.source.label}
+            </a>
+          )}
           <p className="text-xs font-mono text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.subtitle}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{project.problem}</p>
+          <div className="rounded-lg px-3 py-2.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70 text-red-800 dark:text-red-300">Problem</span>
+            <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">{project.problem}</p>
+          </div>
         </div>
 
         {/* Stats row */}
@@ -91,64 +117,38 @@ const CoreProjectCard = ({ project, onLightbox }) => {
       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${open ? 'max-h-[5000px]' : 'max-h-0'}`}>
         <div className="bg-white dark:bg-gray-900 px-6 py-6 border-t border-gray-200 dark:border-gray-700">
 
-          {/* Links */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-900 text-white border border-gray-600 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium">
-                <GitHubIcon /> GitHub
-              </a>
-            )}
-            {project.githubAlt && (
-              <a href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-700 text-white border border-gray-500 px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors text-sm font-medium">
-                <GitHubIcon /> {project.githubAlt.label}
-              </a>
-            )}
-            {project.source && (
-              <a href={project.source.url} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-blue-600 transition-colors self-center ml-1">
-                <GitHubIcon /> {project.source.label}
-              </a>
-            )}
-          </div>
-
-          {/* Problem / Solution / Impact */}
+          {/* Solution + Impact side by side */}
           <div className="grid md:grid-cols-2 gap-3 mb-3">
-            <Block label="Problem" text={project.problem}
-              color="bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 text-red-800 dark:text-red-300" />
             <Block label="Solution" text={project.solution}
               color="bg-blue-50 dark:bg-blue-950/30 border-blue-100 dark:border-blue-900/50 text-blue-800 dark:text-blue-300" />
-          </div>
-          <div className="grid md:grid-cols-2 gap-3 mb-6">
-            <div className="md:col-span-1">
-              <Timeline steps={project.implementation} />
-            </div>
             <Block label="Impact" text={project.impact}
               color="bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/50 text-emerald-800 dark:text-emerald-300" />
           </div>
 
-          {/* Tech Stack + Phases */}
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5">
-              <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Tech Stack</h4>
-              <div className="flex flex-wrap gap-1.5">
-                {project.techStack.map((t, i) => (
-                  <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">{t}</span>
-                ))}
+          {/* Tech Stack & Phases + Implementation side by side */}
+          <div className="grid md:grid-cols-2 gap-3 mb-6">
+            <div className="flex flex-col gap-3">
+              <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5">
+                <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Tech Stack</h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.techStack.map((t, i) => (
+                    <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5">
+                <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Build Phases</h4>
+                <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
+                  {project.phases.map((p, i) => (
+                    <div key={i} className="flex items-center gap-1.5 text-xs">
+                      <span className={p.done ? "text-emerald-500 font-bold" : "text-gray-300 dark:text-gray-600"}>{p.done ? "✓" : "○"}</span>
+                      <span className={p.done ? "text-gray-700 dark:text-gray-300" : "text-gray-400 dark:text-gray-600"}>{p.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5">
-              <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Build Phases</h4>
-              <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
-                {project.phases.map((p, i) => (
-                  <div key={i} className="flex items-center gap-1.5 text-xs">
-                    <span className={p.done ? "text-emerald-500 font-bold" : "text-gray-300 dark:text-gray-600"}>{p.done ? "✓" : "○"}</span>
-                    <span className={p.done ? "text-gray-700 dark:text-gray-300" : "text-gray-400 dark:text-gray-600"}>{p.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <Timeline steps={project.implementation} />
           </div>
 
           {/* Architecture Diagram */}

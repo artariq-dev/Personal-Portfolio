@@ -10,7 +10,7 @@ export const coreProjects = [
     githubAlt: { label: "Azure / DigitalOcean", url: "https://github.com/AbdurRehman924/hipster-shop" },
     source: { label: "Workload: Google Online Boutique (12 microservices)", url: "https://github.com/GoogleCloudPlatform/microservices-demo" },
     diagram: `${process.env.PUBLIC_URL}/projects/k8s-platform/architecture.svg`,
-    problem: "Managed Kubernetes abstracts control-plane internals, making deep security hardening, custom CNI configuration, and cost-optimized node management impractical at scale. Teams operating on EKS or AKS lose visibility into the components that matter most during incidents.",
+    problem: "Most cloud providers manage Kubernetes for you — but that means you lose control over how it's secured, configured, and optimised. When something breaks in production, you're debugging a black box.",
     solution: "Engineered self-managed Kubernetes clusters from raw compute on three cloud providers — AWS, Azure, and DigitalOcean — using kubeadm with no managed control plane. Full ownership of every layer: CNI, admission control, service mesh, and observability stack.",
     implementation: [
       "Terraform provisions all cloud infrastructure end-to-end.",
@@ -23,10 +23,10 @@ export const coreProjects = [
     ],
     impact: "Identical platform architecture replicated across three cloud providers, validating full portability. 43 AWS resources provisioned via Terraform with zero manual steps. 11 of 12 engineering phases complete — including service mesh, autoscaling, distributed tracing, and GitOps delivery.",
     stats: [
-      { value: "3", label: "Cloud Providers", sub: "AWS · Azure · DigitalOcean" },
-      { value: "12", label: "Microservices Operated", sub: "Google Online Boutique" },
-      { value: "43", label: "AWS Resources", sub: "Terraform-provisioned" },
-      { value: "0", label: "Manual Steps", sub: "Fully automated" },
+      { value: "3", label: "Clouds, One Platform", sub: "AWS · Azure · DigitalOcean" },
+      { value: "100%", label: "Control Plane Ownership", sub: "No managed black box" },
+      { value: "43", label: "Resources, Zero Clicks", sub: "Terraform end-to-end" },
+      { value: "12", label: "Services in Production", sub: "Full observability stack" },
     ],
     techStack: [
       "Kubernetes (kubeadm)", "AWS EC2 · VPC · NLB · EBS", "Terraform",
@@ -49,7 +49,7 @@ export const coreProjects = [
     subtitle: "Cosign Keyless · SLSA L2 · Kyverno · Falco · ArgoCD · SBOM · Distroless",
     github: "https://github.com/AbdurRehman924/secure-supply-chain",
     diagram: `${process.env.PUBLIC_URL}/projects/secure-supply-chain/architecture.svg`,
-    problem: "Conventional CI/CD pipelines provide no cryptographic proof that a container image running in production was built by the official pipeline, on the official branch, and passed all security gates. This leaves production systems exposed to tampered artifacts and supply chain compromise — with no admission-layer enforcement to stop them.",
+    problem: "There's no way to prove that what's running in production is exactly what was built and approved. A tampered or misconfigured image can slip through a standard CI/CD pipeline with nothing to stop it.",
     solution: "Designed a three-layer enforcement architecture: keyless Cosign signing at the registry, a Kyverno admission webhook that blocks any pod whose image lacks a valid signature, SBOM attestation, and SLSA provenance — and Falco monitoring syscalls at runtime. Mutable image tags are architecturally excluded from production.",
     implementation: [
       "GitHub Actions CI executes dual vulnerability scanning (Trivy + Grype).",
@@ -61,10 +61,10 @@ export const coreProjects = [
     ],
     impact: "Every artifact is cryptographically traceable from source commit to running pod. Zero mutable tags reach production. Zero stored signing keys — OIDC-based keyless signing eliminates key management risk entirely. Three independent enforcement layers ensure no single point of failure in the security model.",
     stats: [
-      { value: "3", label: "Enforcement Layers", sub: "Registry · Admission · Runtime" },
-      { value: "SLSA L2", label: "Provenance", sub: "Isolated signer job" },
-      { value: "Keyless", label: "Cosign Signing", sub: "OIDC · No stored key" },
-      { value: "0", label: "Mutable Tags", sub: "Digest-pinned in GitOps" },
+      { value: "3", label: "Enforcement Layers", sub: "Nothing slips through" },
+      { value: "0", label: "Stored Signing Keys", sub: "Keyless OIDC only" },
+      { value: "0", label: "Mutable Tags in Prod", sub: "Digest-pinned, always" },
+      { value: "SLSA L2", label: "Provenance on Every Build", sub: "Commit → pod, traceable" },
     ],
     techStack: [
       "Cosign (Keyless OIDC)", "SLSA GitHub Generator", "Syft (SBOM)",
@@ -91,7 +91,7 @@ export const coreProjects = [
     subtitle: "AKS · ACR · GitHub Actions · Ansible · Open Policy Agent",
     github: "https://github.com/AbdurRehman924/Portfolio-Devops",
     diagram: `${process.env.PUBLIC_URL}/projects/portfolio-devops/architecture.svg`,
-    problem: "Infrastructure provisioned without policy guardrails allows misconfigured resources — publicly exposed AKS clusters, untagged assets, missing encryption — to reach production undetected. Manual review processes don't scale and introduce inconsistency across environments.",
+    problem: "Without automated guardrails, misconfigured infrastructure — open access, missing encryption, untagged resources — reaches production before anyone notices. Manual reviews don't catch everything and don't scale.",
     solution: "Implemented policy-as-code with OPA Rego rules that evaluate Terraform plans before any resource is created, blocking non-compliant configurations at the source. Four parallel CI/CD pipelines — infrastructure, application, configuration management, and security scanning — execute from a single git push with zero manual gates.",
     implementation: [
       "Terraform provisions AKS, ACR, Key Vault, and VNet on Azure.",
@@ -102,10 +102,10 @@ export const coreProjects = [
     ],
     impact: "Zero non-compliant resources reach Azure. Policy violations are caught at plan time, not post-deployment. Four parallel pipelines reduce total delivery time. Zero manual steps from commit to running workload on AKS.",
     stats: [
-      { value: "4", label: "Parallel Pipelines", sub: "Infra · App · Config · Security" },
-      { value: "5", label: "Azure Services", sub: "AKS · ACR · KV · VNet · VM" },
-      { value: "3", label: "OPA Policy Rulesets", sub: "Enforced at plan time" },
-      { value: "0", label: "Manual Steps", sub: "Commit to production" },
+      { value: "0", label: "Bad Configs Reach Azure", sub: "Blocked at plan time" },
+      { value: "4", label: "Pipelines, One Git Push", sub: "Infra · App · Config · Security" },
+      { value: "5", label: "Azure Services Wired Up", sub: "AKS · ACR · KV · VNet · VM" },
+      { value: "0", label: "Manual Steps", sub: "Commit to running workload" },
     ],
     techStack: [
       "Azure AKS", "Azure ACR", "Azure Key Vault", "Terraform (Azure)",
@@ -129,7 +129,7 @@ export const coreProjects = [
     subtitle: "K3s on Azure · ArgoCD · Helm · Sealed Secrets · Dev/Staging/Prod",
     github: "https://github.com/AbdurRehman924/DevSecOps-Platform",
     diagram: `${process.env.PUBLIC_URL}/projects/devsecops-platform/architecture.svg`,
-    problem: "Storing Kubernetes secrets in Git is a critical security anti-pattern — but excluding secrets from the GitOps repository breaks the declarative, auditable deployment model that makes GitOps operationally valuable. Most teams choose one or the other, accepting either a security risk or an operational gap.",
+    problem: "Storing passwords and API keys in Git is a security risk — but leaving them out breaks the whole point of GitOps, where everything should be version-controlled and auditable. Most teams pick one and accept the tradeoff.",
     solution: "Resolved the tension by implementing Sealed Secrets: secrets are encrypted with a cluster-public key before being committed to Git. Only the in-cluster controller holds the decryption key — plaintext credentials never exist outside the cluster boundary, while the full GitOps model is preserved end-to-end.",
     implementation: [
       "Terraform provisions a K3s VM on Azure.",
@@ -140,10 +140,10 @@ export const coreProjects = [
     ],
     impact: "Zero plaintext secrets in Git. Three fully isolated environments managed from a single GitOps repository. ArgoCD auto-sync and self-heal eliminate configuration drift between declared and actual state.",
     stats: [
-      { value: "3", label: "Environments", sub: "dev · staging · prod" },
-      { value: "K3s", label: "Kubernetes on Azure", sub: "Terraform-provisioned" },
-      { value: "ArgoCD", label: "GitOps Auto-Sync", sub: "Self-healing · Auditable" },
-      { value: "0", label: "Plaintext Secrets", sub: "Sealed at rest in Git" },
+      { value: "0", label: "Plaintext Secrets in Git", sub: "Encrypted before commit" },
+      { value: "3", label: "Environments, One Repo", sub: "dev · staging · prod" },
+      { value: "0", label: "Config Drift", sub: "ArgoCD self-heals always" },
+      { value: "100%", label: "GitOps Model Preserved", sub: "Security + auditability" },
     ],
     techStack: [
       "K3s (Azure VM)", "Terraform (Azure)", "ArgoCD",
