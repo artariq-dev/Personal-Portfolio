@@ -88,7 +88,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
       </div>
 
       {/* Expandable detail */}
-      {open && (
+      <div className={`overflow-hidden transition-all duration-500 ease-in-out ${open ? 'max-h-[5000px]' : 'max-h-0'}`}>
         <div className="bg-white dark:bg-gray-900 px-6 py-6 border-t border-gray-200 dark:border-gray-700">
 
           {/* Links */}
@@ -162,7 +162,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
             </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
@@ -214,11 +214,11 @@ const Projects = () => {
   const [lightbox, setLightbox] = useState(null);
 
   return (
-    <section id="architectural-reference" className="bg-white dark:bg-gray-900">
+    <section id="case-studies" className="bg-white dark:bg-gray-900">
       <div ref={ref} className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700">
 
         <div className="mb-14">
-          <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Architectural Reference</span>
+          <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Case Studies</span>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
             Engineering decisions.<br />Production outcomes.
           </h2>
@@ -228,7 +228,7 @@ const Projects = () => {
         </div>
 
         <div className="mb-6">
-          <SectionDivider label="Cloud Infrastructure & DevSecOps Architectural Reference" />
+          <SectionDivider label="Cloud Infrastructure & DevSecOps Case Studies" />
           {/* Tech strip */}
           <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900 mb-6">
             <Marquee speed={80} pauseOnHover gradient={false}>
