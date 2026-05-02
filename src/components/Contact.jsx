@@ -40,7 +40,7 @@ const Contact = () => {
           {/* Right — contact */}
           <div className="space-y-4">
             <a
-              href="mailto:pure.art.endeavor@gmail.com"
+              href="mailto:artariq.dev.1@gmail.com"
               className="flex items-center gap-4 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-sm transition-all group"
             >
               <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center shrink-0">
@@ -48,7 +48,7 @@ const Contact = () => {
               </div>
               <div>
                 <div className="text-xs text-gray-400 font-medium mb-0.5">Email</div>
-                <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">pure.art.endeavor@gmail.com</div>
+                <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">artariq.dev.1@gmail.com</div>
               </div>
             </a>
 
