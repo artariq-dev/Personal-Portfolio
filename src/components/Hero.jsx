@@ -141,7 +141,7 @@ const Hero = () => {
             <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-[1.2] tracking-tight mb-3 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '350ms' }}>
               Your infra keeps you up at night.<br />
-              <span className="text-blue-600">Let's change that.</span>
+              <span className="text-blue-600">I fix that.</span>
             </h1>
             <div className={`mb-5 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '450ms' }}>
@@ -150,7 +150,7 @@ const Hero = () => {
             <div className={`transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '500ms' }}>
               <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-                I am a Cloud & DevSecOps Architect who designs and delivers cloud-native infrastructure, secure CI/CD pipelines, and Kubernetes platforms across multiple cloud providers. Security enforced at every layer. Deployments fully automated. Systems built for production.
+                5+ years in the industry — started in full stack, moved into Cloud & DevSecOps. I build Kubernetes platforms across AWS, Azure, and DigitalOcean, ship secure CI/CD pipelines, and make sure nothing reaches production unless it's been signed, scanned, and verified.
               </p>
             </div>
           </div>
@@ -179,8 +179,8 @@ const Hero = () => {
               {/* Actions */}
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
-                  <a href="#contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
-                    Let's fix this →
+                  <a href="#case-studies" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+                    See the work →
                   </a>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
