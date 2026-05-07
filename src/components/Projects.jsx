@@ -23,7 +23,7 @@ const SectionDivider = ({ label }) => (
 );
 
 const Timeline = ({ steps }) => (
-  <div className="rounded-lg px-4 py-3 border bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+  <div className="rounded px-4 py-3 border bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
     <span className="text-xs font-bold uppercase tracking-wider block mb-3 opacity-70 text-gray-700 dark:text-gray-300">Implementation</span>
     <div className="flex flex-col">
       {steps.map((step, i) => (
@@ -40,7 +40,7 @@ const Timeline = ({ steps }) => (
 );
 
 const Block = ({ label, text, color }) => (
-  <div className={`rounded-lg px-4 py-3 border ${color}`}>
+  <div className={`rounded px-4 py-3 border ${color}`}>
     <span className="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70">{label}</span>
     <p className="text-sm leading-relaxed">{text}</p>
   </div>
@@ -50,26 +50,26 @@ const CoreProjectCard = ({ project, onLightbox }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-200 dark:hover:border-blue-800">
+    <div className="border border-gray-200 dark:border-gray-700 rounded overflow-hidden transition-all duration-200 hover:border-blue-200 dark:hover:border-blue-800">
 
       {/* Always-visible header */}
       <div className="bg-gray-50 dark:bg-gray-800 px-6 py-5">
         <div className="mb-4">
           {/* GitHub buttons — above capsule on mobile, inline on desktop */}
           <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-            <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-full inline-block self-start">
+            <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-[2px] inline-block self-start">
               {project.tag}
             </span>
             <div className="flex items-center gap-2 shrink-0">
               {project.github && (
                 <a href={project.github} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-900 text-white border border-gray-600 px-3 py-1 rounded-lg hover:bg-gray-700 transition-colors text-xs font-semibold">
+                  className="inline-flex items-center gap-1.5 bg-gray-900 text-white border border-gray-600 px-3 py-1 rounded hover:bg-gray-700 transition-colors text-xs font-semibold">
                   <GitHubIcon /> GitHub
                 </a>
               )}
               {project.githubAlt && (
                 <a href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-700 text-white border border-gray-500 px-3 py-1 rounded-lg hover:bg-gray-600 transition-colors text-xs font-semibold">
+                  className="inline-flex items-center gap-1.5 bg-gray-700 text-white border border-gray-500 px-3 py-1 rounded hover:bg-gray-600 transition-colors text-xs font-semibold">
                   <GitHubIcon /> {project.githubAlt.label}
                 </a>
               )}
@@ -83,7 +83,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
             </a>
           )}
           <p className="text-xs font-mono text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.subtitle}</p>
-          <div className="rounded-lg px-3 py-2.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-1">
+          <div className="rounded px-3 py-2.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-1">
             <span className="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70 text-red-800 dark:text-red-300">Problem</span>
             <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">{project.problem}</p>
           </div>
@@ -92,7 +92,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
         {/* Stats row */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
           {project.stats.map((s, i) => (
-            <div key={i} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2">
+            <div key={i} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded px-3 py-2">
               <div className="text-sm font-bold text-blue-600">{s.value}</div>
               <div className="text-xs text-gray-500 dark:text-gray-400">{s.label}</div>
               <div className="text-xs text-gray-400 dark:text-gray-500">{s.sub}</div>
@@ -103,7 +103,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
         {/* Expand button */}
         <button
           onClick={() => setOpen(o => !o)}
-          className={`mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold rounded-lg py-2 transition-colors ${open ? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 border border-gray-200 dark:border-gray-700 hover:border-blue-300' : 'text-blue-600 dark:text-blue-400 hover:text-blue-500 border border-blue-200 dark:border-blue-800 hover:border-blue-400'}`}
+          className={`mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold rounded py-2 transition-colors ${open ? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 border border-gray-200 dark:border-gray-700 hover:border-blue-300' : 'text-blue-600 dark:text-blue-400 hover:text-blue-500 border border-blue-200 dark:border-blue-800 hover:border-blue-400'}`}
         >
           {open ? 'Collapse case study' : 'View full case study'}
           <svg className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
@@ -128,15 +128,15 @@ const CoreProjectCard = ({ project, onLightbox }) => {
           {/* Tech Stack & Phases + Implementation side by side */}
           <div className="grid md:grid-cols-2 gap-3 mb-6">
             <div className="flex flex-col gap-3">
-              <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5">
+              <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded p-5">
                 <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Tech Stack</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.techStack.map((t, i) => (
-                    <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">{t}</span>
+                    <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-[2px]">{t}</span>
                   ))}
                 </div>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5">
+              <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded p-5">
                 <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Build Phases</h4>
                 <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
                   {project.phases.map((p, i) => (
@@ -156,7 +156,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
             <div>
               <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Architecture Diagram</h4>
               <img src={project.diagram} alt={`${project.title} Architecture`}
-                className="w-full rounded-xl border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform duration-200"
+                className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform duration-200"
                 onClick={() => onLightbox({ src: project.diagram, alt: `${project.title} Architecture` })}
               />
             </div>
@@ -170,15 +170,15 @@ const CoreProjectCard = ({ project, onLightbox }) => {
 const CompactCard = ({ project, badge }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+    <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded overflow-hidden hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
       <div className="relative p-4 flex flex-col gap-2 min-h-36 sm:min-h-48 pb-8">
         <div className="flex items-start justify-between gap-2">
           <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug">{project.title}</p>
-          {badge && <span className="text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded shrink-0">{badge}</span>}
+          {badge && <span className="text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded-[2px] shrink-0">{badge}</span>}
         </div>
         <div className="flex flex-wrap gap-1">
           {project.techStack.slice(0, 3).map((t, i) => (
-            <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded">{t}</span>
+            <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded-[2px]">{t}</span>
           ))}
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pr-6">{project.highlight}</p>
@@ -200,7 +200,7 @@ const CompactCard = ({ project, badge }) => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 p-4 border-t border-gray-100 dark:border-gray-700">
             {project.images.map((src, i) => (
               <img key={i} src={src} alt={`${project.title} ${i + 1}`}
-                className="rounded-lg border border-gray-200 dark:border-gray-700 w-full object-cover aspect-video" />
+                className="rounded border border-gray-200 dark:border-gray-700 w-full object-cover aspect-video" />
             ))}
           </div>
         )}
@@ -258,7 +258,7 @@ const Projects = () => {
       {lightbox && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
           <img src={lightbox.src} alt={lightbox.alt}
-            className="max-w-full max-h-[90vh] rounded-xl shadow-2xl"
+            className="max-w-full max-h-[90vh] rounded shadow-2xl"
             onClick={e => e.stopPropagation()} />
           <button className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-gray-300" onClick={() => setLightbox(null)}>✕</button>
         </div>
