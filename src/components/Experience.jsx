@@ -6,7 +6,7 @@ const DomainCard = ({ d }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden cursor-pointer hover:border-blue-200 dark:hover:border-blue-800 transition-colors duration-200"
+      className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded overflow-hidden cursor-pointer hover:border-blue-200 dark:hover:border-blue-800 transition-colors duration-200"
       onClick={() => setOpen(o => !o)}
     >
       <div className="p-5">
