@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
+body {
+  overscroll-behavior: none;
 }
 
 a, button, a *, button * { cursor: pointer; }
