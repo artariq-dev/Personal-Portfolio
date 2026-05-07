@@ -60,14 +60,14 @@ const Navbar = () => {
             href="https://github.com/AbdurRehman924"
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-pointer text-sm font-medium bg-gray-900 dark:bg-gray-700 text-white px-4 py-1.5 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
+            className="cursor-pointer text-sm font-medium bg-gray-900 dark:bg-gray-700 text-white px-4 py-1.5 rounded hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
           >
             GitHub
           </a>
           <a
             href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`}
             download="Abdur-Rehman-DevSecOps.pdf"
-            className="cursor-pointer text-sm font-medium bg-blue-600 text-white px-4 py-1.5 rounded-lg hover:bg-blue-700 transition-colors"
+            className="cursor-pointer text-sm font-medium bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 transition-colors"
           >
             Technical Profile
           </a>

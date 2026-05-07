@@ -157,7 +157,7 @@ const Hero = () => {
 
           {/* Right — quiz */}
           <div className={`transition-opacity duration-300 ${fading ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-4 sm:p-6">
+            <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded p-4 sm:p-6">
 
               {/* Terminal header */}
               <div className="flex items-center gap-2 mb-4">
@@ -179,21 +179,21 @@ const Hero = () => {
               {/* Actions */}
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
-                  <a href="#case-studies" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+                  <a href="#case-studies" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition-colors">
                     See the work →
                   </a>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <button onClick={prev} disabled={typing} className="w-8 h-8 rounded-lg border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30">
+                  <button onClick={prev} disabled={typing} className="w-8 h-8 rounded border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                   </button>
-                  <button onClick={() => setPaused(p => !p)} className="w-8 h-8 rounded-lg border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:border-blue-400 dark:hover:border-gray-500 transition-colors">
+                  <button onClick={() => setPaused(p => !p)} className="w-8 h-8 rounded border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:border-blue-400 dark:hover:border-gray-500 transition-colors">
                     {paused
                       ? <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                       : <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                     }
                   </button>
-                  <button onClick={next} disabled={typing} className="w-8 h-8 rounded-lg border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30">
+                  <button onClick={next} disabled={typing} className="w-8 h-8 rounded border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   </button>
                 </div>
