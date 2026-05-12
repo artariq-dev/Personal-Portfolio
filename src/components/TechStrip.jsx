@@ -9,7 +9,7 @@ const tools = [
 const Row = ({ direction = 'left' }) => (
   <Marquee direction={direction} speed={32} pauseOnHover gradient={false}>
     {tools.map((t, i) => (
-      <span key={i} className="text-xs text-gray-400 dark:text-gray-500 font-mono mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
+      <span key={i} className="text-xs text-gray-400 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
     ))}
   </Marquee>
 );
