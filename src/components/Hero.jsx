@@ -1,9 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import Marquee from 'react-fast-marquee';
 import { questions, rewrites } from './heroData';
-
-
-
+import PixelBtn from './PixelBtn';
 const RewritingSentence = () => {
   const [i, setI] = useState(0);
   const [from, setFrom] = useState('');
@@ -43,7 +41,7 @@ const RewritingSentence = () => {
   }, [phase, from, to, i]);
 
   return (
-    <span className="text-xs sm:text-sm font-mono text-gray-500 dark:text-gray-400 whitespace-nowrap overflow-hidden block truncate">
+    <span className="text-xs sm:text-sm tracking-wider text-gray-500 dark:text-gray-400 whitespace-nowrap overflow-hidden block truncate">
       Turning{' '}
       <span className="text-red-500 dark:text-red-400">
         {phase === 'typing-from' || phase === 'deleting-from' ? from : ''}
@@ -129,16 +127,15 @@ const Hero = () => {
 
           {/* Left */}
           <div>
-            <div className={`flex items-center gap-4 mb-6 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
-              style={{ transitionDelay: '0ms' }}>
+            <div className={`flex items-center gap-4 mb-6 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
               <img src={`${process.env.PUBLIC_URL}/portfolio.jpeg`} alt="Abdur Rehman"
-                className="w-14 h-14 rounded-full border-2 border-blue-500/20 object-cover shrink-0" />
+                className="w-14 h-14 border-2 border-blue-500/20 object-cover shrink-0" />
               <div>
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white">Abdur Rehman Tariq</h2>
-                <p className="text-xs font-mono text-gray-400 dark:text-gray-500">Cloud & DevSecOps Architect</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Cloud & DevSecOps Architect</p>
               </div>
             </div>
-            <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-[1.2] tracking-tight mb-3 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+            <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-[1.2] mb-3 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '350ms' }}>
               Your infra keeps you up at night.<br />
               <span className="text-blue-600">I fix that.</span>
@@ -157,20 +154,20 @@ const Hero = () => {
 
           {/* Right — quiz */}
           <div className={`transition-opacity duration-300 ${fading ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded p-4 sm:p-6">
+            <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded p-4 sm:p-6 transition-all duration-200 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
 
               {/* Terminal header */}
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 font-mono truncate">architecture-challenge.sh</span>
+                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 truncate">architecture-challenge.sh</span>
               </div>
 
               {/* Question */}
               <div className="flex items-start gap-2 mb-5 min-h-[80px]">
-                <span className="text-green-600 dark:text-green-400 font-mono text-sm mt-0.5 shrink-0">$</span>
-                <p className="text-gray-800 dark:text-gray-100 font-mono text-xs sm:text-sm leading-relaxed">
+                <span className="text-green-600 dark:text-green-400 text-sm mt-0.5 shrink-0">$</span>
+                <p className="text-gray-800 dark:text-gray-100 text-xs sm:text-sm leading-relaxed">
                   {displayed}
                   {typing && <span className="inline-block w-2 h-4 bg-blue-400 ml-0.5 align-middle animate-pulse" />}
                 </p>
@@ -179,23 +176,23 @@ const Hero = () => {
               {/* Actions */}
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
-                  <a href="#case-studies" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded transition-colors">
+                  <PixelBtn as="a" href="#case-studies" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors">
                     See the work →
-                  </a>
+                  </PixelBtn>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <button onClick={prev} disabled={typing} className="w-8 h-8 rounded border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30">
+                  <PixelBtn onClick={prev} disabled={typing} className="w-8 h-8 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30 shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[3px_3px_0px_#bfdbfe] dark:hover:shadow-[3px_3px_0px_#1e3a5f]">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                  </button>
-                  <button onClick={() => setPaused(p => !p)} className="w-8 h-8 rounded border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:border-blue-400 dark:hover:border-gray-500 transition-colors">
+                  </PixelBtn>
+                  <PixelBtn onClick={() => setPaused(p => !p)} className="w-8 h-8 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:border-blue-400 dark:hover:border-gray-500 transition-colors shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[3px_3px_0px_#bfdbfe] dark:hover:shadow-[3px_3px_0px_#1e3a5f]">
                     {paused
                       ? <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                       : <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                     }
-                  </button>
-                  <button onClick={next} disabled={typing} className="w-8 h-8 rounded border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30">
+                  </PixelBtn>
+                  <PixelBtn onClick={next} disabled={typing} className="w-8 h-8 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30 shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[3px_3px_0px_#bfdbfe] dark:hover:shadow-[3px_3px_0px_#1e3a5f]">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </button>
+                  </PixelBtn>
                 </div>
               </div>
 
@@ -217,7 +214,7 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="hidden sm:flex justify-center py-4">
         <button onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-          className="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-blue-400 dark:hover:border-blue-600 transition-all group">
+          className="w-9 h-9 border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-blue-400 dark:hover:border-blue-600 transition-all group">
           <svg className="w-4 h-4 text-gray-400 dark:text-gray-600 group-hover:text-blue-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
@@ -227,7 +224,7 @@ const Hero = () => {
       <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900">
         <Marquee direction="right" speed={90} pauseOnHover gradient={false}>
           {["Architecture", "CI/CD Pipelines", "Automation", "Containerization", "Infrastructure", "Scalability", "Security Integration", "Infrastructure Reliability", "Deployment Integrity", "System Resilience", "Security Enforcement", "Observability", "GitOps", "Zero-Trust", "Supply Chain Security", "Platform Engineering"].map((t, i) => (
-            <span key={i} className="text-xs text-gray-400 dark:text-gray-500 font-mono mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
+            <span key={i} className="text-xs text-gray-400 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
           ))}
         </Marquee>
       </div>
