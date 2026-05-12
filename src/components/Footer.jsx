@@ -6,7 +6,7 @@ const Footer = () => (
       <span className="font-bold text-lg"><span className="text-gray-400">[ </span><span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400">Tariq</span><span className="text-gray-900 dark:text-white"> ]</span></span>
       <p className="text-xs tracking-wider">{new Date().getFullYear()} · CLOUD & DEVSECOPS ARCHITECT</p>
       <div className="flex gap-5">
-        <a href="#problems-i-solve" className={linkCls}>Problems I Solve</a>
+        <a href="#expertise" className={linkCls}>Problems I Solve</a>
         <a href="#case-studies" className={linkCls}>Work</a>
         <a href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer" className={linkCls}>GitHub</a>
       </div>
