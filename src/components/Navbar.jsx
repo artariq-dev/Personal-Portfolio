@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { navLinks as links, toId } from './navData';
 import useDarkMode from '../hooks/useDarkMode';
+import PixelBtn from './PixelBtn';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +34,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#hero" className="font-bold text-xl tracking-tight"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400 dark:text-gray-400">Tariq</span> <span className="text-gray-900 dark:text-white">]</span></a>
+        <a href="#hero" className="font-bold text-xl tracking-tight"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400">Tariq</span> <span className="text-gray-900 dark:text-white">]</span></a>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-7">
@@ -41,14 +42,22 @@ const Navbar = () => {
             <a
               key={link}
               href={`#${toId(link)}`}
-              className={`text-sm font-medium transition-colors ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
+              className={`text-xs tracking-wider uppercase transition-colors ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
             >
-              {link}
+              {activeSection === toId(link) ? `[${link}]` : link}
             </a>
           ))}
+          <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
+            className="text-sm font-medium bg-gray-900 dark:bg-gray-700 text-white px-4 py-1.5 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]">
+            GitHub
+          </PixelBtn>
+          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`} download="Abdur-Rehman-DevSecOps.pdf"
+            className="text-sm font-medium bg-blue-600 text-white px-4 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]">
+            Technical Profile
+          </PixelBtn>
           <button
             onClick={() => setDark(!dark)}
-            className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="w-8 h-8 flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 transition-all shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5"
             aria-label="Toggle dark mode"
           >
             {dark
@@ -56,28 +65,13 @@ const Navbar = () => {
               : <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
             }
           </button>
-          <a
-            href="https://github.com/AbdurRehman924"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer text-sm font-medium bg-gray-900 dark:bg-gray-700 text-white px-4 py-1.5 rounded hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`}
-            download="Abdur-Rehman-DevSecOps.pdf"
-            className="cursor-pointer text-sm font-medium bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 transition-colors"
-          >
-            Technical Profile
-          </a>
         </div>
 
         {/* Mobile hamburger */}
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={() => setDark(!dark)}
-            className="text-gray-700 dark:text-gray-300"
+            className="w-8 h-8 flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 transition-all shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5"
             aria-label="Toggle dark mode"
           >
             {dark
@@ -85,7 +79,7 @@ const Navbar = () => {
               : <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
             }
           </button>
-          <button className="text-gray-700 dark:text-gray-300" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 transition-all shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5" onClick={() => setMenuOpen(!menuOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {menuOpen
                 ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -108,8 +102,10 @@ const Navbar = () => {
               {link}
             </a>
           ))}
-          <a href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600">GitHub</a>
-          <a href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`} download="Abdur-Rehman-DevSecOps.pdf" className="text-sm font-medium text-blue-600 hover:text-blue-700">Technical Profile</a>
+          <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
+            className="text-sm font-medium bg-gray-900 dark:bg-gray-700 text-white px-4 py-2 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]">GitHub</PixelBtn>
+          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`} download="Abdur-Rehman-DevSecOps.pdf"
+            className="text-sm font-medium bg-blue-600 text-white px-4 py-2 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]">Technical Profile</PixelBtn>
         </div>
       )}
     </nav>
