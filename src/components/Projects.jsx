@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import useFadeIn from '../hooks/useFadeIn';
-import { coreProjects, fullStackProjects, contributions, tools } from './projectsData';
+import { coreProjects, fullStackProjects, contributions } from './projectsData';
+import PixelBtn from './PixelBtn';
 
 const GitHubIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +51,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded overflow-hidden transition-all duration-200 hover:border-blue-200 dark:hover:border-blue-800">
+    <div className="border border-gray-200 dark:border-gray-700 rounded overflow-hidden transition-all duration-200 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
 
       {/* Always-visible header */}
       <div className="bg-gray-50 dark:bg-gray-800 px-6 py-5">
@@ -60,29 +61,29 @@ const CoreProjectCard = ({ project, onLightbox }) => {
             <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-[2px] inline-block self-start">
               {project.tag}
             </span>
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 shrink-0">
               {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-900 text-white border border-gray-600 px-3 py-1 rounded hover:bg-gray-700 transition-colors text-xs font-semibold">
+                <PixelBtn as="a" href={project.github} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-gray-900 text-white border border-gray-600 px-3 py-1 hover:bg-gray-700 transition-colors text-xs font-semibold">
                   <GitHubIcon /> GitHub
-                </a>
+                </PixelBtn>
               )}
               {project.githubAlt && (
-                <a href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-700 text-white border border-gray-500 px-3 py-1 rounded hover:bg-gray-600 transition-colors text-xs font-semibold">
+                <PixelBtn as="a" href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-gray-700 text-white border border-gray-500 px-3 py-1 hover:bg-gray-600 transition-colors text-xs font-semibold whitespace-nowrap">
                   <GitHubIcon /> {project.githubAlt.label}
-                </a>
+                </PixelBtn>
               )}
             </div>
           </div>
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{project.title}</h3>
           {project.source && (
             <a href={project.source.url} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-mono text-gray-400 hover:text-blue-600 transition-colors mb-1">
+              className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-blue-600 transition-colors mb-1">
               <ExternalIcon /> {project.source.label}
             </a>
           )}
-          <p className="text-xs font-mono text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.subtitle}</p>
+          <p className="text-xs text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.subtitle}</p>
           <div className="rounded px-3 py-2.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-1">
             <span className="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70 text-red-800 dark:text-red-300">Problem</span>
             <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">{project.problem}</p>
@@ -101,16 +102,16 @@ const CoreProjectCard = ({ project, onLightbox }) => {
         </div>
 
         {/* Expand button */}
-        <button
+        <PixelBtn
           onClick={() => setOpen(o => !o)}
-          className={`mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold rounded py-2 transition-colors ${open ? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 border border-gray-200 dark:border-gray-700 hover:border-blue-300' : 'text-blue-600 dark:text-blue-400 hover:text-blue-500 border border-blue-200 dark:border-blue-800 hover:border-blue-400'}`}
+          className={`mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold py-2 transition-colors ${open ? 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-blue-600 border border-gray-300 dark:border-gray-600 shadow-[3px_3px_0px_#d1d5db] dark:shadow-[3px_3px_0px_#4b5563] hover:shadow-[5px_5px_0px_#d1d5db] dark:hover:shadow-[5px_5px_0px_#4b5563]' : 'bg-blue-600 hover:bg-blue-500 text-white border-0 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]'}`}
         >
           {open ? 'Collapse case study' : 'View full case study'}
           <svg className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
             fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
-        </button>
+        </PixelBtn>
       </div>
 
       {/* Expandable detail */}
@@ -132,7 +133,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
                 <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Tech Stack</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.techStack.map((t, i) => (
-                    <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-[2px]">{t}</span>
+                    <span key={i} className="text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-[2px]">{t}</span>
                   ))}
                 </div>
               </div>
@@ -170,7 +171,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
 const CompactCard = ({ project, badge }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded overflow-hidden hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+    <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded overflow-hidden transition-all duration-200 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
       <div className="relative p-4 flex flex-col gap-2 min-h-36 sm:min-h-48 pb-8">
         <div className="flex items-start justify-between gap-2">
           <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug">{project.title}</p>
@@ -178,7 +179,7 @@ const CompactCard = ({ project, badge }) => {
         </div>
         <div className="flex flex-wrap gap-1">
           {project.techStack.slice(0, 3).map((t, i) => (
-            <span key={i} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded-[2px]">{t}</span>
+            <span key={i} className="text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded-[2px]">{t}</span>
           ))}
         </div>
         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pr-6">{project.highlight}</p>
@@ -233,7 +234,7 @@ const Projects = () => {
           <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900 mb-6">
             <Marquee speed={80} pauseOnHover gradient={false}>
               {["AWS", "Azure AKS", "Kubernetes", "Terraform", "Docker", "GitOps (ArgoCD)", "GitHub Actions", "Prometheus", "Grafana", "Trivy", "OPA"].map((t, i) => (
-                <span key={i} className="text-xs text-gray-400 dark:text-gray-500 font-mono mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
+                <span key={i} className="text-xs text-gray-400 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
               ))}
             </Marquee>
           </div>
