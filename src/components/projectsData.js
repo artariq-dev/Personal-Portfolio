@@ -8,8 +8,9 @@ export const coreProjects = [
 
     subtitle: "AWS · Azure · DigitalOcean · Self-Managed · HA Cluster · Built from Scratch",
     github: "https://github.com/AbdurRehman924/self-managed-k8s-aws",
+    githubLabel: "AWS",
     githubAlt: { label: "Azure / DigitalOcean", url: "https://github.com/AbdurRehman924/hipster-shop" },
-    source: { label: "Workload: Google Online Boutique (12 microservices)", url: "https://github.com/GoogleCloudPlatform/microservices-demo" },
+    source: { text: "Orchestrated 12 microservices based on Google's project: ", link: "Online Boutique", url: "https://github.com/GoogleCloudPlatform/microservices-demo" },
     diagram: `${process.env.PUBLIC_URL}/projects/k8s-platform/architecture.svg`,
     problem: "Most cloud providers manage Kubernetes for you — but that means you lose control over how it's secured, configured, and optimised. When something breaks in production, you're debugging a black box.",
     solution: "Engineered self-managed Kubernetes clusters from raw compute on three cloud providers — AWS, Azure, and DigitalOcean — using kubeadm with no managed control plane. Full ownership of every layer: CNI, admission control, service mesh, and observability stack.",

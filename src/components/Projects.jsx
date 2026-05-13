@@ -24,12 +24,12 @@ const CoreProjectCard = ({ project, onLightbox }) => {
               {project.github && (
                 <PixelBtn as="a" href={project.github} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 bg-gray-900 dark:bg-gray-700 text-white px-3 py-1 text-xs font-semibold shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af] transition-all">
-                  <GitHubIcon /> GitHub
+                  <GitHubIcon /> {project.githubLabel || "GitHub"}
                 </PixelBtn>
               )}
               {project.githubAlt && (
                 <PixelBtn as="a" href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-700 dark:bg-gray-600 text-white px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af] transition-all">
+                  className="inline-flex items-center gap-1.5 bg-gray-900 dark:bg-gray-700 text-white px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af] transition-all">
                   <GitHubIcon /> {project.githubAlt.label}
                 </PixelBtn>
               )}
@@ -37,14 +37,22 @@ const CoreProjectCard = ({ project, onLightbox }) => {
           </div>
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{project.title}</h3>
           {project.source && (
-            <a href={project.source.url} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-blue-600 transition-colors mb-1">
-              <ExternalIcon /> {project.source.label}
-            </a>
+            <p className="text-xs mb-2">
+              <span className="font-semibold text-gray-700 dark:text-gray-300">{project.source.text}</span>
+              {project.source.link ? (
+                <a href={project.source.url} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:-translate-y-0.5 group">{project.source.link}
+                    <ExternalIcon />
+                  </a>
+              ) : (
+                <a href={project.source.url} target="_blank" rel="noopener noreferrer"
+                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors">{project.source.label}</a>
+              )}
+            </p>
           )}
           <p className="text-xs text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.subtitle}</p>
           <div className="rounded px-3 py-2.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-1">
-            <span className="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70 text-red-800 dark:text-red-300">Problem</span>
+            <span className="text-xs font-bold uppercase tracking-wider block mb-1 opacity-70 text-red-800 dark:text-red-300">Problem It Fixes</span>
             <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">{project.problem}</p>
           </div>
         </div>
@@ -79,9 +87,9 @@ const CoreProjectCard = ({ project, onLightbox }) => {
 
           {/* Solution + Impact side by side */}
           <div className="grid md:grid-cols-2 gap-3 mb-3">
-            <Block label="Solution" text={project.solution}
+            <Block label="How It Fixes" text={project.solution}
               color="bg-blue-50 dark:bg-blue-950/30 border-blue-100 dark:border-blue-900/50 text-blue-800 dark:text-blue-300" />
-            <Block label="Impact" text={project.impact}
+            <Block label="Result It Delivers" text={project.impact}
               color="bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/50 text-emerald-800 dark:text-emerald-300" />
           </div>
 
