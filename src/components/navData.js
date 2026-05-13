@@ -1,5 +1,5 @@
-export const navLinks = ['Case Studies', 'Expertise', 'Contact'];
+export const navLinks = ['Case Stories', 'Expertise', 'Contact'];
 
-export const navIdMap = { 'Case Studies': 'case-studies', Expertise: 'expertise' };
+export const navIdMap = { 'Case Stories': 'case-stories', Expertise: 'expertise' };
 
 export const toId = (link) => navIdMap[link] || link.toLowerCase();
