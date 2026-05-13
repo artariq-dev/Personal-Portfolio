@@ -42,7 +42,7 @@ const Navbar = () => {
             <a
               key={link}
               href={`#${toId(link)}`}
-              className={`text-xs tracking-wider uppercase transition-colors ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
+              className={`text-xs tracking-wider uppercase transition-all hover:-translate-y-0.5 ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
             >
               {activeSection === toId(link) ? `[${link}]` : link}
             </a>
