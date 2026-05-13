@@ -41,7 +41,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
               <span className="font-semibold text-gray-700 dark:text-gray-300">{project.source.text}</span>
               {project.source.link ? (
                 <a href={project.source.url} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:-translate-y-0.5 group">{project.source.link}
+                  className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:-translate-y-0.5 underline decoration-blue-400 underline-offset-2">{project.source.link}
                     <ExternalIcon />
                   </a>
               ) : (
