@@ -3,7 +3,7 @@ export { tools } from './heroData';
 
 export const coreProjects = [
   {
-    tag: "Infrastructure · DevSecOps · Platform Engineering · Multi-Cloud",
+    tag: "Infrastructure · Platform Engineering · Multi-Cloud",
     title: "Production-Grade Kubernetes Platform",
 
     subtitle: "AWS · Azure · DigitalOcean · Self-Managed · HA Cluster · Built from Scratch",
@@ -91,7 +91,7 @@ export const coreProjects = [
     ],
   },
   {
-    tag: "DevSecOps · Supply Chain Security · GitOps",
+    tag: "Supply Chain Security · GitOps · Platform Engineering",
     title: "End-to-End Secure Software Supply Chain",
     subtitle: "Cosign Keyless · SLSA L2 · Kyverno · Falco · ArgoCD · SBOM · Distroless",
     github: "https://github.com/AbdurRehman924/secure-supply-chain",

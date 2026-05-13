@@ -12,7 +12,7 @@ export const domains = [
     tags: ["kubeadm", "Helm", "Istio", "Calico CNI", "HPA/VPA", "cert-manager", "Velero"],
   },
   {
-    title: "DevSecOps & Supply Chain Security",
+    title: "Platform Security & Supply Chain",
     problem: "You don't actually know what's running in production — or whether it's been tampered with since it was built.",
     capability: "If we sign and verify every artifact before it ships, that uncertainty disappears. Let's make sure nothing reaches production unless it came from your pipeline — provably.",
     tags: ["Cosign", "SLSA L2", "Kyverno", "Falco", "Trivy", "Grype", "Syft", "OPA"],
@@ -30,7 +30,7 @@ export const domains = [
     tags: ["Prometheus", "Grafana", "Loki", "Jaeger", "Promtail", "SLO/SLA Design"],
   },
   {
-    title: "Application Architecture & Full Stack",
+    title: "Full-Stack Foundation",
     problem: "Your infrastructure and your product don't speak the same language. Deployments fail because nobody owns the gap.",
     capability: "Someone needs to own both sides — and that's where I come in. Let's align the application and the platform it runs on so deployments stop being a guessing game.",
     tags: ["React", "Vue.js", "Nuxt.js", "Node.js", "TypeScript", "Go", "Stripe", "Firebase"],

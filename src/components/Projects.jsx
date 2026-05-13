@@ -196,7 +196,7 @@ const Projects = () => {
         </div>
 
         <div className="mb-6">
-          <SectionDivider label="Cloud Infrastructure & DevSecOps Case Stories" />
+          <SectionDivider label="Cloud Infrastructure & Platform Engineering Case Stories" />
           {/* Tech strip */}
           <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900 mb-6">
             <Marquee speed={80} pauseOnHover gradient={false}>
