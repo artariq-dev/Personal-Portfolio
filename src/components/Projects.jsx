@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import useFadeIn from '../hooks/useFadeIn';
-import { coreProjects, fullStackProjects, contributions } from './projectsData';
+import { coreProjects } from './projectsData';
 import PixelBtn from './PixelBtn';
 
 const GitHubIcon = () => (
@@ -106,7 +106,7 @@ const CoreProjectCard = ({ project, onLightbox }) => {
           onClick={() => setOpen(o => !o)}
           className={`mt-4 w-full flex items-center justify-center gap-2 text-xs font-semibold py-2 transition-colors ${open ? 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-blue-600 border border-gray-300 dark:border-gray-600 shadow-[3px_3px_0px_#d1d5db] dark:shadow-[3px_3px_0px_#4b5563] hover:shadow-[5px_5px_0px_#d1d5db] dark:hover:shadow-[5px_5px_0px_#4b5563]' : 'bg-blue-600 hover:bg-blue-500 text-white border-0 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]'}`}
         >
-          {open ? 'Collapse case study' : 'View full case study'}
+          {open ? 'Collapse case story' : 'View full case story'}
           <svg className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
             fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -215,11 +215,11 @@ const Projects = () => {
   const [lightbox, setLightbox] = useState(null);
 
   return (
-    <section id="case-studies" className="bg-white dark:bg-gray-900">
+    <section id="case-stories" className="bg-white dark:bg-gray-900">
       <div ref={ref} className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700">
 
         <div className="mb-14">
-          <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Case Studies</span>
+          <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Case Stories</span>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
             Engineering decisions.<br />Production outcomes.
           </h2>
@@ -229,7 +229,7 @@ const Projects = () => {
         </div>
 
         <div className="mb-6">
-          <SectionDivider label="Cloud Infrastructure & DevSecOps Case Studies" />
+          <SectionDivider label="Cloud Infrastructure & DevSecOps Case Stories" />
           {/* Tech strip */}
           <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900 mb-6">
             <Marquee speed={80} pauseOnHover gradient={false}>
@@ -245,14 +245,7 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="mb-6">
-          <SectionDivider label="Additional Engineering Experience" />
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-2 mb-4">Full stack projects — built solo or as part of a team.</p>
-          <div className="grid sm:grid-cols-2 gap-3 items-start">
-            {fullStackProjects.map((p, i) => <CompactCard key={i} project={p} />)}
-            {contributions.map((p, i) => <CompactCard key={i} project={p} badge="Shipped with Team" />)}
-          </div>
-        </div>
+
 
       </div>
 

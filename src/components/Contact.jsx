@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import useFadeIn from '../hooks/useFadeIn';
 import { engagements } from './contactData';
 import PixelBtn from './PixelBtn';
 
 const Contact = () => {
   const ref = useFadeIn();
+  const [openPrevWork, setOpenPrevWork] = useState(false);
   return (
     <section id="contact" className="py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 relative overflow-hidden">
 
@@ -40,6 +42,43 @@ const Contact = () => {
 
           {/* Right — contact */}
           <div className="space-y-4">
+            <div
+              onClick={() => setOpenPrevWork(o => !o)}
+              className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden cursor-pointer transition-all duration-200 group shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#93c5fd] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-300 dark:hover:border-blue-700 hover:-translate-x-0.5 hover:-translate-y-0.5"
+            >
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1">Previous Full-Stack Work</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Agency and e-commerce sites — Nuxt.js, Vue.js, Strapi CMS.</p>
+                  </div>
+                  <svg className={`w-4 h-4 shrink-0 text-gray-400 mt-0.5 transition-transform duration-300 ${openPrevWork ? 'rotate-180' : ''}`}
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 ${openPrevWork ? 'max-h-40' : 'max-h-0'}`}>
+                <div className="px-5 pb-5 border-t border-gray-200 dark:border-gray-700 pt-4 space-y-2">
+                  <a href="https://021.uk/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    021.uk — Agency website (Nuxt 3 · Strapi CMS)
+                  </a>
+                  <a href="https://www.birdiecommerce.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Birdie — Shopify agency SaaS (Nuxt 3 · Stripe)
+                  </a>
+                  <a href="https://www.kitchenz.de/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Kitchenz — Product configurator (Nuxt.js · Vue.js)
+                  </a>
+                  <a href="https://www.papierfischer.de/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    PaperFisher — Storefront (Nuxt 2 · Magento 2)
+                  </a>
+                </div>
+              </div>
+            </div>
             <PixelBtn as="a" href="mailto:artariq.dev.1@gmail.com"
               className="flex items-center gap-4 p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 transition-all group shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#93c5fd] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5"
             >
@@ -86,6 +125,7 @@ const Contact = () => {
             <p className="text-xs text-gray-400 dark:text-gray-500 text-center pt-2">
               Based in Pakistan (UTC+5) · Available for remote engagements worldwide
             </p>
+
           </div>
         </div>
       </div>
