@@ -42,7 +42,7 @@ const RewritingSentence = () => {
 
   return (
     <span className="text-xs sm:text-sm tracking-wider text-gray-500 dark:text-gray-400 block">
-      Turning{' '}
+      turning{' '}
       <span className="text-red-500 dark:text-red-400">
         {phase === 'typing-from' || phase === 'deleting-from' ? from : ''}
       </span>
@@ -127,29 +127,32 @@ const Hero = () => {
 
           {/* Left */}
           <div>
-            <div className={`flex items-center gap-4 mb-6 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
+            <div className={`flex items-center gap-3 mb-4 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
               <img src={`${process.env.PUBLIC_URL}/portfolio.jpeg`} alt="Abdur Rehman"
-                className="w-14 h-14 border-2 border-blue-500/20 object-cover shrink-0" />
+                className="w-10 h-10 border-2 border-blue-500/20 object-cover shrink-0" />
               <div>
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white">Abdur Rehman Tariq</h2>
-                <p className="text-xs text-gray-400 dark:text-gray-500">Cloud & DevSecOps Architect</p>
+                <h2 className="text-sm font-bold text-gray-900 dark:text-white">Abdur Rehman Tariq</h2>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Cloud-Native DevSecOps Architect</p>
               </div>
             </div>
-            <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-[1.2] mb-3 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+            <h1 className={`text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-[1.3] mb-2 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '350ms' }}>
-              Your infra keeps you up at night.<br />
-              <span className="text-blue-600">I fix that.</span>
+              Your infra breaks.<br />
+              Maybe clusters drift.<br />
+              Or pipelines are a gamble.<br />
+              <span className="text-blue-600">I fix that by</span>
             </h1>
-            <div className={`mb-5 h-8 overflow-hidden transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+            <div className={`mb-4 h-8 overflow-hidden transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '450ms' }}>
               <RewritingSentence />
             </div>
             <div className={`transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '500ms' }}>
-              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-                5+ years in the industry — started in full stack, moved into Cloud & DevSecOps. I build Kubernetes platforms across AWS, Azure, and DigitalOcean, ship secure CI/CD pipelines, and make sure nothing reaches production unless it's been signed, scanned, and verified.
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                Your infrastructure should be the boring part of shipping software. I started in full stack and moved into Cloud & DevSecOps when I realised the real problems weren't in the code — they were in what ran it. Now I build Kubernetes platforms, secure pipelines, and observable infrastructure across AWS, Azure, and bare metal. 5+ years making sure 3 AM stays quiet.
               </p>
             </div>
+
           </div>
 
           {/* Right — quiz */}
@@ -176,7 +179,7 @@ const Hero = () => {
               {/* Actions */}
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
-                  <PixelBtn as="a" href="#case-studies" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors">
+                  <PixelBtn as="a" href="#case-stories" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors">
                     See the work →
                   </PixelBtn>
                 </div>
