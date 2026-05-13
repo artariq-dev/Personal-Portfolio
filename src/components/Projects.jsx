@@ -23,13 +23,13 @@ const CoreProjectCard = ({ project, onLightbox }) => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 shrink-0">
               {project.github && (
                 <PixelBtn as="a" href={project.github} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-900 text-white border border-gray-600 px-3 py-1 hover:bg-gray-700 transition-colors text-xs font-semibold">
+                  className="inline-flex items-center gap-1.5 bg-gray-900 dark:bg-gray-700 text-white px-3 py-1 text-xs font-semibold shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af] transition-all">
                   <GitHubIcon /> GitHub
                 </PixelBtn>
               )}
               {project.githubAlt && (
                 <PixelBtn as="a" href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-gray-700 text-white border border-gray-500 px-3 py-1 hover:bg-gray-600 transition-colors text-xs font-semibold whitespace-nowrap">
+                  className="inline-flex items-center gap-1.5 bg-gray-700 dark:bg-gray-600 text-white px-3 py-1 text-xs font-semibold whitespace-nowrap shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af] transition-all">
                   <GitHubIcon /> {project.githubAlt.label}
                 </PixelBtn>
               )}
