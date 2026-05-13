@@ -52,7 +52,7 @@ const Navbar = () => {
             className="inline-flex items-center gap-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-700 text-white px-3 py-1 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]">
             <GitHubIcon /> GitHub
           </PixelBtn>
-          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`} download="Abdur-Rehman-DevSecOps.pdf"
+          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-Platform.pdf`} download="Abdur-Rehman-Platform.pdf"
             className="text-xs font-medium bg-blue-600 text-white px-3 py-1 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]">
             Technical Profile
           </PixelBtn>
@@ -105,7 +105,7 @@ const Navbar = () => {
           ))}
           <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]"><GitHubIcon /> GitHub</PixelBtn>
-          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-DevSecOps.pdf`} download="Abdur-Rehman-DevSecOps.pdf"
+          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-Platform.pdf`} download="Abdur-Rehman-Platform.pdf"
             className="text-xs font-medium bg-blue-600 text-white px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]">Technical Profile</PixelBtn>
         </div>
       )}
