@@ -41,7 +41,7 @@ const RewritingSentence = () => {
   }, [phase, from, to, i]);
 
   return (
-    <span className="text-xs sm:text-sm tracking-wider text-gray-500 dark:text-gray-400 whitespace-nowrap overflow-hidden block truncate">
+    <span className="text-xs sm:text-sm tracking-wider text-gray-500 dark:text-gray-400 block">
       Turning{' '}
       <span className="text-red-500 dark:text-red-400">
         {phase === 'typing-from' || phase === 'deleting-from' ? from : ''}
@@ -140,7 +140,7 @@ const Hero = () => {
               Your infra keeps you up at night.<br />
               <span className="text-blue-600">I fix that.</span>
             </h1>
-            <div className={`mb-5 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+            <div className={`mb-5 h-8 overflow-hidden transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '450ms' }}>
               <RewritingSentence />
             </div>
