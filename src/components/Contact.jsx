@@ -58,23 +58,23 @@ const Contact = () => {
                   </svg>
                 </div>
               </div>
-              <div className={`overflow-hidden transition-all duration-300 ${openPrevWork ? 'max-h-40' : 'max-h-0'}`}>
+              <div className={`overflow-hidden transition-all duration-300 ${openPrevWork ? 'max-h-[500px]' : 'max-h-0'}`}>
                 <div className="px-5 pb-5 border-t border-gray-200 dark:border-gray-700 pt-4 space-y-2">
-                  <a href="https://021.uk/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
-                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    021.uk — Agency website (Nuxt 3 · Strapi CMS)
+                  <a href="https://021.uk/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <span>021.uk — Agency website (Nuxt 3 · Strapi CMS)</span>
                   </a>
-                  <a href="https://www.birdiecommerce.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
-                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    Birdie — Shopify agency SaaS (Nuxt 3 · Stripe)
+                  <a href="https://www.birdiecommerce.com/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <span>Birdie — Shopify agency SaaS (Nuxt 3 · Stripe)</span>
                   </a>
-                  <a href="https://www.kitchenz.de/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
-                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    Kitchenz — Product configurator (Nuxt.js · Vue.js)
+                  <a href="https://www.kitchenz.de/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <span>Kitchenz — Product configurator (Nuxt.js · Vue.js)</span>
                   </a>
-                  <a href="https://www.papierfischer.de/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
-                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    PaperFisher — Storefront (Nuxt 2 · Magento 2)
+                  <a href="https://www.papierfischer.de/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-all hover:translate-x-1">
+                    <svg className="w-3 h-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <span>PaperFisher — Storefront (Nuxt 2 · Magento 2)</span>
                   </a>
                 </div>
               </div>
