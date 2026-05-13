@@ -14,6 +14,7 @@ const Hero = () => {
   const [countdown, setCountdown] = useState(TIMER);
   const [fading, setFading] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   const typeQuestion = useCallback((text) => {
     setDisplayed('');
@@ -49,6 +50,13 @@ const Hero = () => {
     return () => clearTimeout(t);
   }, [typeQuestion]);
 
+  // parallax grid
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   // auto-advance timer
   useEffect(() => {
     if (typing || paused) return;
@@ -70,7 +78,8 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex flex-col relative bg-white dark:bg-gray-950 overflow-hidden">
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#9ca3af_1px,transparent_1px),linear-gradient(to_bottom,#9ca3af_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#6b7280_1px,transparent_1px),linear-gradient(to_bottom,#6b7280_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40 pointer-events-none"
+            style={{ transform: `rotate(${15 + scrollY * 0.08}deg) scale(1.25) translateY(${scrollY * 0.3}px)` }} />
 
       <div className={`max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-6 w-full flex-1 flex flex-col justify-center transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <div className="grid md:grid-cols-2 gap-8 items-center">
