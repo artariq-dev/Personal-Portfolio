@@ -200,7 +200,7 @@ const Projects = () => {
           {/* Tech strip */}
           <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900 mb-6">
             <Marquee speed={80} pauseOnHover gradient={false}>
-              {["AWS", "Azure AKS", "Kubernetes", "Terraform", "Docker", "GitOps (ArgoCD)", "GitHub Actions", "Prometheus", "Grafana", "Trivy", "OPA"].map((t, i) => (
+              {["Kubernetes", "Terraform", "Multi-Cloud", "ArgoCD", "Istio", "Helm", "GitHub Actions", "Prometheus", "Grafana", "Falco", "Kyverno", "Cosign", "OPA"].map((t, i) => (
                 <span key={i} className="text-xs text-gray-400 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase">{t}</span>
               ))}
             </Marquee>
