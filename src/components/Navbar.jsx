@@ -33,7 +33,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white dark:bg-gray-900 ${scrolled ? 'backdrop-blur-sm shadow-sm' : ''}`}>
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#hero" className="font-bold text-xl tracking-tight"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400">Tariq</span> <span className="text-gray-900 dark:text-white">]</span></a>
 
