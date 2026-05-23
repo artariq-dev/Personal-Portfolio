@@ -40,7 +40,7 @@ const RewritingSentence = () => {
   }, [phase, from, to, i]);
 
   return (
-    <span className="text-xs sm:text-sm tracking-wider text-gray-500 dark:text-gray-400 block">
+    <span className="text-xs sm:text-sm tracking-wider text-gray-600 dark:text-gray-300 block">
       turning{' '}
       <span className="text-red-500 dark:text-red-400">
         {phase === 'typing-from' || phase === 'deleting-from' ? from : ''}
