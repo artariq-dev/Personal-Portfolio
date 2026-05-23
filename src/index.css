@@ -29,6 +29,30 @@ a, button, a *, button * { cursor: pointer; }
   border-radius: 0 !important;
 }
 
+/* Continuous rotating network bg */
+@keyframes spin-slow {
+  from { transform: rotate(0deg) scale(1.5); }
+  to   { transform: rotate(360deg) scale(1.5); }
+}
+.hero-grid {
+  --node: rgba(156,163,175,0.3);
+  animation: spin-slow 60s linear infinite;
+  background-image:
+    /* diagonal connections */
+    linear-gradient(45deg, transparent 47%, var(--node) 47%, var(--node) 53%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, var(--node) 47%, var(--node) 53%, transparent 53%),
+    /* nodes at corners and center */
+    radial-gradient(circle at 25% 25%, var(--node) 2px, transparent 2px),
+    radial-gradient(circle at 75% 25%, var(--node) 2px, transparent 2px),
+    radial-gradient(circle at 25% 75%, var(--node) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, var(--node) 2px, transparent 2px),
+    radial-gradient(circle at 50% 50%, var(--node) 3px, transparent 3px);
+  background-size: 8rem 8rem;
+}
+.dark .hero-grid {
+  --node: rgba(107,114,128,0.3);
+}
+
 /* Pixel / robotic buttons */
 .pixel-btn {
   border-radius: 0;
