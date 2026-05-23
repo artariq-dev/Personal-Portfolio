@@ -29,28 +29,35 @@ a, button, a *, button * { cursor: pointer; }
   border-radius: 0 !important;
 }
 
-/* Continuous rotating network bg */
-@keyframes spin-slow {
+/* Hexagonal Ajrak-style rotating bg */
+@keyframes hex-spin {
   from { transform: rotate(0deg) scale(1.5); }
   to   { transform: rotate(360deg) scale(1.5); }
 }
 .hero-grid {
-  --node: rgba(156,163,175,0.3);
-  animation: spin-slow 60s linear infinite;
+  --hex: rgba(156,163,175,0.25);
+  --accent: rgba(155,27,48,0.2);
+  animation: hex-spin 90s linear infinite;
   background-image:
-    /* diagonal connections */
-    linear-gradient(45deg, transparent 47%, var(--node) 47%, var(--node) 53%, transparent 53%),
-    linear-gradient(-45deg, transparent 47%, var(--node) 47%, var(--node) 53%, transparent 53%),
-    /* nodes at corners and center */
-    radial-gradient(circle at 25% 25%, var(--node) 2px, transparent 2px),
-    radial-gradient(circle at 75% 25%, var(--node) 2px, transparent 2px),
-    radial-gradient(circle at 25% 75%, var(--node) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, var(--node) 2px, transparent 2px),
-    radial-gradient(circle at 50% 50%, var(--node) 3px, transparent 3px);
-  background-size: 8rem 8rem;
+    /* hexagon grid - 3 intersecting line sets */
+    linear-gradient(60deg, transparent 49.5%, var(--hex) 49.5%, var(--hex) 50.5%, transparent 50.5%),
+    linear-gradient(-60deg, transparent 49.5%, var(--hex) 49.5%, var(--hex) 50.5%, transparent 50.5%),
+    linear-gradient(180deg, transparent 49.5%, var(--hex) 49.5%, var(--hex) 50.5%, transparent 50.5%),
+    /* red accent lines */
+    linear-gradient(60deg, transparent 24.5%, var(--accent) 24.5%, var(--accent) 25.5%, transparent 25.5%),
+    linear-gradient(-60deg, transparent 24.5%, var(--accent) 24.5%, var(--accent) 25.5%, transparent 25.5%),
+    linear-gradient(180deg, transparent 24.5%, var(--accent) 24.5%, var(--accent) 25.5%, transparent 25.5%),
+    /* nodes at intersections */
+    radial-gradient(circle at 50% 0%, var(--hex) 2px, transparent 2px),
+    radial-gradient(circle at 50% 100%, var(--hex) 2px, transparent 2px),
+    radial-gradient(circle at 0% 50%, var(--hex) 2px, transparent 2px),
+    radial-gradient(circle at 100% 50%, var(--hex) 2px, transparent 2px),
+    radial-gradient(circle at 50% 50%, var(--hex) 3px, transparent 3px);
+  background-size: 6rem 5.2rem;
 }
 .dark .hero-grid {
-  --node: rgba(107,114,128,0.3);
+  --hex: rgba(107,114,128,0.25);
+  --accent: rgba(220,70,90,0.15);
 }
 
 /* Pixel / robotic buttons */
