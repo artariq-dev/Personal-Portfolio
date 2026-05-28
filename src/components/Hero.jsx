@@ -82,14 +82,15 @@ const Hero = () => {
                 className="w-10 h-10 border-2 border-blue-500/20 object-cover shrink-0" />
               <div>
                 <h2 className="text-sm font-bold text-gray-900 dark:text-white">Abdur Rehman Tariq</h2>
-                <p className="text-xs text-gray-400 dark:text-gray-500">I help founders find out what their tech is really doing</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Cloud · Platform Engineer</p>
               </div>
             </div>
             <h1 className={`text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-[1.3] mb-2 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '350ms' }}>
-              You paid good money for your software.<br />
-              Is it actually earning its keep?<br />
-              <span className="text-blue-600">I help founders find out — no jargon, no pitch.</span>
+              Your infra breaks.<br />
+              Maybe clusters drift.<br />
+              Or pipelines are a gamble.<br />
+              <span className="text-blue-600">I fix that by</span>
             </h1>
             <div className={`mb-4 h-8 overflow-hidden transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '450ms' }}>
@@ -98,7 +99,7 @@ const Hero = () => {
             <div className={`transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '500ms' }}>
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                I started as a full-stack developer and realised most tech problems aren't in the code — they're in what runs it. Infrastructure that quietly drains your budget. Pipelines that make every release feel like a gamble. Security gaps you don't know exist until it's too late. I help founders see what's really happening with their tech — and fix it. 5+ years making sure 3 AM stays quiet.
+                Your infrastructure should be the boring part of shipping software. I started in full stack and moved into Cloud & Platform Engineering when I realised the real problems weren't in the code — they were in what ran it. Now I build Kubernetes platforms, secure pipelines, and observable infrastructure across AWS, Azure, and bare metal. 5+ years making sure 3 AM stays quiet.
               </p>
             </div>
 
