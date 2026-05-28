@@ -188,10 +188,10 @@ const Projects = () => {
         <div className="mb-14">
           <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Case Stories</span>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
-            Engineering decisions.<br />Production outcomes.
+            Real problems.<br />Real fixes. No jargon.
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl">
-            Each system addresses a concrete infrastructure, security, or scalability challenge — documented from problem context through architecture design to measurable operational impact.
+            Each project shows how I identified a business risk and eliminated it — with measurable results you can see. No fluff, no theory, just what was broken and how we fixed it.
           </p>
         </div>
 
