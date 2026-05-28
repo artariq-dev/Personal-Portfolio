@@ -1,6 +1,6 @@
 export const engagements = [
-  { label: "Your pipeline is a liability. Let's fix it.", desc: "End-to-end CI/CD with security baked in — signed artifacts, policy gates, automated rollback. Ship fast without gambling on production." },
-  { label: "Your cloud costs are out of control. Let's get visibility.", desc: "Infrastructure as code, right-sized resources, and zero surprise bills. Every resource justified, every dollar traceable." },
-  { label: "Your cluster is a black box. Let's open it up.", desc: "Full observability across metrics, logs, and traces — so your team knows what's failing before customers do." },
-  { label: "You need to scale but your architecture wasn't built for it.", desc: "Multi-cloud, HA, DR — designed for your actual load, not the load you had two years ago. Let's redesign before it breaks." },
+  { label: "Releases break things and nobody sees it coming.", desc: "Stop gambling on every update. I'll automate your delivery so new features ship fast and nothing breaks without you knowing." },
+  { label: "Your cloud bill is a mystery every month.", desc: "No more surprise bills. I'll show you exactly where every dollar goes and cut what you don't need." },
+  { label: "Your systems have blind spots. I'll help you find them before they find you.", desc: "Security gaps, untested backups, undocumented infrastructure — I'll audit what you have and tell you what's actually at risk." },
+  { label: "You're not sure your tech can handle what's next.", desc: "Your business is growing. Let's make sure your technology can keep up — without rebuilding everything from scratch." },
 ];

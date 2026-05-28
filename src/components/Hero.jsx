@@ -12,7 +12,6 @@ const Hero = () => {
   const [displayed, setDisplayed] = useState('');
   const [typing, setTyping] = useState(false);
   const [countdown, setCountdown] = useState(TIMER);
-  const [fading, setFading] = useState(false);
   const [paused, setPaused] = useState(false);
 
   const typeQuestion = useCallback((text) => {
@@ -31,11 +30,9 @@ const Hero = () => {
   }, []);
 
   const goNext = useCallback((currentIdx) => {
-    setFading(true);
     setTimeout(() => {
       const n = (currentIdx + 1) % questions.length;
       setIdx(n);
-      setFading(false);
       setCountdown(TIMER);
       typeQuestion(questions[n].q);
     }, 300);
@@ -60,10 +57,9 @@ const Hero = () => {
   const next = () => { if (typing) return; goNext(idx); };
   const prev = () => {
     if (typing) return;
-    setFading(true);
     setTimeout(() => {
       const n = (idx - 1 + questions.length) % questions.length;
-      setIdx(n); setFading(false); setCountdown(TIMER); typeQuestion(questions[n].q);
+      setIdx(n); setCountdown(TIMER); typeQuestion(questions[n].q);
     }, 300);
   };
 
@@ -87,26 +83,22 @@ const Hero = () => {
             </div>
             <h1 className={`text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-[1.3] mb-2 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{ transitionDelay: '350ms' }}>
-              Your infra breaks.<br />
-              Maybe clusters drift.<br />
-              Or pipelines are a gamble.<br />
-              <span className="text-blue-600">I fix that by</span>
-            </h1>
-            <div className={`mb-4 h-8 overflow-hidden transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
-              style={{ transitionDelay: '450ms' }}>
+              First understands your business,<br />
+              <span className="text-blue-600">then builds the solution.</span><br />
               <RewritingSentence />
-            </div>
+              That&apos;s how I work.
+            </h1>
             <div className={`transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
-              style={{ transitionDelay: '500ms' }}>
+              style={{ transitionDelay: '450ms' }}>
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                Your infrastructure should be the boring part of shipping software. I started in full stack and moved into Cloud & Platform Engineering when I realised the real problems weren't in the code — they were in what ran it. Now I build Kubernetes platforms, secure pipelines, and observable infrastructure across AWS, Azure, and bare metal. 5+ years making sure 3 AM stays quiet.
+                I started in full-stack development and realised most tech problems aren't technical — they're mismatches between what a business needs and what was built. Before I touch anything, I take the time to understand your business, your constraints, and what actually matters. Then I fix what's broken. Experience of 5+ years so you can focus on the business, not what's running it.
               </p>
             </div>
 
           </div>
 
           {/* Right — quiz */}
-          <div className={`transition-opacity duration-300 ${fading ? 'opacity-0' : 'opacity-100'}`}>
+          <div>
             <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded p-4 sm:p-6 transition-all duration-200 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
 
               {/* Terminal header */}
