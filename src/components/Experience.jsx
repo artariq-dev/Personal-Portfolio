@@ -13,7 +13,7 @@ const Experience = () => {
             Real problems.<br />Practical fixes.
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl">
-            Click any domain to see how I'd approach it — no jargon, just what the problem is and what we'd do about it.
+            See how I approach common tech challenges — just the problem and the fix.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 items-start">

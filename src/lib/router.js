@@ -12,6 +12,7 @@ export function RouterProvider({ children }) {
     const handler = () => {
       const hash = window.location.hash.replace('#', '') || '/';
       setRoute(hash);
+      window.scrollTo(0, 0);
     };
     handler();
     window.addEventListener('hashchange', handler);

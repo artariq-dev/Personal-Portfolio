@@ -4,6 +4,7 @@ export { tools } from './heroData';
 export const coreProjects = [
   {
     slug: "kubernetes-platform",
+    niche: "Platform Engineering",
     tag: "Infrastructure · Platform Engineering · Multi-Cloud",
     title: "Production-Grade Kubernetes Platform",
 
@@ -48,6 +49,7 @@ export const coreProjects = [
   },
   {
     slug: "aws-secure-baseline",
+    niche: "Security & Compliance",
     tag: "AWS · Security · Infrastructure-as-Code · Multi-Account",
     title: "AWS Secure Baseline — Multi-Account Security Platform",
     subtitle: "GuardDuty · Security Hub · CloudTrail · AWS Config · SCPs · Terraform · GitHub Actions",
@@ -94,6 +96,7 @@ export const coreProjects = [
   },
   {
     slug: "secure-supply-chain",
+    niche: "Supply Chain Security",
     tag: "Supply Chain Security · GitOps · Platform Engineering",
     title: "End-to-End Secure Software Supply Chain",
     subtitle: "Cosign Keyless · SLSA L2 · Kyverno · Falco · ArgoCD · SBOM · Distroless",
@@ -137,6 +140,7 @@ export const coreProjects = [
   },
   {
     slug: "azure-opa-pipeline",
+    niche: "Policy-as-Code",
     tag: "Azure · DevOps · Policy-as-Code",
     title: "Azure DevOps Pipeline with OPA Policy Enforcement",
     subtitle: "AKS · ACR · GitHub Actions · Ansible · Open Policy Agent",
@@ -176,6 +180,7 @@ export const coreProjects = [
   },
   {
     slug: "gitops-sealed-secrets",
+    niche: "GitOps & Security",
     tag: "Azure · GitOps · Secret Management",
     title: "Multi-Environment GitOps Platform with Sealed Secrets",
     subtitle: "K3s on Azure · ArgoCD · Helm · Sealed Secrets · Dev/Staging/Prod",
