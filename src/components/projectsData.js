@@ -1,6 +1,4 @@
 // projects data — separated for maintainability
-export { tools } from './heroData';
-
 export const coreProjects = [
   {
     slug: "kubernetes-platform",
@@ -216,71 +214,6 @@ export const coreProjects = [
       { name: "Staging Overlay", done: true },
       { name: "Prod Overlay", done: true },
       { name: "CI Pipeline (Trivy scan)", done: true },
-    ],
-  },
-];
-
-export const fullStackProjects = [
-  {
-    tag: "Full Stack · Nuxt 3 · Strapi CMS · Cloudflare",
-    title: "021 — Agency Website with Strapi CMS",
-    subtitle: "Headless CMS · Blog System · Calendly · EmailOctopus · Cloudflare Workers",
-    github: null,
-    live: "https://021.uk/",
-    highlight: "Headless CMS architecture with Strapi — content editors manage blog posts and pages independently, with markdown rendered server-side and dynamic slug routing.",
-    description: "Marketing and content site for a creative/engineering agency. Blog system with dynamic slug routes pulls content from Strapi CMS. Newsletter via EmailOctopus API. Calendly embedded for call scheduling. Deployed on Cloudflare Workers via Wrangler.",
-    techStack: [
-      "Nuxt 3", "Vue 3 + TypeScript", "Strapi CMS",
-      "Tailwind CSS", "Cloudflare Workers (Wrangler)",
-      "Calendly", "EmailOctopus", "showdown (Markdown → HTML)",
-    ],
-  },
-  {
-    tag: "Full Stack · Nuxt 3 · Firebase · Stripe",
-    title: "Birdie — Shopify Agency SaaS Landing Page",
-    subtitle: "Stripe Subscriptions · Firebase Firestore · EN/DE i18n · Conversion-Optimised",
-    github: null,
-    live: "https://www.birdiecommerce.com/",
-    highlight: "Bilingual (EN/DE) SaaS marketing site with Stripe subscription checkout and Firebase lead capture — built to convert visitors into paying clients.",
-    description: "Marketing and onboarding site for a Shopify development agency. Lead intake form saves to Firebase Firestore. Stripe server-side checkout handles subscription purchases. Full EN/DE internationalisation via vue-i18n.",
-    techStack: [
-      "Nuxt 3", "Vue 3", "Firebase (Firestore)",
-      "Stripe (server-side checkout)", "vue-i18n (EN/DE)",
-      "Tailwind CSS", "Headless UI",
-    ],
-  },
-];
-
-export const contributions = [
-  {
-    tag: "Full Stack · Nuxt.js · Vue.js · UnoCSS",
-    title: "Kitchenz — Product Configurator",
-    subtitle: "Contribution: Interactive product configurator",
-    live: "https://www.kitchenz.de/",
-    highlight: "Built the product configurator — an interactive tool letting customers customize kitchen configurations, materials, and components before purchase.",
-    techStack: ["Nuxt.js · Vue.js", "UnoCSS", "Open Graph", "SSG"],
-    images: [
-      `${process.env.PUBLIC_URL}/projects/kitchenz/01.png`,
-      `${process.env.PUBLIC_URL}/projects/kitchenz/02.png`,
-      `${process.env.PUBLIC_URL}/projects/kitchenz/03.png`,
-      `${process.env.PUBLIC_URL}/projects/kitchenz/04.png`,
-    ],
-  },
-  {
-    tag: "Full Stack · Headless Commerce · Magento 2",
-    title: "PaperFisher — Magento 2 Storefront",
-    subtitle: "Pagination · Price Sorting · Alphabetical Sorting",
-    live: "https://www.papierfischer.de/",
-    highlight: "Pagination, price sorting, and alphabetical sorting on category pages — via Magento's GraphQL API.",
-    techStack: [
-      "Nuxt 2 · Vue 2", "Vue Storefront 2",
-      "Magento 2 GraphQL", "Pinia", "nuxt-i18n",
-    ],
-    images: [
-      `${process.env.PUBLIC_URL}/projects/papierfischer/01.png`,
-      `${process.env.PUBLIC_URL}/projects/papierfischer/02.png`,
-      `${process.env.PUBLIC_URL}/projects/papierfischer/03.png`,
-      `${process.env.PUBLIC_URL}/projects/papierfischer/04.png`,
     ],
   },
 ];
