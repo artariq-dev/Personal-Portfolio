@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { navLinks as links, toId } from './navData';
 import useDarkMode from '../hooks/useDarkMode';
 import PixelBtn from './PixelBtn';
@@ -9,6 +10,17 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [dark, setDark] = useDarkMode();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollTo = (id) => {
+    if (location.pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -30,23 +42,23 @@ const Navbar = () => {
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white dark:bg-gray-900 ${scrolled ? 'backdrop-blur-sm shadow-sm' : ''}`}>
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#hero" className="font-bold text-xl tracking-tight"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400">Tariq</span> <span className="text-gray-900 dark:text-white">]</span></a>
+        <button onClick={() => { window.location.href = '/'; }} className="font-bold text-xl tracking-tight cursor-pointer"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400">Tariq</span> <span className="text-gray-900 dark:text-white">]</span></button>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-7">
           {links.map(link => (
-            <a
+            <button
               key={link}
-              href={`#${toId(link)}`}
-              className={`text-xs tracking-wider uppercase transition-all hover:-translate-y-0.5 ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
+              onClick={() => scrollTo(toId(link))}
+              className={`text-xs tracking-wider uppercase transition-all hover:-translate-y-0.5 cursor-pointer ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
             >
               {activeSection === toId(link) ? `[${link}]` : link}
-            </a>
+            </button>
           ))}
           <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-700 text-white px-3 py-1 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]">
@@ -94,14 +106,13 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 px-6 py-4 flex flex-col gap-4">
           {links.map(link => (
-            <a
+            <button
               key={link}
-              href={`#${toId(link)}`}
-              className={`text-sm font-medium ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-700 dark:text-gray-300'}`}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); scrollTo(toId(link)); }}
+              className={`text-sm font-medium text-left cursor-pointer ${activeSection === toId(link) ? 'text-blue-600' : 'text-gray-700 dark:text-gray-300'}`}
             >
               {link}
-            </a>
+            </button>
           ))}
           <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]"><GitHubIcon /> GitHub</PixelBtn>

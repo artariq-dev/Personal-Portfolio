@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useRoute } from '../lib/router';
+import { useParams, useNavigate } from 'react-router-dom';
 import { coreProjects } from './projectsData';
 import PixelBtn from './PixelBtn';
 import { GitHubIcon } from './Icons';
 import { Timeline, Block } from './ProjectHelpers';
 
 const ProjectDetail = () => {
-  const { route, navigate } = useRoute();
-  const slug = route.replace('/project/', '');
+  const { slug } = useParams();
+  const navigate = useNavigate();
   const project = coreProjects.find((p) => p.slug === slug);
   const [lightbox, setLightbox] = useState(null);
 
@@ -29,7 +29,7 @@ const ProjectDetail = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-16">
-        <button onClick={() => navigate('/')} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors mb-6 cursor-pointer">← Back to projects</button>
+        <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('case-stories')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors mb-6 cursor-pointer">← Back to projects</button>
 
         <div className="mb-6">
           <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 inline-block mb-3">

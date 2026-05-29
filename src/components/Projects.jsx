@@ -1,4 +1,4 @@
-import { useRoute } from '../lib/router';
+import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import useFadeIn from '../hooks/useFadeIn';
 import { coreProjects } from './projectsData';
@@ -6,7 +6,6 @@ import { SectionDivider } from './ProjectHelpers';
 
 const Projects = () => {
   const ref = useFadeIn();
-  const { navigate } = useRoute();
 
   return (
     <section id="case-stories" className="bg-white dark:bg-gray-900">
@@ -33,9 +32,9 @@ const Projects = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {coreProjects.map((p, i) => (
-              <div
+              <Link
                 key={i}
-                onClick={() => navigate(`/project/${p.slug}`)}
+                to={`/project/${p.slug}`}
                 className="cursor-pointer bg-gray-50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded p-5 transition-all duration-200 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[8px_8px_0px_#bfdbfe] dark:hover:shadow-[8px_8px_0px_#1e3a5f] hover:border-blue-400 dark:hover:border-blue-500 hover:-translate-x-1 hover:-translate-y-1 flex flex-col"
               >
                 <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2 py-0.5 inline-block mb-2 self-start">
@@ -50,7 +49,7 @@ const Projects = () => {
                 )}
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{p.title}</h3>
                 <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start">View full case story →</span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
