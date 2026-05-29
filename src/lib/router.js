@@ -10,9 +10,7 @@ export function RouterProvider({ children }) {
 
   useEffect(() => {
     const handler = () => {
-      const hash = window.location.hash.replace('#', '') || '/';
-      setRoute(hash);
-      window.scrollTo(0, 0);
+      setRoute(window.location.hash.replace('#', '') || '/');
     };
     handler();
     window.addEventListener('hashchange', handler);

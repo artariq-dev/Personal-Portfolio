@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRoute } from '../lib/router';
 import { coreProjects } from './projectsData';
 import PixelBtn from './PixelBtn';
@@ -10,6 +10,10 @@ const ProjectDetail = () => {
   const slug = route.replace('/project/', '');
   const project = coreProjects.find((p) => p.slug === slug);
   const [lightbox, setLightbox] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!project) {
     return (
