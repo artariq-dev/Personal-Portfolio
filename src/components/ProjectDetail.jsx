@@ -31,7 +31,7 @@ const ProjectDetail = () => {
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-16">
         <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('case-stories')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors mb-6 cursor-pointer">← Back to projects</button>
 
-        <div className="mb-6">
+        <div className="mb-0">
           <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 inline-block mb-3">
             {project.tag}
           </span>
@@ -51,14 +51,21 @@ const ProjectDetail = () => {
                 <GitHubIcon /> {project.githubAlt.label}
               </PixelBtn>
             )}
+            {project.live && (
+              <PixelBtn as="a" href={project.live} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-blue-600 text-white px-3 py-1.5 text-xs font-semibold">
+                View live site →
+              </PixelBtn>
+            )}
           </div>
 
-          <div className="rounded px-4 py-3.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-6">
+          <div className="rounded px-4 py-3.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-3">
             <span className="text-xs font-bold uppercase tracking-wider block mb-1 text-red-800 dark:text-red-300">Problem It Fixes</span>
             <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">{project.problem}</p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          {project.stats.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
             {project.stats.map((s, i) => (
               <div key={i} className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-3 py-2">
                 <div className="text-sm font-bold text-blue-600">{s.value}</div>
@@ -67,6 +74,7 @@ const ProjectDetail = () => {
               </div>
             ))}
           </div>
+          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-3 mb-6">
@@ -85,6 +93,7 @@ const ProjectDetail = () => {
               ))}
             </div>
           </div>
+          {project.phases && project.phases.length > 0 && (
           <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded p-5">
             <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Build Phases</h4>
             <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
@@ -96,25 +105,41 @@ const ProjectDetail = () => {
               ))}
             </div>
           </div>
+          )}
         </div>
 
         <Timeline steps={project.implementation} />
+
+        {project.live && project.images && project.images.length > 0 && (
+          <div className="mt-6">
+            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Screenshots</h4>
+            <div className={`grid gap-2 ${project.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2 sm:grid-cols-4'}`}>
+              {project.images.map((src, i) => (
+                <img key={i} src={src} alt={`${project.title} ${i + 1}`}
+                  className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.02] transition-transform"
+                  onClick={() => setLightbox({ src, alt: `${project.title} ${i + 1}`, invert: false })}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         {project.diagram && (
           <div className="mt-6">
             <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Architecture Diagram</h4>
             <img src={project.diagram} alt={`${project.title} Architecture`}
               className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform dark:invert-[.85]"
-              onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture` })}
+              onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture`, invert: true })}
             />
           </div>
         )}
+
       </div>
 
       {lightbox && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
           <img src={lightbox.src} alt={lightbox.alt}
-            className="max-w-full max-h-[90vh] rounded shadow-2xl dark:invert-[.85]"
+            className={`max-w-full max-h-[90vh] rounded shadow-2xl ${lightbox.invert ? 'dark:invert-[.85]' : ''}`}
             onClick={e => e.stopPropagation()} />
           <button className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-gray-300" onClick={() => setLightbox(null)}>✕</button>
         </div>

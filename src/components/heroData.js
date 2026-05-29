@@ -11,18 +11,6 @@ export const rewrites = [
   { from: "expensive guesswork",        to: "one honest talk" },
 ];
 
-export const tools = [
-  "Kubernetes", "Terraform", "AWS", "Azure", "ArgoCD", "Istio", "Falco", "Kyverno",
-  "Cosign", "Prometheus", "Grafana", "GitHub Actions", "Helm", "OPA", "Trivy", "Vault",
-  "SLSA", "Syft", "Loki", "Jaeger", "Calico", "cert-manager", "Velero", "Grype",
-];
-
-export const keywords = [
-  "Cloud Architecture", "CI/CD Pipelines", "Container Orchestration",
-  "Infrastructure Automation", "Security Enforcement", "Observability",
-  "GitOps", "Supply Chain Security", "Scalability Engineering", "Zero-Trust Design",
-];
-
 export const questions = [
   { q: "You're paying for cloud every month. Do you know where it all goes?", anchor: "#case-stories" },
   { q: "Every slow page or broken feature chips away at trust. Are you tracking it?", anchor: "#case-stories" },

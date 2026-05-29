@@ -1,8 +1,18 @@
-const SectionDivider = ({ label }) => (
-  <div className="flex items-center gap-3 mb-6">
-    <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">{label}</h3>
-    <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
-  </div>
+const SectionDivider = ({ label, open, onToggle }) => (
+  onToggle ? (
+    <button onClick={onToggle} className="flex items-center gap-3 mb-6 w-full text-left cursor-pointer group">
+      <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</h3>
+      <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+      <svg className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  ) : (
+    <div className="flex items-center gap-3 mb-6">
+      <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">{label}</h3>
+      <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+    </div>
+  )
 );
 
 const Timeline = ({ steps }) => (
