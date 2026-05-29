@@ -41,7 +41,7 @@ const Projects = () => {
                 <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2 py-0.5 inline-block mb-2 self-start">
                   {p.niche || p.tag.split(" · ")[0]}
                 </span>
-                {p.diagram && <img src={p.diagram} alt={p.title} className="w-full h-36 object-contain bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700 mb-2 p-2" />}
+                {p.diagram && <img src={p.diagram} alt={p.title} className="w-full h-36 object-contain rounded border border-gray-200 dark:border-gray-700 mb-2 p-2 dark:invert-[.85]" />}
                 {p.stats?.[0] && (
                   <div className="flex items-center gap-2 mb-2 px-3 py-2 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 rounded">
                     <span className="text-sm font-bold text-blue-600">{p.stats[0].value}</span>

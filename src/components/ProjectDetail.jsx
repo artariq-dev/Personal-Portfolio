@@ -100,7 +100,7 @@ const ProjectDetail = () => {
           <div className="mt-6">
             <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Architecture Diagram</h4>
             <img src={project.diagram} alt={`${project.title} Architecture`}
-              className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform"
+              className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform dark:invert-[.85]"
               onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture` })}
             />
           </div>
