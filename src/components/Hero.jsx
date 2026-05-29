@@ -1,10 +1,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import Marquee from 'react-fast-marquee';
 import { questions } from './heroData';
-import RewritingSentence from './RewritingSentence';
 import PixelBtn from './PixelBtn';
 
-const TIMER = 1;
+const TIMER = 5;
 
 const Hero = () => {
   const [visible, setVisible] = useState(false);
@@ -85,7 +84,6 @@ const Hero = () => {
               style={{ transitionDelay: '350ms' }}>
               First understands your business,<br />
               <span className="text-blue-600">then builds the solution.</span><br />
-              <RewritingSentence />
               That&apos;s how I work.
             </h1>
             <div className={`transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
@@ -106,7 +104,7 @@ const Hero = () => {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 truncate">architecture-challenge.sh</span>
+                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 truncate">business-challenges.sh</span>
               </div>
 
               {/* Question */}
@@ -121,8 +119,8 @@ const Hero = () => {
               {/* Actions */}
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
-                  <PixelBtn as="a" href="#case-stories" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-xs font-semibold px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors">
-                    See the work →
+                  <PixelBtn as="a" href="https://ask.artariq.dev/assess" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-xs font-semibold px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors">
+                    Take the assessment →
                   </PixelBtn>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
@@ -145,7 +143,7 @@ const Hero = () => {
               <div className="flex items-center gap-2">
                 <div className="flex gap-1 flex-1 overflow-hidden">
                   {questions.map((_, i) => (
-                    <span key={i} className={`h-1 rounded-full transition-all duration-300 shrink-0 ${i === idx ? 'w-4 bg-blue-500' : 'w-1 bg-gray-300 dark:bg-gray-700'}`} />
+                    <span key={i} className={`h-1 transition-all duration-300 shrink-0 ${i === idx ? 'w-4 bg-blue-500' : 'w-1 bg-gray-300 dark:bg-gray-700'}`} />
                   ))}
                 </div>
               </div>
