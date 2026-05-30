@@ -65,7 +65,7 @@ const Contact = () => {
               </div>
             </PixelBtn>
 
-            <PixelBtn as="a" href="https://www.linkedin.com/in/khan-abdurrehman-883653214/" target="_blank" rel="noopener noreferrer"
+            <PixelBtn as="a" href="https://www.linkedin.com/in/artariq-dev/" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-4 p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 transition-all group shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#93c5fd] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5"
             >
               <div className="w-10 h-10 rounded bg-[#0077B5] flex items-center justify-center shrink-0">
@@ -73,7 +73,7 @@ const Contact = () => {
               </div>
               <div>
                 <div className="text-xs text-gray-400 font-medium mb-0.5">LinkedIn</div>
-                <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">khan-abdurrehman</div>
+                <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">artariq-dev</div>
               </div>
             </PixelBtn>
 
