@@ -35,6 +35,7 @@ const Projects = () => {
             count={coreProjects.filter((p) => !p.live).length}
             open={openCloud}
             onToggle={() => setOpenCloud((v) => !v)}
+            bg="bg-blue-600 dark:bg-blue-600"
           />
           {openCloud && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -86,6 +87,7 @@ const Projects = () => {
             count={coreProjects.filter((p) => p.live).length}
             open={openFullstack}
             onToggle={() => setOpenFullstack((v) => !v)}
+            bg="bg-blue-600 dark:bg-blue-600"
           />
           {openFullstack && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -1,40 +1,46 @@
-const SectionDivider = ({ label, open, onToggle, count }) =>
+const SectionDivider = ({ label, open, onToggle, count, bg }) =>
   onToggle ? (
     <button onClick={onToggle} className="w-full text-left group">
-      <div className="flex items-center gap-3 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200">
-        <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-widest flex-1">
+      <div className={`flex flex-col gap-2 px-4 py-2.5 ${bg || "bg-gray-50 dark:bg-gray-800"} border border-blue-700 dark:border-blue-500 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200`}>
+        <h3 className="text-xs font-semibold text-white uppercase tracking-widest">
           {label}
         </h3>
-        {count !== undefined && (
-          <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 px-2 py-0.5">
-            {count}
+        <div className="flex items-center justify-end gap-3">
+          {count !== undefined && (
+            <span className="text-xs font-bold text-white dark:text-gray-900 bg-gray-900 dark:bg-white border border-gray-600 dark:border-gray-300 px-2.5 h-5 flex items-center">
+              {count} {count === 1 ? "project" : "projects"}
+            </span>
+          )}
+          <span className="inline-flex items-center justify-center w-5 h-5 text-white dark:text-gray-900 bg-gray-900 dark:bg-white border border-gray-600 dark:border-gray-300">
+            <svg
+              className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </span>
-        )}
-        <svg
-          className={`w-3 h-3 text-gray-500 dark:text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+        </div>
       </div>
     </button>
   ) : (
-    <div className="flex items-center gap-3 mb-6 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-      <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest flex-1">
+    <div className="flex flex-col gap-2 mb-6 px-4 py-2.5 bg-blue-600 dark:bg-blue-600 border border-blue-700 dark:border-blue-500">
+      <h3 className="text-xs font-semibold text-white uppercase tracking-widest">
         {label}
       </h3>
-      {count !== undefined && (
-        <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 px-2 py-0.5">
-          {count}
-        </span>
-      )}
+      <div className="flex items-center justify-end gap-3">
+        {count !== undefined && (
+          <span className="text-xs font-bold text-white dark:text-gray-900 bg-gray-900 dark:bg-white border border-gray-600 dark:border-gray-300 px-2.5 h-5 flex items-center">
+            {count} {count === 1 ? "project" : "projects"}
+          </span>
+        )}
+      </div>
     </div>
   );
 
