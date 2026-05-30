@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { coreProjects } from './projectsData';
 import PixelBtn from './PixelBtn';
 import { GitHubIcon } from './Icons';
-import { Timeline, Block } from './ProjectHelpers';
+import { Timeline } from './ProjectHelpers';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -59,12 +59,9 @@ const ProjectDetail = () => {
             )}
           </div>
 
-          <div className="rounded px-4 py-3.5 border bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50 mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider block mb-1 text-red-800 dark:text-red-300">Problem It Fixes</span>
-            <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">{project.problem}</p>
-          </div>
+        </div>
 
-          {project.stats.length > 0 && (
+        {project.stats.length > 0 && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
             {project.stats.map((s, i) => (
               <div key={i} className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-3 py-2">
@@ -74,41 +71,9 @@ const ProjectDetail = () => {
               </div>
             ))}
           </div>
-          )}
-        </div>
+        )}
 
-        <div className="grid md:grid-cols-2 gap-3 mb-6">
-          <Block label="How It Fixes" text={project.solution}
-            color="bg-blue-50 dark:bg-blue-950/30 border-blue-100 dark:border-blue-900/50 text-blue-800 dark:text-blue-300" />
-          <Block label="Result It Delivers" text={project.impact}
-            color="bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/50 text-emerald-800 dark:text-emerald-300" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-3 mb-6">
-          <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded p-5">
-            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Tech Stack</h4>
-            <div className="flex flex-wrap gap-1.5">
-              {project.techStack.map((t, i) => (
-                <span key={i} className="text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5">{t}</span>
-              ))}
-            </div>
-          </div>
-          {project.phases && project.phases.length > 0 && (
-          <div className="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded p-5">
-            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-gray-700">Build Phases</h4>
-            <div className="grid grid-cols-2 gap-y-1.5 gap-x-3">
-              {project.phases.map((p, i) => (
-                <div key={i} className="flex items-center gap-1.5 text-xs">
-                  <span className={p.done ? "text-emerald-500 font-bold" : "text-gray-300 dark:text-gray-600"}>{p.done ? "✓" : "○"}</span>
-                  <span className={p.done ? "text-gray-700 dark:text-gray-300" : "text-gray-400 dark:text-gray-600"}>{p.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          )}
-        </div>
-
-        <Timeline steps={project.implementation} />
+        <Timeline steps={project.implementation} problem={project.problem} impact={project.impact} />
 
         {project.live && project.images && project.images.length > 0 && (
           <div className="mt-6">
@@ -127,17 +92,19 @@ const ProjectDetail = () => {
         {project.diagram && (
           <div className="mt-6">
             <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Architecture Diagram</h4>
-            <img src={project.diagram} alt={`${project.title} Architecture`}
-              className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform dark:invert-[.85]"
-              onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture`, invert: true })}
-            />
+            <div className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform"
+              onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture`, invert: true })}>
+              <img src={project.diagram} alt={`${project.title} Architecture`}
+                className="w-full dark:invert-[.85]"
+              />
+            </div>
           </div>
         )}
 
       </div>
 
       {lightbox && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
+        <div className="fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
           <img src={lightbox.src} alt={lightbox.alt}
             className={`max-w-full max-h-[90vh] rounded shadow-2xl ${lightbox.invert ? 'dark:invert-[.85]' : ''}`}
             onClick={e => e.stopPropagation()} />
