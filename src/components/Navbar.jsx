@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white dark:bg-gray-900 ${scrolled ? 'backdrop-blur-sm shadow-sm' : ''}`}>
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <button onClick={() => { window.location.href = '/'; }} className="font-bold text-xl tracking-tight cursor-pointer"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">AR</span><span className="text-gray-400">Tariq</span> <span className="text-gray-900 dark:text-white">]</span></button>
+        <button onClick={() => { window.location.href = '/'; }} className="font-bold text-xl tracking-tight cursor-pointer"><span className="text-gray-400 dark:text-gray-500">[</span> <span className="text-gray-900 dark:text-white">ar</span><span className="text-gray-400 dark:text-gray-500">tariq</span> <span className="text-gray-900 dark:text-white">]</span></button>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-7">
