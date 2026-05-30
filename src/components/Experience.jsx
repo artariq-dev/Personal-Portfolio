@@ -16,7 +16,7 @@ const Experience = () => {
             See how I approach common tech challenges — just the problem and the fix.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-4 items-start">
+        <div className="grid sm:grid-cols-2 gap-4 items-stretch">
           {domains.map((d, i) => <DomainCard key={i} d={d} />)}
         </div>
       </div>
