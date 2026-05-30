@@ -1,66 +1,40 @@
-# Personal Portfolio
+# artariq.dev — Personal Portfolio
 
-[![Portfolio CI](https://github.com/AbdurRehman924/personal-portfolio/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/AbdurRehman924/personal-portfolio/actions/workflows/portfolio-ci.yml)
+> Cloud & Platform Engineer · Full-Stack Developer
 
-A modern, responsive portfolio website built with React and Tailwind CSS showcasing my skills as a DevSecOps and Cloud Engineer. This project demonstrates proficiency in modern web development, CI/CD practices, and cloud-native deployment strategies.
+Portfolio and case story hub at [artariq.dev](https://artariq.dev). Built with React 18, React Router 6, and Tailwind CSS 3. Deployed via GitHub Pages.
 
-## Features
+## Sections
 
-- **Responsive Design**: Fully responsive layout that works seamlessly across desktop, tablet, and mobile devices
-- **Modern UI**: Clean and professional interface built with Tailwind CSS utility classes
-- **Interactive Contact Section**: Clickable email and LinkedIn links for easy communication
-- **Professional Branding**: Custom profile image and personal branding elements
-- **Skills Showcase**: Comprehensive display of technical skills and expertise
-- **About Section**: Detailed professional background and experience
-- **Performance Optimized**: Fast loading times and optimized assets
-- **CI/CD Integration**: Automated testing and deployment pipeline using GitHub Actions
+- **Hero** — Terminal-style business challenge quiz with auto-rotation and dark mode
+- **Projects (Case Stories)** — 9 projects in collapsible Cloud Infra / Full-Stack sections, each with problem → solution → impact → architecture
+- **Engineering Expertise** — 6 expandable domain cards (Frontend, Backend, FullStack, DevOps, Cloud, Security)
+- **Contact** — Free assessment CTA linking to [ask.artariq.dev](https://ask.artariq.dev), email, LinkedIn, GitHub, resume download
 
-## Getting Started
+## Stack
 
-### Prerequisites
+- React 18 + React Router 6
+- Tailwind CSS 3
+- Framer Motion
+- react-fast-marquee
+- GitHub Pages (deploy)
 
-- Node.js (version 14 or higher)
-- npm or yarn
+## Development
 
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/AbdurRehman924/personal-portfolio.git
-```
-
-2. Navigate to the project directory:
-```bash
-cd personal-portfolio
-```
-
-3. Install dependencies:
 ```bash
 npm install
+PORT=3001 npm start
 ```
 
-4. Start the development server:
-```bash
-npm start
-```
-
-5. Open your browser and visit `http://localhost:3000`
-
-## Build for Production
-
-To create a production build:
+## Build
 
 ```bash
 npm run build
 ```
 
-## Technologies Used
-
-- React
-- Tailwind CSS
-- JavaScript (ES6+)
-
 ## Contact
 
-- Email: pure.art.endeavor@gmail.com
-- LinkedIn: https://www.linkedin.com/in/khan-abdurrehman-883653214/
+- Email: artariq.dev.1@gmail.com
+- LinkedIn: https://www.linkedin.com/in/artariq-dev/
+- GitHub: https://github.com/AbdurRehman924
+- Site: https://artariq.dev
