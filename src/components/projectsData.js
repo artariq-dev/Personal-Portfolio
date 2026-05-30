@@ -199,7 +199,7 @@ export const coreProjects = [
       `${process.env.PUBLIC_URL}/projects/kitchenz/04.png`,
     ],
     problem: "Customers needed a way to customise kitchen configurations, materials, and components before purchase — but the existing site offered only static product pages with no interactivity.",
-    solution: "Built an interactive product configurator that lets customers customise kitchen layouts, choose materials, and see real-time visual feedback. Built with Nuxt.js and Vue.js for smooth interactivity, with UnoCSS for rapid styling.",
+    solution: "Built an interactive product configurator that lets users customise kitchen layouts, choose materials, and see real-time visual feedback. Built with Nuxt.js and Vue.js for smooth interactivity, with UnoCSS for rapid styling.",
     impact: "Customers can explore and customise kitchen configurations before reaching out — reducing friction in the sales process and giving them confidence in their choices.",
     implementation: [
       "Nuxt.js with static site generation for fast initial load.",
@@ -222,7 +222,7 @@ export const coreProjects = [
       `${process.env.PUBLIC_URL}/projects/papierfischer/03.png`,
       `${process.env.PUBLIC_URL}/projects/papierfischer/04.png`,
     ],
-    problem: "The existing Magento 2 storefront had slow category pages with no pagination, price sorting, or alphabetical sorting — making it hard for customers to browse products efficiently.",
+    problem: "The existing Magento 2 storefront had slow category pages with no pagination, price sorting, or alphabetical sorting — making it hard for users to browse products efficiently.",
     solution: "Built a headless storefront using Vue Storefront 2 with Nuxt 2, connected to Magento 2 via GraphQL. Added pagination, price sorting, and alphabetical sorting to category pages — dramatically improving the browsing experience.",
     impact: "Customers can now browse products by price or alphabetically, with paginated results that load fast. The headless architecture decouples the frontend from Magento, making future updates easier.",
     implementation: [

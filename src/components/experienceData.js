@@ -7,8 +7,8 @@ export const domains = [
   },
   {
     title: "Reliable Systems & APIs",
-    problem: "Your backend goes down under load, integrations fail silently, and nobody notices until customers start leaving.",
-    capability: "I'll build you a backend that handles real traffic without surprises — so your data stays intact, your integrations stay connected, and your customers stay happy.",
+    problem: "Your backend goes down under load, integrations fail silently, and nobody notices until users start leaving.",
+    capability: "I'll build you a backend that handles real traffic without surprises — so your data stays intact, your integrations stay connected, and your users stay happy.",
     tags: ["Node.js", "Python", "PHP", "REST APIs", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ"],
   },
   {
@@ -32,7 +32,7 @@ export const domains = [
   {
     title: "Security & Compliance",
     problem: "You don't actually know if your infrastructure is secure. One breach costs more than money — it costs trust. And enterprise deals die over compliance.",
-    capability: "I'll build security into your platform from day one — so you pass audits without scrambling, and your customers trust you with their data.",
+    capability: "I'll build security into your platform from day one — so you pass audits without scrambling, and your users trust you with their data.",
     tags: ["GuardDuty", "Kyverno", "Cosign", "Trivy", "Falco", "OPA", "SCPs", "SOC2"],
   },
 ];
