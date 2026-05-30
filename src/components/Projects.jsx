@@ -6,8 +6,8 @@ import { SectionDivider } from "./ProjectHelpers";
 
 const Projects = () => {
   const ref = useFadeIn();
-  const [openCloud, setOpenCloud] = useState(true);
-  const [openFullstack, setOpenFullstack] = useState(true);
+  const [openCloud, setOpenCloud] = useState(false);
+  const [openFullstack, setOpenFullstack] = useState(false);
 
   return (
     <section id="case-stories" className="bg-white dark:bg-gray-900">
