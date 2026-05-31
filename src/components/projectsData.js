@@ -170,7 +170,6 @@ export const coreProjects = [
       `${process.env.PUBLIC_URL}/projects/021/03.png`,
       `${process.env.PUBLIC_URL}/projects/021/04.png`,
       `${process.env.PUBLIC_URL}/projects/021/05.png`,
-      `${process.env.PUBLIC_URL}/projects/021/06.png`,
     ],
     problem: "The agency needed a marketing site where content editors could manage blog posts and pages without developer involvement — but most CMS solutions are either too rigid or too complex for a small team.",
     solution: "Built a headless CMS architecture with Strapi where editors write content in markdown, and the site renders it server-side with dynamic slug routing. Newsletter signups flow through EmailOctopus API, and the entire site is deployed on Cloudflare Workers for global performance.",
