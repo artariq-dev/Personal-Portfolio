@@ -18,24 +18,8 @@ const Contact = () => {
             <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Engage</span>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-3 mb-4 leading-tight">
               Not sure what you need?<br />
-              <span className="text-blue-600">Start with a free assessment →</span>
+              <span className="text-blue-600">Let's talk.</span>
             </h2>
-
-            {/* Assessment CTA */}
-            <a
-              href="https://ask.artariq.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 mb-8 p-4 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors group"
-            >
-              <div className="w-10 h-10 rounded bg-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-              </div>
-              <div>
-                <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 mb-0.5">Free Infrastructure Assessment →</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">8 questions. Pick cloud, fullstack, or pipeline. Get an honest scorecard.</div>
-              </div>
-            </a>
 
             {/* Engagement types */}
             <div className="space-y-4">
