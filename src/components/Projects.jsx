@@ -6,8 +6,11 @@ import { SectionDivider } from "./ProjectHelpers";
 
 const Projects = () => {
   const ref = useFadeIn();
-  const [openCloud, setOpenCloud] = useState(false);
-  const [openFullstack, setOpenFullstack] = useState(false);
+  const [openCloud, setOpenCloud] = useState(() => sessionStorage.getItem("projects_openCloud") === "true");
+  const [openFullstack, setOpenFullstack] = useState(() => sessionStorage.getItem("projects_openFullstack") === "true");
+
+  const toggleCloud = () => setOpenCloud((v) => { const n = !v; sessionStorage.setItem("projects_openCloud", n); return n; });
+  const toggleFullstack = () => setOpenFullstack((v) => { const n = !v; sessionStorage.setItem("projects_openFullstack", n); return n; });
 
   return (
     <section id="case-stories" className="bg-white dark:bg-gray-900">
@@ -34,7 +37,7 @@ const Projects = () => {
             label="Cloud Infrastructure & Platform Engineering Case Stories"
             count={coreProjects.filter((p) => !p.live).length}
             open={openCloud}
-            onToggle={() => setOpenCloud((v) => !v)}
+            onToggle={toggleCloud}
             bg="bg-blue-600 dark:bg-blue-600"
           />
           {openCloud && (
@@ -86,7 +89,7 @@ const Projects = () => {
             label="Full-Stack Application Development"
             count={coreProjects.filter((p) => p.live).length}
             open={openFullstack}
-            onToggle={() => setOpenFullstack((v) => !v)}
+            onToggle={toggleFullstack}
             bg="bg-blue-600 dark:bg-blue-600"
           />
           {openFullstack && (
