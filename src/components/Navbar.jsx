@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { navLinks as links, toId } from './navData';
 import useDarkMode from '../hooks/useDarkMode';
-import PixelBtn from './PixelBtn';
-import { GitHubIcon } from './Icons';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -60,14 +58,6 @@ const Navbar = () => {
               {activeSection === toId(link) ? `[${link}]` : link}
             </button>
           ))}
-          <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-700 text-white px-3 py-1 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]">
-            <GitHubIcon /> GitHub
-          </PixelBtn>
-          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-Platform.pdf`} download="Abdur-Rehman-Platform.pdf"
-            className="text-xs font-medium bg-blue-600 text-white px-3 py-1 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]">
-              Resume
-          </PixelBtn>
           <button
             onClick={() => setDark(!dark)}
             className="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 transition-all shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5"
@@ -114,10 +104,6 @@ const Navbar = () => {
               {link}
             </button>
           ))}
-          <PixelBtn as="a" href="https://github.com/AbdurRehman924" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 shadow-[3px_3px_0px_#4b5563] dark:shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#4b5563] dark:hover:shadow-[5px_5px_0px_#9ca3af]"><GitHubIcon /> GitHub</PixelBtn>
-          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/Abdur-Rehman-Platform.pdf`} download="Abdur-Rehman-Platform.pdf"
-            className="text-xs font-medium bg-blue-600 text-white px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd]">Resume</PixelBtn>
         </div>
       )}
     </nav>
