@@ -117,11 +117,9 @@ const Hero = () => {
               className={`text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-[1.3] mb-2 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
               style={{ transitionDelay: "350ms" }}
             >
-              First understands your business,
-              <br />
-              <span className="text-blue-600">then builds the solution.</span>
-              <br />
-              That&apos;s how I work.
+              <span className="block mb-1">First understands your business,</span>
+              <span className="block mb-1 text-blue-600">then builds the solution.</span>
+              <span className="block">That&apos;s how I work.</span>
             </h1>
             <div
               className={`transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
@@ -169,13 +167,10 @@ const Hero = () => {
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
                   <PixelBtn
-                    as="a"
-                    href="https://ask.artariq.dev/assess"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={() => document.getElementById('case-stories')?.scrollIntoView({ behavior: 'smooth' })}
                     className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-xs font-semibold px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors"
                   >
-                    Evaluate →
+                    Explore Projects →
                   </PixelBtn>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
