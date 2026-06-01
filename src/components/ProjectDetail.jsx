@@ -4,6 +4,7 @@ import { coreProjects } from './projectsData';
 import PixelBtn from './PixelBtn';
 import { GitHubIcon } from './Icons';
 import { Timeline } from './ProjectHelpers';
+import { techNames, iconUrl } from './techIcons';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -14,6 +15,8 @@ const ProjectDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  
 
   if (!project) {
     return (
@@ -29,7 +32,7 @@ const ProjectDetail = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-16">
-        <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('case-stories')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors mb-6 cursor-pointer">← Back to projects</button>
+        <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors mb-6 cursor-pointer">← Back to projects</button>
 
         <div className="mb-0">
           <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 inline-block mb-3">
@@ -70,6 +73,24 @@ const ProjectDetail = () => {
                 <div className="text-xs text-gray-400 dark:text-gray-500">{s.sub}</div>
               </div>
             ))}
+          </div>
+        )}
+
+        {project.techs && project.techs.length > 0 && (
+          <div className="mb-6">
+            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Tech Stack</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.techs.map((tech, i) => (
+                <span key={i} className="inline-flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-2 py-1">
+                  {iconUrl(tech) && (
+                    <img src={iconUrl(tech)} alt={tech}
+                      className="w-5 h-5" loading="lazy"
+                      onError={(e) => { e.target.style.display = 'none' }} />
+                  )}
+                  <span className="text-xs text-gray-600 dark:text-gray-300">{techNames[tech] || tech}</span>
+                </span>
+              ))}
+            </div>
           </div>
         )}
 

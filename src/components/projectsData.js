@@ -5,7 +5,7 @@ export const coreProjects = [
     niche: "Platform Engineering",
     tag: "Infrastructure · Platform Engineering · Multi-Cloud",
     title: "Production-Grade Kubernetes Platform",
-
+    techs: ["kubernetes", "terraform", "aws", "azure", "digitalocean", "istio", "argo", "prometheus", "grafana", "falco", "trivy", "calico", "jaeger", "velero", "docker", "githubactions", "helm"],
     subtitle: "AWS · Azure · DigitalOcean · Self-Managed · HA Cluster · Built from Scratch",
     github: "https://github.com/AbdurRehman924/self-managed-k8s-aws",
     githubLabel: "AWS",
@@ -42,6 +42,7 @@ export const coreProjects = [
     niche: "Security & Compliance",
     tag: "AWS · Security · Infrastructure-as-Code · Multi-Account",
     title: "AWS Secure Baseline — Multi-Account Security Platform",
+    techs: ["amazonwebservices", "terraform", "githubactions", "cloudflare", "kustomize"],
     subtitle: "GuardDuty · Security Hub · CloudTrail · AWS Config · SCPs · Terraform · GitHub Actions",
     github: "https://github.com/AbdurRehman924/aws-secure-baseline",
     diagram: `${process.env.PUBLIC_URL}/projects/aws-secure-baseline/architecture.svg`,
@@ -73,6 +74,7 @@ export const coreProjects = [
     niche: "Supply Chain Security",
     tag: "Supply Chain Security · GitOps · Platform Engineering",
     title: "End-to-End Secure Software Supply Chain",
+    techs: ["go", "docker", "githubactions", "argo", "kubernetes", "kustomize", "falco", "trivy", "cosign", "kyverno"],
     subtitle: "Cosign Keyless · SLSA L2 · Kyverno · Falco · ArgoCD · SBOM · Distroless",
     github: "https://github.com/AbdurRehman924/secure-supply-chain",
     diagram: `${process.env.PUBLIC_URL}/projects/secure-supply-chain/architecture.svg`,
@@ -103,6 +105,7 @@ export const coreProjects = [
     niche: "Policy-as-Code",
     tag: "Azure · DevOps · Policy-as-Code",
     title: "Azure DevOps Pipeline with OPA Policy Enforcement",
+    techs: ["microsoftazure", "terraform", "githubactions", "ansible", "openpolicyagent", "docker", "nginx", "kubernetes", "trivy"],
     subtitle: "AKS · ACR · GitHub Actions · Ansible · Open Policy Agent",
     github: "https://github.com/AbdurRehman924/Portfolio-Devops",
     diagram: `${process.env.PUBLIC_URL}/projects/portfolio-devops/architecture.svg`,
@@ -132,6 +135,7 @@ export const coreProjects = [
     niche: "GitOps & Security",
     tag: "Azure · GitOps · Secret Management",
     title: "Multi-Environment GitOps Platform with Sealed Secrets",
+    techs: ["microsoftazure", "terraform", "argo", "helm", "kubernetes", "kustomize", "docker", "trivy", "k3s", "githubactions"],
     subtitle: "K3s on Azure · ArgoCD · Helm · Sealed Secrets · Dev/Staging/Prod",
     github: "https://github.com/AbdurRehman924/DevSecOps-Platform",
     diagram: `${process.env.PUBLIC_URL}/projects/devsecops-platform/architecture.svg`,
@@ -162,6 +166,7 @@ export const coreProjects = [
     niche: "Full-Stack CMS",
     tag: "Full Stack · Nuxt 3 · Strapi CMS · Cloudflare",
     title: "021 — Agency Website with Strapi CMS",
+    techs: ["nuxt", "strapi", "cloudflare", "tailwindcss", "cloudflareworkers"],
     subtitle: "Headless CMS · Blog System · Calendly · EmailOctopus · Cloudflare Workers",
     live: "https://021.uk/",
     images: [
@@ -188,6 +193,7 @@ export const coreProjects = [
     niche: "Full-Stack E-Commerce",
     tag: "Full Stack · Nuxt.js · Vue.js · UnoCSS",
     title: "Kitchenz — Product Configurator",
+    techs: ["nuxt", "vuedotjs", "unocss"],
     subtitle: "Interactive product configurator — Nuxt.js · Vue.js · UnoCSS · SSG",
     live: "https://www.kitchenz.de/",
     images: [
@@ -212,6 +218,7 @@ export const coreProjects = [
     niche: "Full-Stack Storefront",
     tag: "Full Stack · Headless Commerce · Magento 2",
     title: "PaperFisher — Magento 2 Storefront",
+    techs: ["magento", "graphql", "nuxt", "vuedotjs"],
     subtitle: "Headless Commerce · Magento 2 GraphQL · Nuxt 2 · Vue Storefront 2",
     live: "https://www.papierfischer.de/",
     images: [
@@ -237,6 +244,7 @@ export const coreProjects = [
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Firebase · Stripe",
     title: "Birdie — Shopify Agency SaaS Landing Page",
+    techs: ["nuxt", "firebase", "stripe", "tailwindcss", "vuedotjs"],
     subtitle: "Stripe Subscriptions · Firebase Firestore · EN/DE i18n · Conversion-Optimised",
     live: "https://www.birdiecommerce.com/",
     images: [
