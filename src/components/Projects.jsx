@@ -13,14 +13,14 @@ const Projects = () => {
   const toggleFullstack = () => setOpenFullstack((v) => { const n = !v; sessionStorage.setItem("projects_openFullstack", n); return n; });
 
   return (
-    <section id="case-stories" className="bg-white dark:bg-gray-900">
+    <section id="case-studies" className="bg-white dark:bg-gray-900">
       <div
         ref={ref}
         className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700"
       >
         <div className="mb-14">
           <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
-            Case Stories
+            Case Studies
           </span>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
             Real problems.
@@ -34,7 +34,7 @@ const Projects = () => {
 
         <div className="mb-6">
           <SectionDivider
-            label="Cloud Infrastructure & Platform Engineering Case Stories"
+            label="Cloud Infrastructure & Platform Engineering Case Studies"
             count={coreProjects.filter((p) => !p.live).length}
             open={openCloud}
             onToggle={toggleCloud}
@@ -76,7 +76,7 @@ const Projects = () => {
                       {p.title}
                     </h3>
                     <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start">
-                      View full case story →
+                      Full technical details →
                     </span>
                   </Link>
                 ))}
@@ -116,7 +116,7 @@ const Projects = () => {
                       {p.title}
                     </h3>
                     <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start">
-                      View full case story →
+                      Full technical details →
                     </span>
                   </Link>
                 ))}

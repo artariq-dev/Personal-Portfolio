@@ -12,11 +12,11 @@ export const rewrites = [
 ];
 
 export const questions = [
-  { q: "You're paying for cloud every month. Do you know where it all goes?", anchor: "#case-stories" },
-  { q: "Every slow page or broken feature chips away at trust. Are you tracking it?", anchor: "#case-stories" },
-  { q: "You invested in software. Is it giving you back what you paid for?", anchor: "#case-stories" },
-  { q: "If your main system went down right now, how long before it hurts your business?", anchor: "#case-stories" },
-  { q: "Every slow page load costs you users. Are you tracking it?", anchor: "#case-stories" },
-  { q: "You have big plans for growth. Can your current tech handle them?", anchor: "#case-stories" },
-  { q: "You have a cloud budget. Is it buying you growth — or just burning cash?", anchor: "#case-stories" },
+  { q: "You're paying for cloud every month. Do you know where it all goes?", anchor: "#case-studies" },
+  { q: "Every slow page or broken feature chips away at trust. Are you tracking it?", anchor: "#case-studies" },
+  { q: "You invested in software. Is it giving you back what you paid for?", anchor: "#case-studies" },
+  { q: "If your main system went down right now, how long before it hurts your business?", anchor: "#case-studies" },
+  { q: "Every slow page load costs you users. Are you tracking it?", anchor: "#case-studies" },
+  { q: "You have big plans for growth. Can your current tech handle them?", anchor: "#case-studies" },
+  { q: "You have a cloud budget. Is it buying you growth — or just burning cash?", anchor: "#case-studies" },
 ];

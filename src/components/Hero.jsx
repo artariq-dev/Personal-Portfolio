@@ -167,7 +167,7 @@ const Hero = () => {
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex flex-col gap-2">
                   <PixelBtn
-                    onClick={() => document.getElementById('case-stories')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
                     className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-xs font-semibold px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors"
                   >
                     Explore Projects →
