@@ -10,6 +10,9 @@ export const techNames = {
   nuxt: "Nuxt.js", strapi: "Strapi", tailwindcss: "Tailwind CSS",
   cloudflareworkers: "Cloudflare Workers", vuedotjs: "Vue.js", unocss: "UnoCSS",
   magento: "Magento", graphql: "GraphQL", firebase: "Firebase", stripe: "Stripe",
+  django: "Django", python: "Python", postgresql: "PostgreSQL", redis: "Redis",
+  celery: "Celery", googleads: "Google Ads", facebook: "Facebook",
+  plotly: "Plotly", anthropic: "Anthropic",
 };
 
 const iconFiles = {
@@ -25,6 +28,9 @@ const iconFiles = {
   microsoftazure:"microsoftazure.svg", magento:"magento.svg", cosign:"cosign.svg",
   openpolicyagent:"openpolicyagent.svg", calico:"calico.svg", velero:"velero.svg",
   kyverno:"kyverno.svg", kustomize:"kustomize.svg",
+  django:"django.svg", python:"python.svg", postgresql:"postgresql.svg",
+  redis:"redis.svg", celery:"celery.svg", googleads:"googleads.svg", facebook:"facebook.svg",
+  plotly:"plotly.svg", anthropic:"anthropic.svg", sentry:"sentry.svg", stripe:"stripe.svg",
 };
 
 export const iconUrl = (tech) => {
