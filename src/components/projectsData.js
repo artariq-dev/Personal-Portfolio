@@ -2,8 +2,8 @@
 export const coreProjects = [
   {
     slug: "kubernetes-platform",
-    niche: "Platform Engineering",
-    tag: "Infrastructure · Platform Engineering · Multi-Cloud",
+    niche: "Cloud Native",
+    tag: "Infrastructure · Cloud Native · Multi-Cloud",
     title: "Production-Grade Kubernetes Platform",
     techs: ["kubernetes", "terraform", "aws", "azure", "digitalocean", "istio", "argo", "prometheus", "grafana", "falco", "trivy", "calico", "jaeger", "velero", "docker", "githubactions", "helm"],
     subtitle: "AWS · Azure · DigitalOcean · Self-Managed · HA Cluster · Built from Scratch",
@@ -266,7 +266,7 @@ export const coreProjects = [
   },
   {
     slug: "django-clinical-crm",
-    niche: "Full-Stack CRM",
+    niche: "Cloud Native",
     tag: "Full Stack · Django · CRM · AdTech",
     title: "CRM for Clinical Appointments + Location-Based Ad Targeting",
     images: [
@@ -307,7 +307,7 @@ export const coreProjects = [
   },
   {
     slug: "solar-pv-crm",
-    niche: "Full-Stack CRM",
+    niche: "Cloud Native",
     tag: "Full Stack · Django · AI · CRM",
     title: "Solar PV Installation CRM with AI Email Automation",
     techs: ["django", "python", "postgresql", "redis", "docker", "githubactions", "celery", "plotly", "anthropic", "stripe", "googleads", "facebook", "aws", "sentry"],
