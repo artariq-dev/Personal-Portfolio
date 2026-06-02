@@ -109,7 +109,7 @@ const Hero = () => {
                   </span>
                 </h2>
                 <p className="text-xs text-gray-400 dark:text-gray-500">
-                  Cloud · Platform Engineer
+                  Cloud · Fullstack Engineer
                 </p>
               </div>
             </div>
@@ -295,7 +295,7 @@ const Hero = () => {
             "GitOps",
             "Zero-Trust",
             "Supply Chain Security",
-            "Platform Engineering",
+            "Cloud Native",
           ].map((t, i) => (
             <span
               key={i}
