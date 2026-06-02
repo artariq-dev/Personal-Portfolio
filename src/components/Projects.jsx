@@ -35,7 +35,7 @@ const Projects = () => {
         <div className="mb-6">
           <SectionDivider
             label="Cloud Infrastructure & Platform Engineering Case Studies"
-            count={coreProjects.filter((p) => !p.live).length}
+            count={coreProjects.filter((p) => !p.live && !p.niche?.startsWith("Full-Stack")).length}
             open={openCloud}
             onToggle={toggleCloud}
             bg="bg-blue-600 dark:bg-blue-600"
@@ -43,7 +43,7 @@ const Projects = () => {
           {openCloud && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coreProjects
-                .filter((p) => !p.live)
+                .filter((p) => !p.live && !p.niche?.startsWith("Full-Stack"))
                 .map((p, i) => (
                   <Link
                     key={i}
@@ -87,7 +87,7 @@ const Projects = () => {
         <div className="mb-6">
           <SectionDivider
             label="Full-Stack Application Development"
-            count={coreProjects.filter((p) => p.live).length}
+            count={coreProjects.filter((p) => p.live || p.niche?.startsWith("Full-Stack")).length}
             open={openFullstack}
             onToggle={toggleFullstack}
             bg="bg-blue-600 dark:bg-blue-600"
@@ -95,7 +95,7 @@ const Projects = () => {
           {openFullstack && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coreProjects
-                .filter((p) => p.live)
+                .filter((p) => p.live || p.niche?.startsWith("Full-Stack"))
                 .map((p, i) => (
                   <Link
                     key={i}

@@ -96,7 +96,7 @@ const ProjectDetail = () => {
 
         <Timeline steps={project.implementation} problem={project.problem} impact={project.impact} />
 
-        {project.live && project.images && project.images.length > 0 && (
+        {project.images && project.images.length > 0 && (
           <div className="mt-6">
             <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Screenshots</h4>
             <div className={`grid gap-2 ${project.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2 sm:grid-cols-4'}`}>
