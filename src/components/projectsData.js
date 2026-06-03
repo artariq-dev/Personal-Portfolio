@@ -247,6 +247,7 @@ export const coreProjects = [
     techs: ["nuxt", "firebase", "stripe", "tailwindcss", "vuedotjs"],
     subtitle: "Stripe Subscriptions · Firebase Firestore · EN/DE i18n · Conversion-Optimised",
     live: "https://www.birdiecommerce.com/",
+    dribbble: "https://dribbble.com/shots/27096097-BIRDIE-SHOPIFY-WEB-AGENCY",
     images: [
       `${process.env.PUBLIC_URL}/projects/birdie/01.png`,
       `${process.env.PUBLIC_URL}/projects/birdie/02.png`,
@@ -308,6 +309,7 @@ export const coreProjects = [
     techs: ["nuxt", "vuedotjs", "typescript", "tailwindcss"],
     subtitle: "Full-Year View · Multi-Calendar · Event & Task Management · Guest Invites · Google Auth",
     github: "https://github.com/artariq-dev/calendar-frontend",
+    dribbble: "https://dribbble.com/shots/25508905-YEARPEEK-Annual-Calendar",
     images: [
       `${process.env.PUBLIC_URL}/projects/yearpeek/01.png`,
       `${process.env.PUBLIC_URL}/projects/yearpeek/02.png`,

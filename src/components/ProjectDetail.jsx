@@ -60,6 +60,12 @@ const ProjectDetail = () => {
                 View live site →
               </PixelBtn>
             )}
+            {project.dribbble && (
+              <PixelBtn as="a" href={project.dribbble} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#ea4c89] text-white px-3 py-1.5 text-xs font-semibold">
+                Dribbble →
+              </PixelBtn>
+            )}
           </div>
 
         </div>
