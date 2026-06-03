@@ -36,5 +36,5 @@ npm run build
 
 - Email: artariq.dev.1@gmail.com
 - LinkedIn: https://www.linkedin.com/in/artariq-dev/
-- GitHub: https://github.com/AbdurRehman924
+- GitHub: https://github.com/artariq-dev
 - Site: https://artariq.dev
