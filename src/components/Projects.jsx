@@ -42,7 +42,7 @@ const Projects = () => {
             onToggle={toggleCloud}
             bg="bg-blue-600 dark:bg-blue-600"
           />
-          {openCloud && (
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openCloud ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coreProjects
                 .filter((p) => !p.live && !p.niche?.startsWith("Full-Stack") && p.niche !== "Cloud Native")
@@ -84,7 +84,7 @@ const Projects = () => {
                   </Link>
                 ))}
             </div>
-          )}
+          </div>
         </div>
 
         <div className="mb-6">
@@ -95,7 +95,7 @@ const Projects = () => {
             onToggle={toggleCloudNative}
             bg="bg-blue-600 dark:bg-blue-600"
           />
-          {openCloudNative && (
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openCloudNative ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coreProjects
                 .filter((p) => p.niche === "Cloud Native")
@@ -144,7 +144,7 @@ const Projects = () => {
                   </Link>
                 ))}
             </div>
-          )}
+          </div>
         </div>
 
         <div className="mb-6">
@@ -155,7 +155,7 @@ const Projects = () => {
             onToggle={toggleFullstack}
             bg="bg-blue-600 dark:bg-blue-600"
           />
-          {openFullstack && (
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openFullstack ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coreProjects
                 .filter((p) => p.live || p.niche?.startsWith("Full-Stack"))
@@ -185,7 +185,7 @@ const Projects = () => {
                   </Link>
                 ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
