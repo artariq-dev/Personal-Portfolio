@@ -61,6 +61,7 @@ const Projects = () => {
                           src={p.diagram}
                           alt={p.title}
                           className="w-full h-full object-contain dark:invert-[.85]"
+                          loading="lazy"
                         />
                       </div>
                     )}
@@ -112,6 +113,7 @@ const Projects = () => {
                         src={p.images[0]}
                         alt={p.title}
                         className="w-full h-36 object-cover rounded border border-gray-200 dark:border-gray-700 mb-2"
+                        loading="lazy"
                       />
                     ) : p.diagram ? (
                       <div className="w-full h-36 mb-2 rounded border border-gray-200 dark:border-gray-700 p-2">
@@ -119,6 +121,7 @@ const Projects = () => {
                           src={p.diagram}
                           alt={p.title}
                           className="w-full h-full object-contain dark:invert-[.85]"
+                          loading="lazy"
                         />
                       </div>
                     ) : null}
@@ -170,6 +173,7 @@ const Projects = () => {
                         src={p.images[0]}
                         alt={p.title}
                         className="w-full h-36 object-cover rounded border border-gray-200 dark:border-gray-700 mb-2"
+                        loading="lazy"
                       />
                     )}
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">

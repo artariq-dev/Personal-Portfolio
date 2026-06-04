@@ -110,6 +110,7 @@ const ProjectDetail = () => {
                 <img key={i} src={src} alt={`${project.title} ${i + 1}`}
                   className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.02] transition-transform"
                   onClick={() => setLightbox({ src, alt: `${project.title} ${i + 1}`, invert: false })}
+                  loading="lazy"
                 />
               ))}
             </div>
@@ -123,6 +124,7 @@ const ProjectDetail = () => {
               onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture`, invert: true })}>
               <img src={project.diagram} alt={`${project.title} Architecture`}
                 className="w-full dark:invert-[.85]"
+                loading="lazy"
               />
             </div>
           </div>
