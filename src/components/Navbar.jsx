@@ -58,6 +58,14 @@ const Navbar = () => {
               {activeSection === toId(link) ? `[${link}]` : link}
             </button>
           ))}
+          <a
+            href="https://ask.artariq.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs tracking-wider uppercase transition-all hover:-translate-y-0.5 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            ask →
+          </a>
           <button
             onClick={() => setDark(!dark)}
             className="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 transition-all shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[4px_4px_0px_#bfdbfe] dark:hover:shadow-[4px_4px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5"
@@ -104,6 +112,14 @@ const Navbar = () => {
               {link}
             </button>
           ))}
+          <a
+            href="https://ask.artariq.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-left text-blue-600 dark:text-blue-400"
+          >
+            ask.artariq →
+          </a>
         </div>
       )}
     </nav>
