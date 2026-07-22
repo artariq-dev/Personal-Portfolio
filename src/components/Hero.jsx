@@ -109,7 +109,7 @@ const Hero = () => {
                   </span>
                 </h2>
                 <p className="text-xs text-gray-400 dark:text-gray-500">
-                  Cloud · Fullstack Engineer
+                  FullStack Developer · Cloud Engineer
                 </p>
               </div>
             </div>
@@ -126,13 +126,15 @@ const Hero = () => {
               style={{ transitionDelay: "450ms" }}
             >
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                I started in full-stack development and realised most tech
-                problems aren't technical — they're mismatches between what a
-                business needs and what was built. Before I touch anything, I
-                take the time to understand your business, your constraints, and
-                what actually matters. Then I fix what's broken. Experience of
-                5+ years so you can focus on the business, not what's running
-                it.
+                Nearly 6 years shipping production systems for 13+ international
+                clients across 5+ teams worldwide. After owning multiple
+                projects from start to finish, I realised most tech problems
+                aren't technical — they're mismatches between what a business
+                needs and what was built. Before I touch anything, I take the
+                time to understand your business, your constraints, and what
+                actually matters. Then I fix what's broken.
+                <br /><br />
+                <span className="font-bold text-gray-900 dark:text-white">You focus on the goal. </span><span className="font-bold text-blue-600">I'll align the systems.</span>
               </p>
             </div>
           </div>
@@ -280,22 +282,22 @@ const Hero = () => {
       <div className="tech-strip w-full border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900">
         <Marquee direction="right" speed={90} pauseOnHover gradient={false}>
           {[
-            "Architecture",
+            "Full-Stack Development",
+            "API Design",
+            "Database Architecture",
+            "User Interfaces",
+            "Product Engineering",
+            "System Integration",
             "CI/CD Pipelines",
+            "Cloud Infrastructure",
             "Automation",
             "Containerization",
-            "Infrastructure",
             "Scalability",
             "Security Integration",
-            "Infrastructure Reliability",
-            "Deployment Integrity",
-            "System Resilience",
-            "Security Enforcement",
             "Observability",
             "GitOps",
-            "Zero-Trust",
-            "Supply Chain Security",
-            "Cloud Native",
+            "Infrastructure Reliability",
+            "System Resilience",
           ].map((t, i) => (
             <span
               key={i}
