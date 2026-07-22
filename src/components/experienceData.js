@@ -1,5 +1,11 @@
 export const domains = [
   {
+    title: "End-to-End Product Development",
+    problem: "Features take too long because your frontend and backend teams don't align. Handoffs, miscommunication, and rework eat up your budget.",
+    capability: "I'll own both sides end-to-end — from database to UI — and ship working features without the back-and-forth that kills momentum.",
+    tags: ["React + Node", "Next.js + Prisma", "Nuxt + Strapi", "Vue Storefront", "Stripe", "Firebase"],
+  },
+  {
     title: "User-Facing Apps & Interfaces",
     problem: "Customers complain your app feels slow or inconsistent. Simple changes take three times longer than they should — and nobody's sure why.",
     capability: "I'll clean up your frontend so it loads fast, works on every device, and your team can ship changes without breaking something else.",
@@ -10,12 +16,6 @@ export const domains = [
     problem: "Your backend goes down under load, integrations fail silently, and nobody notices until users start leaving.",
     capability: "I'll build you a backend that handles real traffic without surprises — so your data stays intact, your integrations stay connected, and your users stay happy.",
     tags: ["Node.js", "Python", "PHP", "REST APIs", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ"],
-  },
-  {
-    title: "End-to-End Product Development",
-    problem: "Features take too long because your frontend and backend teams don't align. Handoffs, miscommunication, and rework eat up your budget.",
-    capability: "I'll own both sides end-to-end — from database to UI — and ship working features without the back-and-forth that kills momentum.",
-    tags: ["React + Node", "Next.js + Prisma", "Nuxt + Strapi", "Vue Storefront", "Stripe", "Firebase"],
   },
   {
     title: "Faster & Safer Delivery",
