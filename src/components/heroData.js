@@ -12,11 +12,11 @@ export const rewrites = [
 ];
 
 export const questions = [
-  { q: "You're paying for cloud every month. Do you know where it all goes?", anchor: "#case-studies" },
-  { q: "Every slow page or broken feature chips away at trust. Are you tracking it?", anchor: "#case-studies" },
-  { q: "You invested in software. Is it giving you back what you paid for?", anchor: "#case-studies" },
-  { q: "If your main system went down right now, how long before it hurts your business?", anchor: "#case-studies" },
-  { q: "Every slow page load costs you users. Are you tracking it?", anchor: "#case-studies" },
-  { q: "You have big plans for growth. Can your current tech handle them?", anchor: "#case-studies" },
-  { q: "You have a cloud budget. Is it buying you growth — or just burning cash?", anchor: "#case-studies" },
+  { q: "Your product has users who depend on it daily. Are you confident it's as reliable as they expect?", anchor: "#case-studies" },
+  { q: "You're building features your customers asked for. Is your pipeline flowing smoothly end to end?", anchor: "#case-studies" },
+  { q: "Your product works. But does it work well across every screen, every device, every user?", anchor: "#case-studies" },
+  { q: "You're connecting more tools every month. Is your data flowing — or stuck in silos?", anchor: "#case-studies" },
+  { q: "You want to move fast. Is your infrastructure keeping up, or slowing you down?", anchor: "#case-studies" },
+  { q: "Your users expect a smooth experience. Are you confident you're giving them one?", anchor: "#case-studies" },
+  { q: "You invested in custom software. Is it earning its keep — or becoming tech debt?", anchor: "#case-studies" },
 ];
