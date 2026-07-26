@@ -1,77 +1,14 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { questions } from "./heroData";
 import PixelBtn from "./PixelBtn";
-
-const TIMER = 5;
 
 const Hero = () => {
   const [visible, setVisible] = useState(false);
-  const [idx, setIdx] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(false);
-  const [countdown, setCountdown] = useState(TIMER);
-  const [paused, setPaused] = useState(false);
 
-  const typeQuestion = useCallback((text) => {
-    setDisplayed("");
-    setTyping(true);
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      setDisplayed(text.slice(0, i));
-      if (i >= text.length) {
-        clearInterval(interval);
-        setTyping(false);
-      }
-    }, 22);
-    return () => clearInterval(interval);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 300);
+    return () => clearTimeout(t);
   }, []);
-
-  const goNext = useCallback(
-    (currentIdx) => {
-      setTimeout(() => {
-        const n = (currentIdx + 1) % questions.length;
-        setIdx(n);
-        setCountdown(TIMER);
-        typeQuestion(questions[n].q);
-      }, 300);
-    },
-    [typeQuestion],
-  );
-
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setVisible(true);
-      typeQuestion(questions[0].q);
-    }, 300);
-    return () => clearTimeout(t);
-  }, [typeQuestion]);
-
-  // auto-advance timer
-  useEffect(() => {
-    if (typing || paused) return;
-    if (countdown <= 0) {
-      goNext(idx);
-      return;
-    }
-    const t = setTimeout(() => setCountdown((c) => c - 1), 1000);
-    return () => clearTimeout(t);
-  }, [countdown, typing, paused, idx, goNext]);
-
-  const next = () => {
-    if (typing) return;
-    goNext(idx);
-  };
-  const prev = () => {
-    if (typing) return;
-    setTimeout(() => {
-      const n = (idx - 1 + questions.length) % questions.length;
-      setIdx(n);
-      setCountdown(TIMER);
-      typeQuestion(questions[n].q);
-    }, 300);
-  };
 
   return (
     <section
@@ -139,117 +76,55 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right — quiz */}
+          {/* Right — assessment CTA */}
           <div>
-            <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded p-4 sm:p-6 transition-all duration-200 shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
+            <div className="bg-black dark:bg-white border border-gray-800 dark:border-gray-200 rounded p-4 sm:p-6 transition-all duration-200 shadow-[4px_4px_0px_#374151] dark:shadow-[4px_4px_0px_#e5e7eb] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
               {/* Terminal header */}
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 truncate">
-                  business-challenges.sh
+                <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 truncate">
+                  health-check.sh
                 </span>
               </div>
 
-              {/* Question */}
-              <div className="flex items-start gap-2 mb-5 min-h-[80px]">
-                <span className="text-green-600 dark:text-green-400 text-sm mt-0.5 shrink-0">
-                  $
-                </span>
-                <p className="text-gray-800 dark:text-gray-100 text-xs sm:text-sm leading-relaxed">
-                  {displayed}
-                  {typing && (
-                    <span className="inline-block w-2 h-4 bg-blue-400 ml-0.5 align-middle animate-pulse" />
-                  )}
-                </p>
+              <h3 className="text-base font-bold text-white dark:text-gray-900 mb-2">
+                Not sure what needs fixing?
+              </h3>
+              <p className="text-xs text-gray-300 dark:text-gray-600 mb-4 leading-relaxed">
+                Take a free 2-minute audit. Answer 8 questions about your
+                project and get a scored report with exactly what to fix.
+              </p>
+
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {[
+                  "Cloud",
+                  "Fullstack",
+                  "Frontend",
+                  "Backend",
+                  "CRM",
+                  "Delivery",
+                  "Growth",
+                ].map((label) => (
+                  <span
+                    key={label}
+                    className="text-[10px] font-medium text-blue-300 dark:text-blue-700 bg-blue-900/40 dark:bg-blue-100/80 border border-blue-800 dark:border-blue-300 px-2 py-0.5"
+                  >
+                    {label}
+                  </span>
+                ))}
               </div>
 
-              {/* Actions */}
-              <div className="flex items-center justify-between gap-3 mb-4">
-                <div className="flex flex-col gap-2">
-                  <PixelBtn
-                    onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-xs font-semibold px-3 py-1.5 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors"
-                  >
-                    Explore Projects →
-                  </PixelBtn>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  <PixelBtn
-                    onClick={prev}
-                    disabled={typing}
-                    className="w-8 h-8 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30 shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[3px_3px_0px_#bfdbfe] dark:hover:shadow-[3px_3px_0px_#1e3a5f]"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                  </PixelBtn>
-                  <PixelBtn
-                    onClick={() => setPaused((p) => !p)}
-                    className="w-8 h-8 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:border-blue-400 dark:hover:border-gray-500 transition-colors shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[3px_3px_0px_#bfdbfe] dark:hover:shadow-[3px_3px_0px_#1e3a5f]"
-                  >
-                    {paused ? (
-                      <svg
-                        className="w-3.5 h-3.5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    ) : (
-                      <svg
-                        className="w-3.5 h-3.5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                      </svg>
-                    )}
-                  </PixelBtn>
-                  <PixelBtn
-                    onClick={next}
-                    disabled={typing}
-                    className="w-8 h-8 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-gray-500 transition-colors disabled:opacity-30 shadow-[2px_2px_0px_#d1d5db] dark:shadow-[2px_2px_0px_#374151] hover:shadow-[3px_3px_0px_#bfdbfe] dark:hover:shadow-[3px_3px_0px_#1e3a5f]"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </PixelBtn>
-                </div>
-              </div>
-
-              {/* Progress */}
-              <div className="flex items-center gap-2">
-                <div className="flex gap-1 flex-1 overflow-hidden">
-                  {questions.map((_, i) => (
-                    <span
-                      key={i}
-                      className={`h-1 transition-all duration-300 shrink-0 ${i === idx ? "w-4 bg-blue-500" : "w-1 bg-gray-300 dark:bg-gray-700"}`}
-                    />
-                  ))}
-                </div>
-              </div>
+              <PixelBtn
+                as="a"
+                href="https://ask.artariq.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors w-full justify-center"
+              >
+                Take the 2-minute audit →
+              </PixelBtn>
             </div>
           </div>
         </div>
