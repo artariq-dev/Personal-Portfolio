@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useDarkMode = () => {
-  const [dark, setDark] = useState(() => localStorage.getItem('theme') !== 'light');
+  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
 
   useEffect(() => {
     const root = document.documentElement;
