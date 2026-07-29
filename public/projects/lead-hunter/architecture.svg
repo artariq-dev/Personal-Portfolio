@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'Courier New', Courier, monospace">
+  <!-- Background -->
+  <rect width="900" height="560" fill="#f9fafb" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">Lead Hunter — Automated Lead Pipeline</text>
+  <text x="450" y="54" text-anchor="middle" font-size="11" fill="#6b7280">Scrape → Dedup → Enrich → Score → Store → Notify</text>
+
+  <!-- ═══════════════════════════ ROW 1: SOURCES ═══════════════════════════ -->
+  <text x="450" y="88" text-anchor="middle" font-size="10" font-weight="bold" fill="#6b7280" letter-spacing="2">DATA SOURCES</text>
+
+  <!-- Reddit -->
+  <rect x="30" y="98" width="120" height="52" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="90" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">Reddit</text>
+  <text x="90" y="133" text-anchor="middle" font-size="9" fill="#9a3412">65 queries</text>
+  <text x="90" y="145" text-anchor="middle" font-size="9" fill="#9a3412">15 subreddits</text>
+
+  <!-- Hacker News -->
+  <rect x="168" y="98" width="120" height="52" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="228" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">Hacker News</text>
+  <text x="228" y="133" text-anchor="middle" font-size="9" fill="#9a3412">Firebase API</text>
+  <text x="228" y="145" text-anchor="middle" font-size="9" fill="#9a3412">YC hiring threads</text>
+
+  <!-- Show HN -->
+  <rect x="306" y="98" width="120" height="52" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="366" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">Show HN</text>
+  <text x="366" y="133" text-anchor="middle" font-size="9" fill="#9a3412">Firebase API</text>
+  <text x="366" y="145" text-anchor="middle" font-size="9" fill="#9a3412">Founders who shipped</text>
+
+  <!-- Product Hunt -->
+  <rect x="444" y="98" width="120" height="52" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="504" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">Product Hunt</text>
+  <text x="504" y="133" text-anchor="middle" font-size="9" fill="#9a3412">RSS feed</text>
+  <text x="504" y="145" text-anchor="middle" font-size="9" fill="#9a3412">New launches</text>
+
+  <!-- Freelancer -->
+  <rect x="582" y="98" width="120" height="52" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="642" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">Freelancer</text>
+  <text x="642" y="133" text-anchor="middle" font-size="9" fill="#9a3412">RSS + keywords</text>
+  <text x="642" y="145" text-anchor="middle" font-size="9" fill="#9a3412">50+ tech terms</text>
+
+  <!-- Working Nomads -->
+  <rect x="720" y="98" width="150" height="52" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="795" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">Working Nomads</text>
+  <text x="795" y="133" text-anchor="middle" font-size="9" fill="#9a3412">JSON API</text>
+  <text x="795" y="145" text-anchor="middle" font-size="9" fill="#9a3412">Remote-first companies</text>
+
+  <!-- Arrows down to pipeline -->
+  <line x1="90"  y1="150" x2="90"  y2="186" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="228" y1="150" x2="228" y2="186" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="366" y1="150" x2="366" y2="186" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="504" y1="150" x2="504" y2="186" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="642" y1="150" x2="642" y2="186" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="795" y1="150" x2="795" y2="186" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+
+  <!-- Converge lines to pipeline box -->
+  <line x1="90"  y1="186" x2="450" y2="208" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="228" y1="186" x2="450" y2="208" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="366" y1="186" x2="450" y2="208" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="504" y1="186" x2="450" y2="208" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="642" y1="186" x2="450" y2="208" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+  <line x1="795" y1="186" x2="450" y2="208" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+
+  <!-- ═══════════════════════════ PIPELINE STAGES ═══════════════════════════ -->
+  <text x="450" y="204" text-anchor="middle" font-size="10" font-weight="bold" fill="#6b7280" letter-spacing="2">PIPELINE STAGES</text>
+
+  <!-- Unified Schema -->
+  <rect x="100" y="214" width="140" height="50" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="170" y="235" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">Unified Schema</text>
+  <text x="170" y="250" text-anchor="middle" font-size="9" fill="#1e40af">Normalise all sources</text>
+  <text x="170" y="262" text-anchor="middle" font-size="9" fill="#1e40af">into shared fields</text>
+
+  <line x1="240" y1="239" x2="270" y2="239" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Dedup -->
+  <rect x="270" y="214" width="140" height="50" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="340" y="235" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">SHA-256 Dedup</text>
+  <text x="340" y="250" text-anchor="middle" font-size="9" fill="#1e40af">URL hash → SQLite</text>
+  <text x="340" y="262" text-anchor="middle" font-size="9" fill="#1e40af">seen_jobs table</text>
+
+  <line x1="410" y1="239" x2="440" y2="239" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Enrich -->
+  <rect x="440" y="214" width="140" height="50" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="510" y="235" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">Enrichment</text>
+  <text x="510" y="250" text-anchor="middle" font-size="9" fill="#1e40af">Email · Discord · TG</text>
+  <text x="510" y="262" text-anchor="middle" font-size="9" fill="#1e40af">LinkedIn · GitHub · Domain</text>
+
+  <line x1="580" y1="239" x2="610" y2="239" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Score -->
+  <rect x="610" y="214" width="140" height="50" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="680" y="235" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">Scoring Engine</text>
+  <text x="680" y="250" text-anchor="middle" font-size="9" fill="#1e40af">Agency-optimised</text>
+  <text x="680" y="262" text-anchor="middle" font-size="9" fill="#1e40af">Drop score &lt; 10</text>
+
+  <!-- Arrow down from Score to outputs -->
+  <line x1="680" y1="264" x2="680" y2="296" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Arrow down from Enrich to outputs (via score) -->
+  <line x1="450" y1="264" x2="450" y2="296" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+
+  <!-- ═══════════════════════════ SCORING DETAIL ═══════════════════════════ -->
+  <rect x="70" y="298" width="480" height="90" rx="4" fill="#fefce8" stroke="#ca8a04" stroke-width="1.2"/>
+  <text x="310" y="316" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e" letter-spacing="1">SCORING SIGNALS (Agency-Optimised)</text>
+
+  <text x="90"  y="332" font-size="9" fill="#78350f">+25  Email found</text>
+  <text x="90"  y="346" font-size="9" fill="#78350f">+18  Reddit PM available</text>
+  <text x="90"  y="360" font-size="9" fill="#78350f">+10  Domain pattern guessed</text>
+  <text x="90"  y="374" font-size="9" fill="#78350f">+12  Urgency signals (ASAP, deadline)</text>
+
+  <text x="270" y="332" font-size="9" fill="#78350f">+10  Budget mentioned ($, rate)</text>
+  <text x="270" y="346" font-size="9" fill="#78350f">+15  Deep tech stack (Docker+K8s+AWS)</text>
+  <text x="270" y="360" font-size="9" fill="#78350f">+8   MVP / prototype / side project</text>
+  <text x="270" y="374" font-size="9" fill="#78350f">+6   Direct client signals</text>
+
+  <text x="455" y="332" font-size="9" fill="#b91c1c">−5   Recruiter phrases (W2, C2C)</text>
+  <text x="455" y="346" font-size="9" fill="#b91c1c">−20  Known staffing firms</text>
+  <text x="455" y="360" font-size="9" fill="#6b7280">✗    Geo-locked, clearance, junior</text>
+  <text x="455" y="374" font-size="9" fill="#6b7280">✗    Onsite / hybrid / &gt; 2 days old</text>
+
+  <!-- ═══════════════════════════ OUTPUT ROW ═══════════════════════════ -->
+  <text x="450" y="412" text-anchor="middle" font-size="10" font-weight="bold" fill="#6b7280" letter-spacing="2">OUTPUT</text>
+
+  <!-- Arrow from scoring box down -->
+  <line x1="310" y1="388" x2="310" y2="422" stroke="#d1d5db" stroke-width="1.2" stroke-dasharray="4"/>
+
+  <!-- SQLite -->
+  <rect x="100" y="422" width="150" height="50" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="175" y="443" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803d">SQLite</text>
+  <text x="175" y="458" text-anchor="middle" font-size="9" fill="#166534">leads + seen_jobs tables</text>
+  <text x="175" y="470" text-anchor="middle" font-size="9" fill="#166534">Historical dedup store</text>
+
+  <!-- CSV -->
+  <rect x="270" y="422" width="150" height="50" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="345" y="443" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803d">CSV Export</text>
+  <text x="345" y="458" text-anchor="middle" font-size="9" fill="#166534">leads_&lt;date&gt;.csv</text>
+  <text x="345" y="470" text-anchor="middle" font-size="9" fill="#166534">Full enrichment fields</text>
+
+  <!-- Telegram -->
+  <rect x="440" y="422" width="160" height="50" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="520" y="443" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803d">Telegram Digest</text>
+  <text x="520" y="458" text-anchor="middle" font-size="9" fill="#166534">Top 15 leads daily</text>
+  <text x="520" y="470" text-anchor="middle" font-size="9" fill="#166534">Score · title · URL</text>
+
+  <!-- Config note -->
+  <rect x="630" y="422" width="230" height="50" rx="4" fill="#faf5ff" stroke="#9333ea" stroke-width="1.2"/>
+  <text x="745" y="440" text-anchor="middle" font-size="10" font-weight="bold" fill="#7e22ce">config.py</text>
+  <text x="745" y="455" text-anchor="middle" font-size="9" fill="#6b21a8">Keywords · exclusions</text>
+  <text x="745" y="467" text-anchor="middle" font-size="9" fill="#6b21a8">Platform list · notify settings</text>
+
+  <!-- Footer -->
+  <text x="450" y="540" text-anchor="middle" font-size="9" fill="#9ca3af">Python 3 · Pandas · SQLite · requests · feedparser · Telegram Bot API · Free Tier Only</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="'Courier New', Courier, monospace">
+  <!-- Background -->
+  <rect width="900" height="580" fill="#f9fafb" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">Outreacher — Autonomous Email Outreach Engine</text>
+  <text x="450" y="54" text-anchor="middle" font-size="11" fill="#6b7280">Google Apps Script · Zero Infrastructure · Free Tier</text>
+
+  <!-- ═══ GOOGLE SHEET ═══ -->
+  <rect x="30" y="72" width="290" height="200" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="175" y="94" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803d">Google Sheet</text>
+
+  <!-- Sheet table mock -->
+  <rect x="46" y="102" width="258" height="18" rx="2" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <text x="50" y="115" font-size="8" fill="#166534" font-weight="bold">Name  Company  Email  Priority  Step  Status</text>
+  <rect x="46" y="122" width="258" height="14" rx="1" fill="#fff"/>
+  <text x="50" y="132" font-size="8" fill="#374151">John   Acme     j@…    High      1     Sent</text>
+  <rect x="46" y="138" width="258" height="14" rx="1" fill="#f9fafb"/>
+  <text x="50" y="148" font-size="8" fill="#374151">Jane   Beta     j@…    Medium    0     Ready</text>
+  <rect x="46" y="154" width="258" height="14" rx="1" fill="#fff"/>
+  <text x="50" y="164" font-size="8" fill="#374151">Mark   Corp     m@…    Low       0     Replied</text>
+
+  <!-- Control Panel -->
+  <rect x="46" y="178" width="258" height="62" rx="3" fill="#fffbeb" stroke="#f59e0b" stroke-width="1"/>
+  <text x="175" y="192" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">Control Panel</text>
+  <text x="56" y="207" font-size="8" fill="#78350f">Mode:  [Draft / Test / Live]</text>
+  <text x="56" y="220" font-size="8" fill="#78350f">Status: [Start / Stop]</text>
+  <text x="56" y="233" font-size="8" fill="#78350f">Daily counter: 14/20   Next send: 12 min</text>
+
+  <!-- Contact state note -->
+  <text x="175" y="260" text-anchor="middle" font-size="8" fill="#6b7280">Sheet = source of truth + control panel</text>
+  <text x="175" y="272" text-anchor="middle" font-size="8" fill="#6b7280">Every status write-back is immediate</text>
+
+  <!-- Arrow: Sheet → Script -->
+  <line x1="320" y1="172" x2="380" y2="172" stroke="#16a34a" stroke-width="1.8" marker-end="url(#garr)"/>
+  <text x="350" y="166" text-anchor="middle" font-size="8" fill="#6b7280">reads</text>
+
+  <!-- ═══ APPS SCRIPT CORE ═══ -->
+  <rect x="380" y="72" width="320" height="340" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="540" y="94" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">Google Apps Script</text>
+  <text x="540" y="108" text-anchor="middle" font-size="9" fill="#3b82f6">outreacher.gs · Runs every 15 min via trigger</text>
+
+  <!-- Steps -->
+  <!-- Step 1 -->
+  <rect x="396" y="118" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="132" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">1. Check campaign status (Start/Stop?)</text>
+  <text x="540" y="143" text-anchor="middle" font-size="8" fill="#1e40af">Read control panel cell → exit early if stopped</text>
+
+  <line x1="540" y1="146" x2="540" y2="154" stroke="#93c5fd" stroke-width="1.2" marker-end="url(#barr)"/>
+
+  <!-- Step 2 -->
+  <rect x="396" y="154" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="168" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">2. Enforce working hours (UTC)</text>
+  <text x="540" y="179" text-anchor="middle" font-size="8" fill="#1e40af">Outside 09:00–17:00 → skip, reschedule</text>
+
+  <line x1="540" y1="182" x2="540" y2="190" stroke="#93c5fd" stroke-width="1.2" marker-end="url(#barr)"/>
+
+  <!-- Step 3 -->
+  <rect x="396" y="190" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="204" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">3. Check daily limit (max 20/day)</text>
+  <text x="540" y="215" text-anchor="middle" font-size="8" fill="#1e40af">PropertiesService counter → stop at 20</text>
+
+  <line x1="540" y1="218" x2="540" y2="226" stroke="#93c5fd" stroke-width="1.2" marker-end="url(#barr)"/>
+
+  <!-- Step 4 -->
+  <rect x="396" y="226" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="240" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">4. Calculate pace interval</text>
+  <text x="540" y="251" text-anchor="middle" font-size="8" fill="#1e40af">remaining_time ÷ remaining_sends × jitter ±30%</text>
+
+  <line x1="540" y1="254" x2="540" y2="262" stroke="#93c5fd" stroke-width="1.2" marker-end="url(#barr)"/>
+
+  <!-- Step 5 -->
+  <rect x="396" y="262" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="276" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">5. Check reply inbox (GmailApp search)</text>
+  <text x="540" y="287" text-anchor="middle" font-size="8" fill="#1e40af">Mark Replied or STOP → skip follow-up</text>
+
+  <line x1="540" y1="290" x2="540" y2="298" stroke="#93c5fd" stroke-width="1.2" marker-end="url(#barr)"/>
+
+  <!-- Step 6 -->
+  <rect x="396" y="298" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="312" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">6. Build spintax email</text>
+  <text x="540" y="323" text-anchor="middle" font-size="8" fill="#1e40af">Randomise {option1|option2} → unique per send</text>
+
+  <line x1="540" y1="326" x2="540" y2="334" stroke="#93c5fd" stroke-width="1.2" marker-end="url(#barr)"/>
+
+  <!-- Step 7 -->
+  <rect x="396" y="334" width="288" height="28" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="540" y="348" text-anchor="middle" font-size="9" fill="#1e40af" font-weight="bold">7. Send / Draft via GmailApp</text>
+  <text x="540" y="359" text-anchor="middle" font-size="8" fill="#1e40af">Draft mode / Test mode / Live mode</text>
+
+  <!-- Arrow: Script → Sheet (write-back) -->
+  <line x1="380" y1="320" x2="320" y2="310" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4" marker-end="url(#garr2)"/>
+  <text x="348" y="303" text-anchor="middle" font-size="8" fill="#6b7280">write-back</text>
+
+  <!-- ═══ FOLLOW-UP TIMELINE ═══ -->
+  <rect x="30" y="300" width="290" height="112" rx="6" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="175" y="318" text-anchor="middle" font-size="10" font-weight="bold" fill="#7e22ce">3-Step Follow-Up Sequence</text>
+
+  <circle cx="70" cy="340" r="14" fill="#a855f7"/>
+  <text x="70" y="344" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">D0</text>
+  <text x="96" y="337" font-size="9" fill="#581c87">Initial email sent</text>
+  <text x="96" y="349" font-size="9" fill="#6b7280">Step = 1, Status = Sent</text>
+
+  <line x1="70" y1="354" x2="70" y2="370" stroke="#a855f7" stroke-width="1.2"/>
+  <circle cx="70" cy="375" r="14" fill="#c084fc"/>
+  <text x="70" y="379" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">D3</text>
+  <text x="96" y="372" font-size="9" fill="#581c87">Follow-up 1 auto-sent</text>
+  <text x="96" y="384" font-size="9" fill="#6b7280">If no reply detected</text>
+
+  <line x1="70" y1="389" x2="70" y2="398" stroke="#a855f7" stroke-width="1.2"/>
+  <circle cx="70" cy="398" r="11" fill="#e9d5ff"/>
+  <text x="70" y="402" text-anchor="middle" font-size="9" fill="#7e22ce" font-weight="bold">D7</text>
+  <text x="96" y="399" font-size="9" fill="#581c87">Follow-up 2 auto-sent</text>
+  <text x="96" y="411" font-size="9" fill="#6b7280">Then marked Complete</text>
+
+  <!-- ═══ RIGHT PANEL: KEY DESIGN ═══ -->
+  <rect x="720" y="72" width="160" height="340" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="800" y="93" text-anchor="middle" font-size="10" font-weight="bold" fill="#c2410c">Key Design</text>
+
+  <text x="734" y="112" font-size="9" fill="#7c2d12" font-weight="bold">Zero Infrastructure</text>
+  <text x="734" y="124" font-size="8" fill="#9a3412">No EC2, Lambda,</text>
+  <text x="734" y="134" font-size="8" fill="#9a3412">Heroku or Vercel</text>
+
+  <line x1="734" y1="142" x2="864" y2="142" stroke="#fed7aa" stroke-width="1"/>
+
+  <text x="734" y="158" font-size="9" fill="#7c2d12" font-weight="bold">Pace Engine</text>
+  <text x="734" y="170" font-size="8" fill="#9a3412">remaining_time ÷</text>
+  <text x="734" y="180" font-size="8" fill="#9a3412">remaining_sends</text>
+  <text x="734" y="190" font-size="8" fill="#9a3412">+ jitter ±30%</text>
+
+  <line x1="734" y1="198" x2="864" y2="198" stroke="#fed7aa" stroke-width="1"/>
+
+  <text x="734" y="214" font-size="9" fill="#7c2d12" font-weight="bold">Spintax</text>
+  <text x="734" y="226" font-size="8" fill="#9a3412">{Hi|Hello|Hey}</text>
+  <text x="734" y="236" font-size="8" fill="#9a3412">No two emails</text>
+  <text x="734" y="246" font-size="8" fill="#9a3412">look identical</text>
+
+  <line x1="734" y1="254" x2="864" y2="254" stroke="#fed7aa" stroke-width="1"/>
+
+  <text x="734" y="270" font-size="9" fill="#7c2d12" font-weight="bold">Reply Detection</text>
+  <text x="734" y="282" font-size="8" fill="#9a3412">GmailApp search</text>
+  <text x="734" y="292" font-size="8" fill="#9a3412">before every send</text>
+  <text x="734" y="302" font-size="8" fill="#9a3412">STOP auto-unsub</text>
+
+  <line x1="734" y1="310" x2="864" y2="310" stroke="#fed7aa" stroke-width="1"/>
+
+  <text x="734" y="326" font-size="9" fill="#7c2d12" font-weight="bold">3 Safe Modes</text>
+  <text x="734" y="338" font-size="8" fill="#9a3412">Draft → Test</text>
+  <text x="734" y="348" font-size="8" fill="#9a3412">→ Live</text>
+  <text x="734" y="358" font-size="8" fill="#9a3412">One dropdown cell</text>
+
+  <!-- Arrow: Script → Gmail -->
+  <line x1="700" y1="348" x2="718" y2="320" stroke="#f97316" stroke-width="1.2" stroke-dasharray="4"/>
+
+  <!-- ═══ BOTTOM: TECH STACK ═══ -->
+  <rect x="30" y="432" width="840" height="52" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="450" y="450" text-anchor="middle" font-size="10" font-weight="bold" fill="#475569">Tech Stack</text>
+  <text x="450" y="468" text-anchor="middle" font-size="9" fill="#64748b">Google Apps Script (JS ES5) · GmailApp · SpreadsheetApp · PropertiesService · Script Properties · Zero External Dependencies</text>
+
+  <!-- Footer -->
+  <text x="450" y="562" text-anchor="middle" font-size="9" fill="#9ca3af">Single .gs file · 521 lines · Runs on Google's free tier · No npm · No API keys · No paid services</text>
+
+  <defs>
+    <marker id="garr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/>
+    </marker>
+    <marker id="garr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#9ca3af"/>
+    </marker>
+    <marker id="barr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#93c5fd"/>
+    </marker>
+  </defs>
+</svg>
