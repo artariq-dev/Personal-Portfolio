@@ -13,7 +13,7 @@ const btnClass = "flex items-center gap-4 p-5 bg-gray-50 dark:bg-gray-800 border
 
 const ContactBtn = ({ href, label, value, icon: Icon, bg }) => (
   <PixelBtn as="a" href={href} target="_blank" rel="noopener noreferrer" className={btnClass}>
-    <div className={`w-10 h-10 rounded ${bg} flex items-center justify-center shrink-0`}>
+    <div className={`w-10 h-10 rounded ${bg} flex items-center justify-center shrink-0 text-white`}>
       <Icon />
     </div>
     <div>
