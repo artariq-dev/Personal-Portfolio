@@ -1,13 +1,15 @@
-// projects data — separated for maintainability
+// projects data
 export const coreProjects = [
   {
     slug: "find24",
+    category: "fullstack",
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Algolia · Mapbox",
     title: "Find-24 — Local Service Provider Marketplace",
     techs: ["nuxt", "vuedotjs", "typescript", "tailwindcss", "algolia", "mapbox"],
     subtitle: "Algolia Search · Mapbox Geolocation · Pinia · 180+ Providers · 600+ Clients",
     github: "https://github.com/artariq-dev/Find-24",
+    cover: `${process.env.PUBLIC_URL}/projects/find24/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/find24/01.webp`,
       `${process.env.PUBLIC_URL}/projects/find24/02.webp`,
@@ -36,13 +38,15 @@ export const coreProjects = [
       { value: "3", label: "Steps to Hire", sub: "Sign up → Select → Connect" },
     ],
   },
-    {
+  {
     slug: "solar-pv-crm",
+    category: "fullstack",
     niche: "Full-Stack CRM",
     tag: "Full Stack · Django · AI · CRM",
     title: "Solar PV Installation CRM with AI Email Automation",
     techs: ["django", "python", "postgresql", "redis", "docker", "githubactions", "celery", "plotly", "anthropic", "stripe", "googleads", "facebook", "aws", "sentry"],
     subtitle: "Django · PostgreSQL/PostGIS · Celery · Redis · Claude AI · Stripe · Docker · GitHub Actions",
+    cover: `${process.env.PUBLIC_URL}/projects/solar-pv-crm/cover.jpg`,
     diagram: `${process.env.PUBLIC_URL}/projects/solar-pv-crm/architecture.svg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/solar-pv-crm/01.webp`,
@@ -81,11 +85,13 @@ export const coreProjects = [
       { value: "€11-23K", label: "Saved Year 1", sub: "vs €12-24K/yr SaaS costs" },
     ],
   },
-    {
+  {
     slug: "django-clinical-crm",
+    category: "fullstack",
     niche: "Full-Stack CRM",
     tag: "Full Stack · Django · CRM · AdTech",
     title: "CRM for Clinical Appointments + Location-Based Ad Targeting",
+    cover: `${process.env.PUBLIC_URL}/projects/django-clinical-crm/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/django-clinical-crm/01.webp`,
       `${process.env.PUBLIC_URL}/projects/django-clinical-crm/02.webp`,
@@ -122,14 +128,16 @@ export const coreProjects = [
       { value: "99.5%", label: "System Uptime", sub: "Auto-scaling + failover" },
     ],
   },
-    {
+  {
     slug: "agency-papierfischer",
+    category: "fullstack",
     niche: "Full-Stack Storefront",
     tag: "Full Stack · Headless Commerce · Magento 2",
     title: "PaperFisher — Magento 2 Storefront",
     techs: ["magento", "graphql", "nuxt", "vuedotjs"],
     subtitle: "Headless Commerce · Magento 2 GraphQL · Nuxt 2 · Vue Storefront 2",
     live: "https://www.papierfischer.de/",
+    cover: `${process.env.PUBLIC_URL}/projects/papierfischer/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/papierfischer/01.webp`,
       `${process.env.PUBLIC_URL}/projects/papierfischer/02.webp`,
@@ -146,16 +154,23 @@ export const coreProjects = [
       "nuxt-i18n for multi-language support.",
       "Custom sorting and pagination components on category pages.",
     ],
-    stats: [],
+    stats: [
+      { value: "Headless", label: "Fully Decoupled", sub: "Frontend independent of Magento" },
+      { value: "3", label: "Sort Modes Added", sub: "Price · A-Z · Relevance" },
+      { value: "GraphQL", label: "Real-Time Queries", sub: "Category pages via Magento API" },
+      { value: "2", label: "Languages", sub: "nuxt-i18n throughout" },
+    ],
   },
-    {
+  {
     slug: "agency-kitchenz",
+    category: "fullstack",
     niche: "Full-Stack E-Commerce",
     tag: "Full Stack · Nuxt.js · Vue.js · UnoCSS",
     title: "Kitchenz — Product Configurator",
     techs: ["nuxt", "vuedotjs", "unocss"],
     subtitle: "Interactive product configurator — Nuxt.js · Vue.js · UnoCSS · SSG",
     live: "https://www.kitchenz.de/",
+    cover: `${process.env.PUBLIC_URL}/projects/kitchenz/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/kitchenz/01.webp`,
       `${process.env.PUBLIC_URL}/projects/kitchenz/02.webp`,
@@ -171,10 +186,16 @@ export const coreProjects = [
       "UnoCSS for utility-first styling without heavy CSS bundles.",
       "Open Graph meta tags for social sharing.",
     ],
-    stats: [],
+    stats: [
+      { value: "Real-time", label: "Instant Visual Feedback", sub: "Config changes render live" },
+      { value: "SSG", label: "Zero Server Needed", sub: "Static generation on Nuxt" },
+      { value: "4", label: "Config Dimensions", sub: "Layout · Material · Component · Finish" },
+      { value: "0", label: "Friction to Configure", sub: "No account needed" },
+    ],
   },
-    {
+  {
     slug: "yearpeek",
+    category: "fullstack",
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Vue 3 · SaaS",
     title: "YearPeek — Yearly Calendar Management SaaS",
@@ -182,6 +203,7 @@ export const coreProjects = [
     subtitle: "Full-Year View · Multi-Calendar · Event & Task Management · Guest Invites · Google Auth",
     github: "https://github.com/artariq-dev/calendar-frontend",
     dribbble: "https://dribbble.com/shots/25508905-YEARPEEK-Annual-Calendar",
+    cover: `${process.env.PUBLIC_URL}/projects/yearpeek/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/yearpeek/01.webp`,
       `${process.env.PUBLIC_URL}/projects/yearpeek/02.webp`,
@@ -208,10 +230,16 @@ export const coreProjects = [
       "Settings: general, notifications, calendars, profile.",
       "Third-party schedule sync support.",
     ],
-    stats: [],
+    stats: [
+      { value: "12 months", label: "On One Screen", sub: "No scrolling, no context-switching" },
+      { value: "17", label: "BFF API Endpoints", sub: "Nuxt server layer" },
+      { value: "4", label: "Calendar Types", sub: "Personal · Work · Shared · Synced" },
+      { value: "1 screen", label: "Full Year Visible", sub: "Events + tasks across all 12 months" },
+    ],
   },
-    {
+  {
     slug: "agency-birdie",
+    category: "fullstack",
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Firebase · Stripe",
     title: "Birdie — Shopify Agency SaaS Landing Page",
@@ -219,6 +247,7 @@ export const coreProjects = [
     subtitle: "Stripe Subscriptions · Firebase Firestore · EN/DE i18n · Conversion-Optimised",
     live: "https://www.birdiecommerce.com/",
     dribbble: "https://dribbble.com/shots/27096097-BIRDIE-SHOPIFY-WEB-AGENCY",
+    cover: `${process.env.PUBLIC_URL}/projects/birdie/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/birdie/01.webp`,
       `${process.env.PUBLIC_URL}/projects/birdie/02.webp`,
@@ -234,16 +263,23 @@ export const coreProjects = [
       "vue-i18n provides full EN/DE internationalisation.",
       "Deployed and hosted with automated CI/CD.",
     ],
-    stats: [],
+    stats: [
+      { value: "2 languages", label: "EN/DE Full i18n", sub: "vue-i18n throughout" },
+      { value: "0", label: "Custom Backend", sub: "Firebase + Stripe only" },
+      { value: "2 clicks", label: "Stripe Checkout", sub: "Subscription purchase flow" },
+      { value: "1 page", label: "Conversion Funnel", sub: "Lead → subscriber, no detours" },
+    ],
   },
-    {
+  {
     slug: "agency-021",
+    category: "fullstack",
     niche: "Full-Stack CMS",
     tag: "Full Stack · Nuxt 3 · Strapi CMS · Cloudflare",
     title: "021 — Agency Website with Strapi CMS",
     techs: ["nuxt", "strapi", "cloudflare", "tailwindcss", "cloudflareworkers"],
     subtitle: "Headless CMS · Blog System · Calendly · EmailOctopus · Cloudflare Workers",
     live: "https://021.uk/",
+    cover: `${process.env.PUBLIC_URL}/projects/021/cover.jpg`,
     images: [
       `${process.env.PUBLIC_URL}/projects/021/01.webp`,
       `${process.env.PUBLIC_URL}/projects/021/02.webp`,
@@ -261,10 +297,82 @@ export const coreProjects = [
       "Deployed on Cloudflare Workers via Wrangler CLI.",
       "Tailwind CSS provides utility-first styling across the site.",
     ],
-    stats: [],
+    stats: [
+      { value: "Edge", label: "Global Deployment", sub: "Cloudflare Workers CDN" },
+      { value: "0 devs", label: "To Publish Content", sub: "Editors work independently" },
+      { value: "Headless", label: "Decoupled CMS", sub: "Swap frontend without touching Strapi" },
+      { value: "3", label: "Integrations", sub: "Calendly · EmailOctopus · Strapi" },
+    ],
   },
-    {
+  {
+    slug: "lead-hunter",
+    category: "fullstack",
+    niche: "Automation & Tooling",
+    tag: "Automation · Python · Scraping · Lead Gen",
+    title: "Lead Hunter — Automated Lead Pipeline",
+    techs: ["python", "sqlite", "telegram"],
+    subtitle: "6 Platforms · SHA-256 Dedup · Contact Enrichment · Agency-Optimised Scoring · Telegram Digest",
+    github: "https://github.com/artariq-dev/lead-hunter",
+    cover: `${process.env.PUBLIC_URL}/projects/lead-hunter/cover.jpg`,
+    diagram: `${process.env.PUBLIC_URL}/projects/lead-hunter/architecture.svg`,
+    problem: "Finding freelance work means manually checking Reddit, Hacker News, Product Hunt, Freelancer, and niche job boards every morning. By the time you spot a good lead, 50 others have already replied. Manual search is slow, repetitive, and rewards whoever shows up first — not whoever's the best fit.",
+    solution: "A pipeline that runs in one command and does in seconds what takes 2 hours manually. 6 scrapers feed into a unified schema, SHA-256 URL deduplication drops anything seen before, contact extraction pulls email/Discord/LinkedIn/GitHub/domain from raw text, and an agency-optimised scoring engine filters noise from signal. Top 15 leads land in Telegram daily.",
+    impact: "65 Reddit queries across 15 subreddits, Hacker News, Show HN, Product Hunt, Freelancer, and Working Nomads — all deduplicated across sessions. Enrichment runs first: if no email is found, the system guesses one (hello@{domain}, info@{domain}). Leads scored below 10 are dropped. Everything else is billable pipeline.",
+    implementation: [
+      "6 scrapers: Reddit (65 queries × 15 subreddits), Hacker News (Firebase API), Show HN (Firebase API), Product Hunt (RSS), Freelancer (RSS + 50 keywords), Working Nomads (JSON API).",
+      "Unified schema normalises all source fields into a shared lead model before any processing.",
+      "SHA-256 URL hashing → seen_jobs SQLite table. Run daily — duplicates are silently dropped.",
+      "Enrichment before filtering: email, Discord, Telegram, LinkedIn, GitHub, company domain extracted from raw post text. If no email found, domain pattern is guessed.",
+      "Agency-optimised scoring: +25 email found, +18 Reddit PM, +12 urgency (ASAP/deadline), +10 budget mentioned, +15 deep tech stack, +8 MVP/prototype fit, +6 direct client signals.",
+      "Recruiter penalty: −5 for W2/C2C phrases, −20 for known staffing firms (kept as potential partners, not dropped).",
+      "Drop conditions: geo-locked (US/UK only), clearance required, junior/intern, onsite/hybrid, >2 days old, score < 10.",
+      "Output: CSV (data/leads_<date>.csv), SQLite (leads + seen_jobs tables), Telegram digest (top 15 leads with score, title, company, source, URL).",
+      "All configuration in config.py: keywords, exclusions, enabled platforms, notification settings.",
+      "Free tier only — no paid APIs, no proxies, no Playwright. Every scraper uses requests or feedparser.",
+    ],
+    stats: [
+      { value: "6", label: "Platforms Scraped", sub: "Reddit · HN · PH · Freelancer · More" },
+      { value: "65", label: "Reddit Queries", sub: "Across 15 subreddits" },
+      { value: "0", label: "Paid APIs", sub: "100% free tier" },
+      { value: "15", label: "Leads Daily", sub: "Top-scored in Telegram" },
+    ],
+  },
+  {
+    slug: "outreacher",
+    category: "fullstack",
+    niche: "Automation & Tooling",
+    tag: "Automation · Google Apps Script · Email",
+    title: "Outreacher — Autonomous Email Outreach Engine",
+    techs: ["googleappsscript", "googlesheets"],
+    subtitle: "Spintax Templates · Pace Engine · 3-Step Follow-Ups · Reply Detection · Zero Infrastructure",
+    github: "https://github.com/artariq-dev/outreacher",
+    cover: `${process.env.PUBLIC_URL}/projects/outreacher/cover.jpg`,
+    diagram: `${process.env.PUBLIC_URL}/projects/outreacher/architecture.svg`,
+    problem: "Cold email campaign tools are either expensive ($50–$300/month for Mailchimp, HubSpot, Lemlist), inflexible, or complete overkill. Running manually means writing emails one-by-one, tracking follow-ups in a spreadsheet, guessing when to send, and hoping you don't hit spam filters.",
+    solution: "A single Google Sheet + Google Apps Script that becomes a fully autonomous email outreach engine — with zero servers, zero billing, zero cold starts. Sends are paced intelligently, every email gets spintaxed so no two look identical, 3-step follow-ups run automatically, and replies and STOPs are detected before the next send fires.",
+    impact: "Drives all email-acquired traffic to ask.artariq.dev. The entire system runs on Google's free tier — the 15-minute trigger is Google's maximum frequency, which naturally paces 20 sends/day without any rate-limit risk. One dropdown cell switches between Draft, Test, and Live mode.",
+    implementation: [
+      "Pace engine: calculates send interval dynamically as remaining_time ÷ remaining_sends × jitter ±30%. Prevents burst patterns that burn domains.",
+      "Spintax resolver: randomises {option1|option2|option3} phrases within every email body — each recipient gets a unique variation.",
+      "GmailApp reply detection: scans inbox before every send. A reply arriving 2 minutes before a scheduled follow-up cancels that send.",
+      "STOP detection: contacts who reply with STOP are auto-unsubscribed and removed from the sequence.",
+      "3-step sequence: Day 0 initial, Day 3 follow-up 1, Day 7 follow-up 2 — each step auto-triggered if no reply detected.",
+      "PropertiesService persists the daily send counter across trigger invocations.",
+      "Working hours enforcement: script exits early outside 09:00–17:00 UTC and reschedules.",
+      "3 safe modes: Draft (Gmail drafts only, zero risk), Test (sends to yourself), Live (sends to real contacts) — switched by one Sheet dropdown cell.",
+      "Sheet-as-state: every status update writes back immediately. Pause a campaign, override a status, or skip a contact by editing the sheet directly.",
+      "Zero external dependencies — no npm packages, no API keys, no paid services. 521 lines of Google Apps Script (JS ES5).",
+    ],
+    stats: [
+      { value: "0", label: "Infrastructure", sub: "No servers, no billing" },
+      { value: "20/day", label: "Send Limit", sub: "Intelligently paced" },
+      { value: "3", label: "Follow-Up Steps", sub: "Day 0 · Day 3 · Day 7" },
+      { value: "0", label: "External Dependencies", sub: "Pure Google free tier" },
+    ],
+  },
+  {
     slug: "kubernetes-platform",
+    category: "cloud",
     niche: "Cloud Native",
     tag: "Infrastructure · Cloud Native · Multi-Cloud",
     title: "Production-Grade Kubernetes Platform",
@@ -300,8 +408,9 @@ export const coreProjects = [
       { value: "12", label: "Services in Production", sub: "Full observability stack" },
     ],
   },
-    {
+  {
     slug: "secure-supply-chain",
+    category: "cloud",
     niche: "Supply Chain Security",
     tag: "Supply Chain Security · GitOps · Platform Engineering",
     title: "End-to-End Secure Software Supply Chain",
@@ -331,8 +440,9 @@ export const coreProjects = [
       { value: "SLSA L2", label: "Provenance on Every Build", sub: "Commit → pod, traceable" },
     ],
   },
-    {
+  {
     slug: "aws-secure-baseline",
+    category: "cloud",
     niche: "Security & Compliance",
     tag: "AWS · Security · Infrastructure-as-Code · Multi-Account",
     title: "AWS Secure Baseline — Multi-Account Security Platform",
@@ -363,8 +473,9 @@ export const coreProjects = [
       { value: "4", label: "Environments, One Baseline", sub: "dev · sit · staging · prod" },
     ],
   },
-    {
+  {
     slug: "azure-opa-pipeline",
+    category: "cloud",
     niche: "Policy-as-Code",
     tag: "Azure · DevOps · Policy-as-Code",
     title: "Azure DevOps Pipeline with OPA Policy Enforcement",
@@ -393,8 +504,9 @@ export const coreProjects = [
       { value: "0", label: "Manual Steps", sub: "Commit to running workload" },
     ],
   },
-    {
+  {
     slug: "gitops-sealed-secrets",
+    category: "cloud",
     niche: "GitOps & Security",
     tag: "Azure · GitOps · Secret Management",
     title: "Multi-Environment GitOps Platform with Sealed Secrets",
@@ -423,5 +535,37 @@ export const coreProjects = [
       { value: "0", label: "Config Drift", sub: "ArgoCD self-heals always" },
       { value: "100%", label: "GitOps Model Preserved", sub: "Security + auditability" },
     ],
-  }
+  },
+  {
+    slug: "oci-vpn",
+    category: "cloud",
+    niche: "Infrastructure",
+    tag: "Infrastructure · Oracle Cloud · Terraform · VPN",
+    title: "OCI VPN — Self-Hosted OpenVPN on Oracle Cloud Free Tier",
+    techs: ["oracle", "terraform"],
+    subtitle: "Terraform · Oracle Cloud · OpenVPN Access Server · Free Tier · cloud-init",
+    github: "https://github.com/artariq-dev/oci-vpn",
+    diagram: `${process.env.PUBLIC_URL}/projects/oci-vpn/architecture.svg`,
+    problem: "A self-hosted VPN gives you full control over your network access — no logs, no third-party trust, no monthly subscription. But setting one up means: create a VCN, configure subnets, set up routing, open the right ports, launch a compute instance, SSH in, install OpenVPN, run the initial setup — every time. For something you might tear down and rebuild, that's too many manual steps.",
+    solution: "A single Terraform module that provisions the entire OCI network stack and installs OpenVPN Access Server in one command. The cloud-init user_data script handles the OpenVPN installation on first boot — no SSH required after terraform apply. The whole environment tears down just as fast with terraform destroy.",
+    impact: "VCN, Internet Gateway, Route Table, Subnet, Security List, and a free-tier compute instance with OpenVPN fully installed — from zero to running VPN in one terraform apply. $0/month to run on OCI's always-free tier. No orphaned resources on teardown.",
+    implementation: [
+      "VCN (10.0.0.0/16) provides the isolated network boundary on Oracle Cloud.",
+      "Internet Gateway and Route Table (0.0.0.0/0 → IGW) route public traffic into the VCN.",
+      "Subnet (10.0.1.0/24) hosts the VPN compute instance.",
+      "Security List opens only the 4 required ports: 22/tcp (SSH), 443/tcp (HTTPS web UI), 943/tcp (OpenVPN admin), 1194/udp (OpenVPN tunnel).",
+      "VM.Standard.E2.1.Micro compute instance — qualifies for OCI's always-free tier.",
+      "cloud-init user_data script: yum update, download OCI OpenVPN repo, install package, run initial batch config — all on first boot.",
+      "Outputs: openvpn_public_ip, openvpn_admin_url (https://<ip>:943/admin), openvpn_client_url.",
+      "terraform destroy removes the entire environment with no orphaned resources.",
+      "Variables: region, compartment_id, instance_shape, ssh_key — configured via terraform.tfvars.",
+      "Targets Oracle Cloud specifically — most tutorials target AWS. Useful for OCI free-tier users or those avoiding AWS/Azure vendor lock for their VPN.",
+    ],
+    stats: [
+      { value: "$0/mo", label: "Running Cost", sub: "OCI always-free tier" },
+      { value: "1", label: "Command to Deploy", sub: "terraform apply" },
+      { value: "4", label: "Ports Only", sub: "Minimal attack surface" },
+      { value: "0", label: "Manual Steps", sub: "cloud-init handles install" },
+    ],
+  },
 ];
