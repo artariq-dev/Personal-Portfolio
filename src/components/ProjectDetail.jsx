@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { coreProjects } from './projectsData';
 import PixelBtn from './PixelBtn';
-import { GitHubIcon } from './Icons';
+import { GitHub } from './Icons';
 import { Timeline } from './ProjectHelpers';
 import { techNames, iconUrl } from './techIcons';
+import Lightbox from './Lightbox';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -15,8 +16,6 @@ const ProjectDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  
 
   if (!project) {
     return (
@@ -34,7 +33,6 @@ const ProjectDetail = () => {
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-16">
         <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors mb-6 cursor-pointer">← Back to projects</button>
 
-        <div className="mb-0">
           <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 inline-block mb-3">
             {project.tag}
           </span>
@@ -45,13 +43,13 @@ const ProjectDetail = () => {
             {project.github && (
               <PixelBtn as="a" href={project.github} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 text-xs font-semibold">
-                <GitHubIcon /> {project.githubLabel || "GitHub"}
+                <GitHub /> {project.githubLabel || "GitHub"}
               </PixelBtn>
             )}
             {project.githubAlt && (
               <PixelBtn as="a" href={project.githubAlt.url} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 text-xs font-semibold">
-                <GitHubIcon /> {project.githubAlt.label}
+                <GitHub /> {project.githubAlt.label}
               </PixelBtn>
             )}
             {project.live && (
@@ -67,8 +65,6 @@ const ProjectDetail = () => {
               </PixelBtn>
             )}
           </div>
-
-        </div>
 
         {project.stats.length > 0 && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
@@ -132,14 +128,7 @@ const ProjectDetail = () => {
 
       </div>
 
-      {lightbox && (
-        <div className="fixed inset-0 z-[70] bg-black/80 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
-          <img src={lightbox.src} alt={lightbox.alt}
-            className={`max-w-full max-h-[90vh] rounded shadow-2xl ${lightbox.invert ? 'dark:invert-[.85]' : ''}`}
-            onClick={e => e.stopPropagation()} />
-          <button className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-gray-300" onClick={() => setLightbox(null)}>✕</button>
-        </div>
-      )}
+      {lightbox && <Lightbox {...lightbox} onClose={() => setLightbox(null)} />}
     </div>
   );
 };
