@@ -21,7 +21,7 @@ export const domains = [
     title: "Faster & Safer Delivery",
     problem: "Your competitors ship faster. Every release is manual, stressful, and one wrong step away from breaking production.",
     capability: "I'll automate your delivery pipeline so deployments become boring. Ship in hours, rollback in minutes, and stop dreading release day.",
-    tags: ["Docker", "Kubernetes", "GitHub Actions", "ArgoCD", "Terraform", "Helm", "Kustomize"],
+    tags: ["Docker", "Kubernetes", "GitHub Actions", "Terraform", "Helm", "Kustomize"],
   },
   {
     title: "Cloud Infrastructure & Cost",
@@ -31,7 +31,7 @@ export const domains = [
   },
   {
     title: "Security & Compliance",
-    problem: "You don't actually know if your infrastructure is secure. One breach costs more than money — it costs trust. And enterprise deals die over compliance.",
+    problem: "You don't know if your infrastructure is secure. One breach costs more than money — it costs trust. Enterprise deals die over compliance.",
     capability: "I'll build security into your platform from day one — so you pass audits without scrambling, and your users trust you with their data.",
     tags: ["GuardDuty", "Kyverno", "Cosign", "Trivy", "Falco", "OPA", "SCPs", "SOC2"],
   },
