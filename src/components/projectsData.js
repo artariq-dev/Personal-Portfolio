@@ -3,6 +3,7 @@ export const coreProjects = [
   {
     slug: "find24",
     category: "fullstack",
+    filters: ["Full-Stack", "SaaS"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Algolia · Mapbox",
     title: "Find-24 — Local Service Provider Marketplace",
@@ -41,6 +42,7 @@ export const coreProjects = [
   {
     slug: "solar-pv-crm",
     category: "fullstack",
+    filters: ["Full-Stack", "CRM", "Automation"],
     niche: "Full-Stack CRM",
     tag: "Full Stack · Django · AI · CRM",
     title: "Solar PV Installation CRM with AI Email Automation",
@@ -88,6 +90,7 @@ export const coreProjects = [
   {
     slug: "django-clinical-crm",
     category: "fullstack",
+    filters: ["Full-Stack", "CRM"],
     niche: "Full-Stack CRM",
     tag: "Full Stack · Django · CRM · AdTech",
     title: "CRM for Clinical Appointments + Location-Based Ad Targeting",
@@ -131,6 +134,7 @@ export const coreProjects = [
   {
     slug: "agency-papierfischer",
     category: "fullstack",
+    filters: ["Full-Stack", "E-Commerce"],
     niche: "Full-Stack Storefront",
     tag: "Full Stack · Headless Commerce · Magento 2",
     title: "PaperFisher — Magento 2 Storefront",
@@ -164,6 +168,7 @@ export const coreProjects = [
   {
     slug: "agency-kitchenz",
     category: "fullstack",
+    filters: ["Full-Stack", "E-Commerce"],
     niche: "Full-Stack E-Commerce",
     tag: "Full Stack · Nuxt.js · Vue.js · UnoCSS",
     title: "Kitchenz — Product Configurator",
@@ -196,6 +201,7 @@ export const coreProjects = [
   {
     slug: "yearpeek",
     category: "fullstack",
+    filters: ["Full-Stack", "SaaS"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Vue 3 · SaaS",
     title: "YearPeek — Yearly Calendar Management SaaS",
@@ -240,6 +246,7 @@ export const coreProjects = [
   {
     slug: "agency-birdie",
     category: "fullstack",
+    filters: ["SaaS"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Firebase · Stripe",
     title: "Birdie — Shopify Agency SaaS Landing Page",
@@ -273,6 +280,7 @@ export const coreProjects = [
   {
     slug: "agency-021",
     category: "fullstack",
+    filters: ["Full-Stack", "CMS"],
     niche: "Full-Stack CMS",
     tag: "Full Stack · Nuxt 3 · Strapi CMS · Cloudflare",
     title: "021 — Agency Website with Strapi CMS",
@@ -307,6 +315,7 @@ export const coreProjects = [
   {
     slug: "lead-hunter",
     category: "fullstack",
+    filters: ["Full-Stack", "Automation"],
     niche: "Automation & Tooling",
     tag: "Automation · Python · Scraping · Lead Gen",
     title: "Lead Hunter — Automated Lead Pipeline",
@@ -340,6 +349,7 @@ export const coreProjects = [
   {
     slug: "outreacher",
     category: "fullstack",
+    filters: ["Automation"],
     niche: "Automation & Tooling",
     tag: "Automation · Google Apps Script · Email",
     title: "Outreacher — Autonomous Email Outreach Engine",
@@ -373,6 +383,7 @@ export const coreProjects = [
   {
     slug: "kubernetes-platform",
     category: "cloud",
+    filters: ["Cloud", "DevOps"],
     niche: "Cloud Native",
     tag: "Infrastructure · Cloud Native · Multi-Cloud",
     title: "Production-Grade Kubernetes Platform",
@@ -411,6 +422,7 @@ export const coreProjects = [
   {
     slug: "secure-supply-chain",
     category: "cloud",
+    filters: ["Cloud", "DevOps"],
     niche: "Supply Chain Security",
     tag: "Supply Chain Security · GitOps · Platform Engineering",
     title: "End-to-End Secure Software Supply Chain",
@@ -443,6 +455,7 @@ export const coreProjects = [
   {
     slug: "aws-secure-baseline",
     category: "cloud",
+    filters: ["Cloud", "DevOps"],
     niche: "Security & Compliance",
     tag: "AWS · Security · Infrastructure-as-Code · Multi-Account",
     title: "AWS Secure Baseline — Multi-Account Security Platform",
@@ -476,6 +489,7 @@ export const coreProjects = [
   {
     slug: "azure-opa-pipeline",
     category: "cloud",
+    filters: ["Cloud", "DevOps"],
     niche: "Policy-as-Code",
     tag: "Azure · DevOps · Policy-as-Code",
     title: "Azure DevOps Pipeline with OPA Policy Enforcement",
@@ -507,6 +521,7 @@ export const coreProjects = [
   {
     slug: "gitops-sealed-secrets",
     category: "cloud",
+    filters: ["Cloud", "DevOps"],
     niche: "GitOps & Security",
     tag: "Azure · GitOps · Secret Management",
     title: "Multi-Environment GitOps Platform with Sealed Secrets",
@@ -539,6 +554,7 @@ export const coreProjects = [
   {
     slug: "oci-vpn",
     category: "cloud",
+    filters: ["Cloud"],
     niche: "Infrastructure",
     tag: "Infrastructure · Oracle Cloud · Terraform · VPN",
     title: "OCI VPN — Self-Hosted OpenVPN on Oracle Cloud Free Tier",

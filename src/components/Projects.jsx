@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import useFadeIn from "../hooks/useFadeIn";
 import { coreProjects } from "./projectsData";
-import { SectionDivider } from "./ProjectHelpers";
+
+const ALL = "All";
+
+const FILTERS = [
+  ALL,
+  "Full-Stack",
+  "Cloud",
+  "SaaS",
+  "CRM",
+  "E-Commerce",
+  "CMS",
+  "Automation",
+  "DevOps",
+];
 
 const CARD_CLASS =
-  "cursor-pointer bg-gray-900 border-2 border-gray-700 rounded p-5 transition-all duration-200 shadow-[4px_4px_0px_#374151] hover:shadow-[8px_8px_0px_#1e3a5f] hover:border-blue-500 hover:-translate-x-1 hover:-translate-y-1 flex flex-col";
+  "cursor-pointer bg-gray-900 border-2 border-gray-700 rounded p-2 transition-all duration-200 shadow-[4px_4px_0px_#374151] hover:shadow-[8px_8px_0px_#1e3a5f] hover:border-blue-500 hover:-translate-x-1 hover:-translate-y-1 flex flex-col";
 
 const NICHE_TAG_CLASS =
   "absolute top-2 left-2 text-[10px] font-bold uppercase tracking-wider text-white bg-blue-600/90 px-2 py-0.5 rounded-sm backdrop-blur-sm";
@@ -21,7 +34,7 @@ const ProjectCard = ({ p }) => {
   return (
     <Link to={`/project/${p.slug}`} className={CARD_CLASS}>
       {imgSrc && (
-        <div className="relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden bg-white">
+        <div className="relative w-full aspect-video rounded border border-gray-200 dark:border-gray-700 overflow-hidden bg-white">
           <img
             src={imgSrc}
             alt={p.title}
@@ -42,50 +55,24 @@ const ProjectCard = ({ p }) => {
           </div>
         </div>
       )}
-      <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start">
-        Full technical details →
+      <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start mx-5 mb-5">
+        Details →
       </span>
     </Link>
   );
 };
 
-const ProjectGroup = ({ label, projects, open, onToggle }) => (
-  <div className="mb-6">
-    <SectionDivider
-      label={label}
-      count={projects.length}
-      open={open}
-      onToggle={onToggle}
-      bg="bg-blue-600 dark:bg-blue-600"
-    />
-    <div className={`overflow-hidden transition-all duration-500 ease-in-out ${open ? "max-h-[5000px] opacity-100" : "max-h-0 opacity-0"}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map((p) => (
-          <ProjectCard key={p.slug} p={p} />
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
 const Projects = () => {
   const ref = useFadeIn();
-  const [openFullstack, setOpenFullstack] = useState(
-    () => sessionStorage.getItem("projects_openFullstack") === "true"
-  );
-  const [openCloud, setOpenCloud] = useState(
-    () => sessionStorage.getItem("projects_openCloud") === "true"
-  );
+  const [active, setActive] = useState(ALL);
 
-  const toggle = (key, setter) =>
-    setter((v) => {
-      const next = !v;
-      sessionStorage.setItem(key, next);
-      return next;
-    });
-
-  const fullstackProjects = coreProjects.filter(p => p.category === "fullstack");
-  const cloudProjects = coreProjects.filter(p => p.category === "cloud");
+  const filtered = useMemo(
+    () =>
+      active === ALL
+        ? coreProjects
+        : coreProjects.filter((p) => p.filters?.includes(active)),
+    [active]
+  );
 
   return (
     <section id="case-studies" className="bg-white dark:bg-gray-900">
@@ -93,7 +80,8 @@ const Projects = () => {
         ref={ref}
         className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700"
       >
-        <div className="mb-14">
+        {/* Header */}
+        <div className="mb-10">
           <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
             Case Studies
           </span>
@@ -103,22 +91,52 @@ const Projects = () => {
             Real fixes.
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl">
-            Each project shows a real business problem — and how it was solved.
+            Full-stack products and cloud infrastructure — each documented with the problem, the architecture, and the outcome.
           </p>
         </div>
 
-        <ProjectGroup
-          label="Full-Stack Application Development"
-          projects={fullstackProjects}
-          open={openFullstack}
-          onToggle={() => toggle("projects_openFullstack", setOpenFullstack)}
-        />
-        <ProjectGroup
-          label="Cloud Infrastructure & Platform Engineering"
-          projects={cloudProjects}
-          open={openCloud}
-          onToggle={() => toggle("projects_openCloud", setOpenCloud)}
-        />
+        {/* Filter pills */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActive(f)}
+              className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 border transition-all duration-150 ${
+                active === f
+                  ? "bg-blue-600 border-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8]"
+                  : "bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        {/* Count */}
+        <p className="text-xs text-gray-400 dark:text-gray-500 mb-6">
+          Showing{" "}
+          <span className="font-bold text-gray-700 dark:text-gray-300">
+            {filtered.length}
+          </span>{" "}
+          of{" "}
+          <span className="font-bold text-gray-700 dark:text-gray-300">
+            {coreProjects.length}
+          </span>{" "}
+          projects
+        </p>
+
+        {/* Grid */}
+        {filtered.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filtered.map((p) => (
+              <ProjectCard key={p.slug} p={p} />
+            ))}
+          </div>
+        ) : (
+          <div className="py-16 text-center text-gray-400 dark:text-gray-600 text-sm">
+            No projects match this filter.
+          </div>
+        )}
       </div>
     </section>
   );
