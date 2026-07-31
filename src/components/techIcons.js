@@ -13,6 +13,11 @@ export const techNames = {
   django: "Django", python: "Python", postgresql: "PostgreSQL", redis: "Redis",
   celery: "Celery", googleads: "Google Ads", facebook: "Facebook",
   plotly: "Plotly", anthropic: "Anthropic",
+  googleappsscript: "Google Apps Script",
+  oracle: "Oracle Cloud",
+  sqlite: "SQLite",
+  telegram: "Telegram",
+  googlesheets: "Google Sheets",
 };
 
 const iconFiles = {
@@ -31,6 +36,8 @@ const iconFiles = {
   django:"django.svg", python:"python.svg", postgresql:"postgresql.svg",
   redis:"redis.svg", celery:"celery.svg", googleads:"googleads.svg", facebook:"facebook.svg",
   plotly:"plotly.svg", anthropic:"anthropic.svg", sentry:"sentry.svg", stripe:"stripe.svg",
+  googleappsscript:"googleappsscript.svg", oracle:"oracle.svg",
+  sqlite:"sqlite.svg", telegram:"telegram.svg", googlesheets:"googlesheets.svg",
 };
 
 export const iconUrl = (tech) => {
