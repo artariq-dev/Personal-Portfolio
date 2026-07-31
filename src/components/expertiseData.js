@@ -1,0 +1,75 @@
+export const groups = [
+  {
+    label: "Full-Stack",
+    tags: [
+      { label: "React",        key: null },
+      { label: "Next.js",      key: null },
+      { label: "Vue.js",       key: "vuedotjs" },
+      { label: "Nuxt",         key: "nuxt" },
+      { label: "TypeScript",   key: null },
+      { label: "Node.js",      key: null },
+      { label: "GraphQL",      key: "graphql" },
+      { label: "Stripe",       key: "stripe" },
+      { label: "Firebase",     key: "firebase" },
+      { label: "Tailwind CSS", key: "tailwindcss" },
+    ],
+  },
+  {
+    label: "Backend",
+    tags: [
+      { label: "Python",     key: "python" },
+      { label: "Django",     key: "django" },
+      { label: "PostgreSQL", key: "postgresql" },
+      { label: "Redis",      key: "redis" },
+      { label: "Celery",     key: "celery" },
+      { label: "REST APIs",  key: null },
+      { label: "MongoDB",    key: null },
+      { label: "RabbitMQ",   key: null },
+    ],
+  },
+  {
+    label: "DevOps",
+    tags: [
+      { label: "Docker",         key: "docker" },
+      { label: "Kubernetes",     key: "kubernetes" },
+      { label: "GitHub Actions", key: "githubactions" },
+      { label: "ArgoCD",         key: "argo" },
+      { label: "Helm",           key: "helm" },
+      { label: "Kustomize",      key: "kustomize" },
+      { label: "Terraform",      key: "terraform" },
+      { label: "Ansible",        key: "ansible" },
+    ],
+  },
+  {
+    label: "Cloud",
+    tags: [
+      { label: "AWS",          key: "aws" },
+      { label: "Azure",        key: "azure" },
+      { label: "DigitalOcean", key: "digitalocean" },
+      { label: "Cloudflare",   key: "cloudflare" },
+      { label: "Oracle Cloud", key: "oracle" },
+    ],
+  },
+  {
+    label: "Security",
+    tags: [
+      { label: "GuardDuty",      key: null },
+      { label: "Kyverno",        key: "kyverno" },
+      { label: "Cosign",         key: "cosign" },
+      { label: "Trivy",          key: "trivy" },
+      { label: "Falco",          key: "falco" },
+      { label: "OPA",            key: "openpolicyagent" },
+      { label: "Sealed Secrets", key: null },
+    ],
+  },
+  {
+    label: "Observability",
+    tags: [
+      { label: "Prometheus", key: "prometheus" },
+      { label: "Grafana",    key: "grafana" },
+      { label: "Jaeger",     key: "jaeger" },
+      { label: "Sentry",     key: "sentry" },
+      { label: "Loki",       key: null },
+    ],
+  },
+];
