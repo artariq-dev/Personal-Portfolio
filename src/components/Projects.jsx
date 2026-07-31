@@ -25,22 +25,13 @@ const NICHE_TAG_CLASS =
 
 const ProjectCard = ({ p }) => {
   const imgSrc = p.cover || p.images?.[0] || p.diagram;
-  const imgClass = p.cover
-    ? "object-contain"
-    : p.diagram
-    ? "object-contain p-2"
-    : "object-cover";
+  const imgClass = p.diagram && !p.cover ? "object-contain p-2" : "object-contain";
 
   return (
     <Link to={`/project/${p.slug}`} className={CARD_CLASS}>
       {imgSrc && (
-        <div className="relative w-full aspect-video rounded border border-gray-200 dark:border-gray-700 overflow-hidden bg-white">
-          <img
-            src={imgSrc}
-            alt={p.title}
-            className={`w-full h-full ${imgClass}`}
-            loading="lazy"
-          />
+        <div className="relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden bg-white">
+          <img src={imgSrc} alt={p.title} className={`w-full h-full ${imgClass}`} loading="lazy" />
           <span className={NICHE_TAG_CLASS}>
             {p.niche || p.tag.split(" · ")[0]}
           </span>
@@ -55,7 +46,7 @@ const ProjectCard = ({ p }) => {
           </div>
         </div>
       )}
-      <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start mx-5 mb-5">
+      <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start mx-5 mb-2">
         Details →
       </span>
     </Link>
@@ -67,35 +58,23 @@ const Projects = () => {
   const [active, setActive] = useState(ALL);
 
   const filtered = useMemo(
-    () =>
-      active === ALL
-        ? coreProjects
-        : coreProjects.filter((p) => p.filters?.includes(active)),
+    () => active === ALL ? coreProjects : coreProjects.filter((p) => p.filters?.includes(active)),
     [active]
   );
 
   return (
     <section id="case-studies" className="bg-white dark:bg-gray-900">
-      <div
-        ref={ref}
-        className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700"
-      >
-        {/* Header */}
+      <div ref={ref} className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700">
         <div className="mb-10">
-          <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
-            Case Studies
-          </span>
+          <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Case Studies</span>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
-            Real problems.
-            <br />
-            Real fixes.
+            Real problems.<br />Real fixes.
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl">
             Full-stack products and cloud infrastructure — each documented with the problem, the architecture, and the outcome.
           </p>
         </div>
 
-        {/* Filter pills */}
         <div className="flex flex-wrap gap-2 mb-6">
           {FILTERS.map((f) => (
             <button
@@ -112,25 +91,17 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Count */}
         <p className="text-xs text-gray-400 dark:text-gray-500 mb-6">
           Showing{" "}
-          <span className="font-bold text-gray-700 dark:text-gray-300">
-            {filtered.length}
-          </span>{" "}
-          of{" "}
-          <span className="font-bold text-gray-700 dark:text-gray-300">
-            {coreProjects.length}
-          </span>{" "}
-          projects
+          <span className="font-bold text-gray-700 dark:text-gray-300">{filtered.length}</span>
+          {" "}of{" "}
+          <span className="font-bold text-gray-700 dark:text-gray-300">{coreProjects.length}</span>
+          {" "}projects
         </p>
 
-        {/* Grid */}
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((p) => (
-              <ProjectCard key={p.slug} p={p} />
-            ))}
+            {filtered.map((p) => <ProjectCard key={p.slug} p={p} />)}
           </div>
         ) : (
           <div className="py-16 text-center text-gray-400 dark:text-gray-600 text-sm">
