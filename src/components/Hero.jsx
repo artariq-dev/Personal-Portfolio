@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import PixelBtn from "./PixelBtn";
+import { AuditDot } from "./Icons";
 
 const Hero = () => {
   const [visible, setVisible] = useState(false);
@@ -78,54 +78,59 @@ const Hero = () => {
 
           {/* Right — assessment CTA */}
           <div>
-            <div className="bg-black dark:bg-white border border-gray-800 dark:border-gray-200 rounded p-4 sm:p-6 transition-all duration-200 shadow-[4px_4px_0px_#374151] dark:shadow-[4px_4px_0px_#e5e7eb] hover:shadow-[6px_6px_0px_#bfdbfe] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-x-0.5 hover:-translate-y-0.5">
-              {/* Terminal header */}
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 truncate">
-                  health-check.sh
-                </span>
-              </div>
+            <a
+              href="https://ask.artariq.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col bg-gray-900 dark:bg-white border border-gray-700 dark:border-gray-300 shadow-[3px_3px_0px_#374151] dark:shadow-[3px_3px_0px_#e5e7eb] hover:shadow-[5px_5px_0px_#1e3a5f] dark:hover:shadow-[5px_5px_0px_#93c5fd] hover:-translate-y-1 transition-all duration-200"
+            >
+              {/* Accent top bar — thickens on hover */}
+              <div className="h-1.5 group-hover:h-2.5 w-full bg-blue-500 transition-all duration-200" />
 
-              <h3 className="text-base font-bold text-white dark:text-gray-900 mb-2">
-                Not sure what needs fixing?
-              </h3>
-              <p className="text-xs text-gray-300 dark:text-gray-600 mb-4 leading-relaxed">
-                Take a free 2-minute audit. Answer 8 questions about your
-                project and get a scored report with exactly what to fix.
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {[
-                  "Cloud",
-                  "Fullstack",
-                  "Frontend",
-                  "Backend",
-                  "CRM",
-                  "Delivery",
-                  "Growth",
-                ].map((label) => (
-                  <span
-                    key={label}
-                    className="text-[10px] font-medium text-blue-300 dark:text-blue-700 bg-blue-900/40 dark:bg-blue-100/80 border border-blue-800 dark:border-blue-300 px-2 py-0.5"
-                  >
-                    {label}
+              <div className="flex flex-col flex-1 p-4 sm:p-5">
+                {/* Dot-art icon */}
+                <div className="mb-3">
+                  <span className="text-blue-400 dark:text-blue-600">
+                    <AuditDot />
                   </span>
-                ))}
-              </div>
+                </div>
 
-              <PixelBtn
-                as="a"
-                href="https://ask.artariq.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors w-full justify-center"
-              >
-                Take the 2-minute audit →
-              </PixelBtn>
-            </div>
+                {/* Title */}
+                <h3 className="text-sm font-bold text-white dark:text-gray-900 leading-snug mb-2">
+                  Not sure what needs fixing?
+                </h3>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1 mb-3">
+                  {[
+                    "Cloud",
+                    "Fullstack",
+                    "Frontend",
+                    "Backend",
+                    "CRM",
+                    "Delivery",
+                    "Growth",
+                  ].map((label) => (
+                    <span
+                      key={label}
+                      className="text-[9px] px-1 py-0.5 bg-gray-800 text-gray-300 dark:bg-gray-100 dark:text-gray-500"
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between mt-auto pt-2 border-t border-gray-700 dark:border-gray-100">
+                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 bg-blue-500 text-white">
+                    Free Audit
+                  </span>
+                  <span className="text-lg text-white dark:text-gray-900 transition-transform duration-200 group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
