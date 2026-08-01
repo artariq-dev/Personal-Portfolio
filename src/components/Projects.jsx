@@ -75,29 +75,31 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 border transition-all duration-150 ${
-                active === f
-                  ? "bg-blue-600 border-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8]"
-                  : "bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+        <div className="bg-gray-900 dark:bg-gray-100 border border-gray-700 dark:border-gray-300 p-4 mb-6">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 mb-3">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                onClick={() => setActive(f)}
+                className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 border transition-all duration-150 ${
+                  active === f
+                    ? "bg-blue-600 border-blue-600 text-white scale-125 shadow-[2px_2px_0px_#1d4ed8]"
+                    : "bg-gray-800 border-gray-700 text-gray-300 dark:bg-gray-200 dark:border-gray-300 dark:text-gray-600 hover:border-blue-400 hover:text-blue-400 dark:hover:border-blue-600 dark:hover:text-blue-600"
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
 
-        <p className="text-xs text-gray-400 dark:text-gray-500 mb-6">
-          Showing{" "}
-          <span className="font-bold text-gray-700 dark:text-gray-300">{filtered.length}</span>
-          {" "}of{" "}
-          <span className="font-bold text-gray-700 dark:text-gray-300">{coreProjects.length}</span>
-          {" "}projects
-        </p>
+          <p className="text-xs text-gray-400 dark:text-gray-600">
+            Showing{" "}
+            <span className="font-bold text-white dark:text-gray-900">{filtered.length}</span>
+            {" "}of{" "}
+            <span className="font-bold text-white dark:text-gray-900">{coreProjects.length}</span>
+            {" "}projects
+          </p>
+        </div>
 
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
