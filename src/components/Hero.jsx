@@ -90,7 +90,7 @@ const Hero = () => {
               <div className="flex flex-col flex-1 p-4 sm:p-5">
                 {/* Dot-art icon */}
                 <div className="mb-3">
-                  <span className="text-blue-400 dark:text-blue-600">
+                  <span className="w-10 h-10 rounded bg-gray-100 dark:bg-gray-900 flex items-center justify-center shrink-0 text-gray-900 dark:text-white">
                     <AuditDot />
                   </span>
                 </div>
