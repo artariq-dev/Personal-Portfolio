@@ -1,4 +1,5 @@
 import useFadeIn from '../hooks/useFadeIn';
+import Marquee from 'react-fast-marquee';
 import { iconUrl } from './techIcons';
 import { groups } from './expertiseData';
 
@@ -41,6 +42,36 @@ const Experience = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="tech-strip w-full mt-10 border-t border-b border-gray-700 dark:border-gray-800 py-3 bg-gray-900 dark:bg-gray-900">
+        <Marquee direction="right" speed={90} pauseOnHover gradient={false}>
+          {[
+            "Full-Stack Development",
+            "API Design",
+            "Database Architecture",
+            "User Interfaces",
+            "Product Engineering",
+            "System Integration",
+            "CI/CD Pipelines",
+            "Cloud Infrastructure",
+            "Automation",
+            "Containerization",
+            "Scalability",
+            "Security Integration",
+            "Observability",
+            "GitOps",
+            "Infrastructure Reliability",
+            "System Resilience",
+          ].map((t, i) => (
+            <span
+              key={i}
+              className="text-xs text-gray-500 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase"
+            >
+              {t}
+            </span>
+          ))}
+        </Marquee>
       </div>
     </section>
   );
