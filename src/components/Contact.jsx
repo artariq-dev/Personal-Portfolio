@@ -20,6 +20,8 @@ const triggers = [
 
 const btnClass = "flex items-center gap-4 p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 transition-all group shadow-[4px_4px_0px_#e5e7eb] dark:shadow-[4px_4px_0px_#374151] hover:shadow-[6px_6px_0px_#93c5fd] dark:hover:shadow-[6px_6px_0px_#1e3a5f] hover:-translate-x-0.5 hover:-translate-y-0.5";
 
+const auditBtnClass = "flex items-center gap-4 p-5 bg-gray-900 dark:bg-white border border-gray-700 dark:border-gray-300 hover:border-blue-400 dark:hover:border-blue-300 transition-all group shadow-[3px_3px_0px_#374151] dark:shadow-[3px_3px_0px_#e5e7eb] hover:shadow-[5px_5px_0px_#1e3a5f] dark:hover:shadow-[5px_5px_0px_#93c5fd] hover:-translate-x-0.5 hover:-translate-y-0.5";
+
 const ContactBtn = ({ href, label, value, icon: Icon, bg }) => (
   <PixelBtn as="a" href={href} target="_blank" rel="noopener noreferrer" className={btnClass}>
     <div className={`w-10 h-10 rounded ${bg} flex items-center justify-center shrink-0 text-white`}>
@@ -48,15 +50,15 @@ const Contact = () => {
                 Not sure what you need?
               </h2>
               <div className="mt-6">
-                <PixelBtn as="a" href="https://ask.artariq.dev" target="_blank" rel="noopener noreferrer" className={btnClass}>
-                  <div className="w-10 h-10 rounded bg-gray-900 dark:bg-white flex items-center justify-center shrink-0 text-white dark:text-gray-900">
+                <PixelBtn as="a" href="https://ask.artariq.dev" target="_blank" rel="noopener noreferrer" className={auditBtnClass}>
+                  <div className="w-10 h-10 rounded bg-gray-100 dark:bg-gray-900 flex items-center justify-center shrink-0 text-gray-900 dark:text-white">
                     <AuditDot />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">Not sure what's wrong?</div>
-                    <div className="text-xs text-gray-400 font-medium mt-0.5">Free 2-minute audit</div>
+                    <div className="text-sm font-semibold text-white dark:text-gray-900 group-hover:text-blue-400 dark:group-hover:text-blue-600 transition-colors">Not sure what's wrong?</div>
+                    <div className="text-xs text-gray-300 dark:text-gray-500 font-medium mt-0.5">Free 2-minute audit</div>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 ml-auto shrink-0 text-gray-800 dark:text-gray-200" />
+                  <ArrowUpRight className="w-3.5 h-3.5 ml-auto shrink-0 text-white dark:text-gray-900" />
                 </PixelBtn>
               </div>
             </div>
