@@ -5,12 +5,13 @@ const Hero = () => {
   const [visible, setVisible] = useState(false);
 
   const triggers = [
-    { label: "Revenue's flat", href: "https://ask.artariq.dev/audit/fullstack" },
-    { label: "Leads slip through the cracks", href: "https://ask.artariq.dev/audit/crm" },
-    { label: "Invisible to new customers", href: "https://ask.artariq.dev/audit/growth" },
-    { label: "Outgrowing our tools", href: "https://ask.artariq.dev/audit/growth" },
-    { label: "Cloud bill too high", href: "https://ask.artariq.dev/audit/cloud" },
-    { label: "Worried about losing data", href: "https://ask.artariq.dev/audit/backend" },
+    { label: "Cloud bill keeps climbing", href: "https://ask.artariq.dev/audit/cloud" },
+    { label: "Can't scale without breaking things", href: "https://ask.artariq.dev/audit/cloud" },
+    { label: "Tech debt is slowing everything down", href: "https://ask.artariq.dev/audit/fullstack" },
+    { label: "Our software can't handle the load", href: "https://ask.artariq.dev/audit/fullstack" },
+    { label: "Leads come in, nothing converts", href: "https://ask.artariq.dev/audit/growth" },
+    { label: "Competitors are moving faster", href: "https://ask.artariq.dev/audit/growth" },
+    { label: "We have data but no insight", href: "https://ask.artariq.dev/audit/growth" },
   ];
 
   useEffect(() => {
@@ -53,8 +54,8 @@ const Hero = () => {
                     tariq
                   </span>
                 </h2>
-                <p className="text-xs text-gray-400 dark:text-gray-500">
-                  FullStack Developer · Cloud Engineer
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-300 tracking-wide">
+                  cloud X full-stack
                 </p>
               </div>
             </div>
@@ -62,9 +63,8 @@ const Hero = () => {
               className={`text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-[1.3] mb-2 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
               style={{ transitionDelay: "350ms" }}
             >
-              <span className="block mb-1">First understands your business,</span>
-              <span className="block mb-1 text-blue-600">then builds the solution.</span>
-              <span className="block">That&apos;s how I work.</span>
+              <span className="block mb-1">your <span className="text-blue-600">VISION</span> x my <span className="text-blue-600">GUIDE</span></span>
+              <span className="block">real <span className="text-blue-600">RESULTS</span></span>
             </h1>
             <div
               className={`transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
@@ -85,81 +85,59 @@ const Hero = () => {
           </div>
 
           {/* Right — assessment CTA */}
-          <div className="flex flex-col items-center md:items-end gap-5">
-            <a
-              href="https://ask.artariq.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col w-full bg-gray-900 dark:bg-white border border-gray-700 dark:border-gray-300 shadow-[3px_3px_0px_#374151] dark:shadow-[3px_3px_0px_#e5e7eb] hover:shadow-[5px_5px_0px_#1e3a5f] dark:hover:shadow-[5px_5px_0px_#93c5fd] hover:-translate-y-1 transition-all duration-200"
-            >
-              {/* Accent top bar — thickens on hover */}
-              <div className="h-1.5 group-hover:h-2.5 w-full bg-blue-500 transition-all duration-200" />
+          <div className="flex flex-col items-center md:items-end">
+            <div className="w-full bg-gray-900 dark:bg-white border border-gray-700 dark:border-gray-200 shadow-[4px_4px_0px_#1e3a5f] dark:shadow-[4px_4px_0px_#bfdbfe]">
+              {/* Top accent bar */}
+              <div className="h-1 w-full bg-blue-500" />
 
-              {/* Arrow — top right */}
-              <span className="absolute top-5 right-5 text-3xl text-white dark:text-gray-900 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
-                →
-              </span>
-
-              <div className="flex flex-col flex-1 p-4 sm:p-5">
-                {/* Dot-art icon */}
-                <div className="mb-3">
-                  <span className="w-10 h-10 rounded bg-gray-100 dark:bg-gray-900 flex items-center justify-center shrink-0 text-gray-900 dark:text-white">
+              <div className="p-5 sm:p-6">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-blue-400 dark:text-blue-500 mb-1">
+                      Free Audit
+                    </p>
+                    <h3 className="text-base font-bold text-white dark:text-gray-900 leading-snug">
+                      What's your situation?
+                    </h3>
+                  </div>
+                  <span className="w-9 h-9 bg-gray-800 dark:bg-gray-100 flex items-center justify-center shrink-0 text-white dark:text-gray-900">
                     <AuditDot />
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-sm font-bold text-white dark:text-gray-900 leading-snug mb-2">
-                  Not sure what needs fixing?
-                </h3>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {[
-                    "Cloud",
-                    "Fullstack",
-                    "Frontend",
-                    "Backend",
-                    "CRM",
-                    "Delivery",
-                    "Growth",
-                  ].map((label) => (
-                    <span
-                      key={label}
-                      className="text-[9px] px-1 py-0.5 bg-gray-800 text-gray-300 dark:bg-gray-100 dark:text-gray-500"
+                {/* Triggers */}
+                <div className="flex flex-col gap-2 mb-5">
+                  {triggers.map((t) => (
+                    <a
+                      key={t.label}
+                      href={t.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/trigger flex items-center justify-between px-3 py-2.5 bg-gray-800 dark:bg-gray-50 border border-gray-700 dark:border-gray-200 hover:border-blue-500 dark:hover:border-blue-500 hover:bg-gray-700 dark:hover:bg-blue-50 transition-all duration-150"
                     >
-                      {label}
-                    </span>
+                      <span className="text-xs font-medium text-gray-300 dark:text-gray-700 group-hover/trigger:text-white dark:group-hover/trigger:text-blue-600 transition-colors">
+                        {t.label}
+                      </span>
+                      <ArrowUpRight className="w-3 h-3 text-gray-500 dark:text-gray-400 group-hover/trigger:text-blue-400 dark:group-hover/trigger:text-blue-500 transition-colors shrink-0" />
+                    </a>
                   ))}
                 </div>
 
-                {/* Footer */}
-                <div className="mt-auto pt-2">
-                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 bg-blue-500 text-white">
-                    Free Audit
+                {/* CTA button */}
+                <a
+                  href="https://ask.artariq.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/cta flex items-center justify-between w-full px-4 py-3 bg-blue-500 hover:bg-blue-600 transition-colors duration-150"
+                >
+                  <span className="text-xs font-bold uppercase tracking-wider text-white">
+                    Not sure? Get a full audit
                   </span>
-                </div>
-              </div>
-            </a>
-
-            {/* Triggers */}
-            <div className="w-full bg-gray-900 dark:bg-white border border-gray-700 dark:border-gray-300 p-4 sm:p-5">
-              <div className="text-sm font-bold text-white dark:text-gray-900 leading-snug mb-2">
-                Or just pick a trigger
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {triggers.map((t) => (
-                  <a
-                    key={t.label}
-                    href={t.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-[9px] font-bold uppercase tracking-wider px-2 py-1 bg-gray-800 text-gray-300 dark:bg-gray-100 dark:text-gray-500 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-colors"
-                  >
-                    {t.label}
-                    <ArrowUpRight className="w-2 h-2 ml-1" />
-                  </a>
-                ))}
+                  <span className="text-white transition-transform duration-200 group-hover/cta:translate-x-1">
+                    →
+                  </span>
+                </a>
               </div>
             </div>
           </div>
