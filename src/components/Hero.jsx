@@ -132,7 +132,7 @@ const Hero = () => {
                   className="group/cta flex items-center justify-between w-full px-4 py-3 bg-blue-500 hover:bg-blue-600 transition-colors duration-150"
                 >
                   <span className="text-xs font-bold uppercase tracking-wider text-white">
-                    Not sure? Get a full audit
+                    Not sure? Get a free full audit
                   </span>
                   <span className="text-white transition-transform duration-200 group-hover/cta:translate-x-1">
                     →
