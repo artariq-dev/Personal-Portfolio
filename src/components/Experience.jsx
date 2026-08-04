@@ -16,7 +16,7 @@ const Tag = ({ label, iconKey }) => {
 const Experience = () => {
   const ref = useFadeIn();
   return (
-    <section id="expertise" className="pt-16 sm:pt-24 pb-10 bg-gray-800 dark:bg-gray-950 border-t border-gray-700 dark:border-gray-800">
+    <section id="expertise" className="pt-16 sm:pt-24 bg-gray-800 dark:bg-gray-950 border-t border-gray-700 dark:border-gray-800">
       <div ref={ref} className="max-w-5xl mx-auto px-4 sm:px-6 opacity-0 translate-y-6 transition-all duration-700">
         <div className="mb-10">
           <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Engineering Expertise</span>
@@ -44,31 +44,36 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className="tech-strip w-full mt-10 border-t border-b border-gray-700 dark:border-gray-800 py-3 bg-gray-900 dark:bg-gray-900">
+      <div className="tech-strip w-full mt-16 border-t border-b border-gray-700 dark:border-gray-800 py-3 bg-gray-900 dark:bg-gray-900">
         <Marquee direction="right" speed={90} pauseOnHover gradient={false}>
           {[
-            "Full-Stack Development",
-            "API Design",
-            "Database Architecture",
-            "User Interfaces",
-            "Product Engineering",
-            "System Integration",
-            "CI/CD Pipelines",
-            "Cloud Infrastructure",
-            "Automation",
-            "Containerization",
-            "Scalability",
-            "Security Integration",
-            "Observability",
-            "GitOps",
-            "Infrastructure Reliability",
-            "System Resilience",
+            { label: "Full-Stack Development", icon: "react" },
+            { label: "API Design",             icon: "graphql" },
+            { label: "Database Architecture",  icon: "postgresql" },
+            { label: "User Interfaces",        icon: "tailwindcss" },
+            { label: "Product Engineering",    icon: "docker" },
+            { label: "System Integration",     icon: "nodedotjs" },
+            { label: "CI/CD Pipelines",        icon: "githubactions" },
+            { label: "Cloud Infrastructure",   icon: "aws" },
+            { label: "Automation",             icon: "ansible" },
+            { label: "Containerization",       icon: "kubernetes" },
+            { label: "Scalability",            icon: "terraform" },
+            { label: "Security Integration",   icon: "falco" },
+            { label: "Observability",          icon: "grafana" },
+            { label: "GitOps",                 icon: "argo" },
+            { label: "Infrastructure Reliability", icon: "prometheus" },
+            { label: "System Resilience",      icon: "helm" },
           ].map((t, i) => (
             <span
               key={i}
-              className="text-xs text-gray-500 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase"
+              className="inline-flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500 mx-6 whitespace-nowrap tracking-wider uppercase"
             >
-              {t}
+              <img
+                src={iconUrl(t.icon)}
+                alt={t.label}
+                className="w-3.5 h-3.5 object-contain opacity-50"
+              />
+              {t.label}
             </span>
           ))}
         </Marquee>
