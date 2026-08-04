@@ -1,13 +1,25 @@
 export const groups = [
   {
+    label: "Cloud",
+    tags: [
+      { label: "AWS",          key: "aws" },
+      { label: "Azure",        key: "azure" },
+      { label: "DigitalOcean", key: "digitalocean" },
+      { label: "Cloudflare",   key: "cloudflare" },
+      { label: "Oracle Cloud", key: "oracle" },
+    ],
+  },
+  {
     label: "Full-Stack",
     tags: [
-      { label: "React",        key: null },
-      { label: "Next.js",      key: null },
+      { label: "React",        key: "react" },
+      { label: "Next.js",      key: "nextdotjs" },
       { label: "Vue.js",       key: "vuedotjs" },
       { label: "Nuxt",         key: "nuxt" },
-      { label: "TypeScript",   key: null },
-      { label: "Node.js",      key: null },
+      { label: "JavaScript",   key: "javascript" },
+      { label: "TypeScript",   key: "typescript" },
+      { label: "Node.js",      key: "nodedotjs" },
+      { label: "Express",      key: "express" },
       { label: "GraphQL",      key: "graphql" },
       { label: "Stripe",       key: "stripe" },
       { label: "Firebase",     key: "firebase" },
@@ -23,8 +35,8 @@ export const groups = [
       { label: "Redis",      key: "redis" },
       { label: "Celery",     key: "celery" },
       { label: "REST APIs",  key: null },
-      { label: "MongoDB",    key: null },
-      { label: "RabbitMQ",   key: null },
+      { label: "MongoDB",    key: "mongodb" },
+      { label: "RabbitMQ",   key: "rabbitmq" },
     ],
   },
   {
@@ -38,16 +50,6 @@ export const groups = [
       { label: "Kustomize",      key: "kustomize" },
       { label: "Terraform",      key: "terraform" },
       { label: "Ansible",        key: "ansible" },
-    ],
-  },
-  {
-    label: "Cloud",
-    tags: [
-      { label: "AWS",          key: "aws" },
-      { label: "Azure",        key: "azure" },
-      { label: "DigitalOcean", key: "digitalocean" },
-      { label: "Cloudflare",   key: "cloudflare" },
-      { label: "Oracle Cloud", key: "oracle" },
     ],
   },
   {
