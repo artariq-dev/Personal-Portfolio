@@ -18,6 +18,14 @@ export const techNames = {
   sqlite: "SQLite",
   telegram: "Telegram",
   googlesheets: "Google Sheets",
+  react: "React",
+  nextdotjs: "Next.js",
+  javascript: "JavaScript",
+  typescript: "TypeScript",
+  nodedotjs: "Node.js",
+  express: "Express",
+  mongodb: "MongoDB",
+  rabbitmq: "RabbitMQ",
 };
 
 const iconFiles = {
@@ -38,6 +46,14 @@ const iconFiles = {
   plotly:"plotly.svg", anthropic:"anthropic.svg", sentry:"sentry.svg", stripe:"stripe.svg",
   googleappsscript:"googleappsscript.svg", oracle:"oracle.svg",
   sqlite:"sqlite.svg", telegram:"telegram.svg", googlesheets:"googlesheets.svg",
+  react:"react.svg",
+  nextdotjs:"nextdotjs.svg",
+  javascript:"javascript.svg",
+  typescript:"typescript.svg",
+  nodedotjs:"nodedotjs.svg",
+  express:"express.svg",
+  mongodb:"mongodb.svg",
+  rabbitmq:"rabbitmq.svg",
 };
 
 export const iconUrl = (tech) => {
