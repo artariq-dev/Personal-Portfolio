@@ -63,7 +63,7 @@ const Hero = () => {
               className={`text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-[1.3] mb-2 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
               style={{ transitionDelay: "350ms" }}
             >
-              <span className="block mb-1">your <span className="text-blue-600">VISION</span> x my <span className="text-blue-600">GUIDE</span></span>
+              <span className="block mb-1">your <span className="text-blue-600">VISION</span> x my <span className="text-blue-600">EXECUTION</span></span>
               <span className="block">real <span className="text-blue-600">RESULTS</span></span>
             </h1>
             <div
