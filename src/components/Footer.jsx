@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import PixelBtn from './PixelBtn';
 import { Email, LinkedIn, GitHub, Download } from './Icons';
 
@@ -128,15 +128,15 @@ const Footer = () => {
             </p>
             <div className="flex gap-6">
               {METRICS.map((m, i) => (
-                <>
-                  {i > 0 && <div key={`div-${i}`} className="w-px bg-gray-800" />}
-                  <div key={m.label}>
+                <div key={m.label} className="flex items-center gap-6">
+                  {i > 0 && <div className="w-px h-8 bg-gray-800" />}
+                  <div>
                     <p className="text-2xl font-extrabold text-white">
                       <CountUp value={m.value} suffix={m.suffix} />
                     </p>
                     <p className="text-[10px] uppercase tracking-widest text-gray-500">{m.label}</p>
                   </div>
-                </>
+                </div>
               ))}
             </div>
           </div>
