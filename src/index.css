@@ -74,3 +74,15 @@ a, button, a *, button * { cursor: pointer; }
   transform: translate(1px, 1px);
   box-shadow: none !important;
 }
+
+/* ── Cycling word animations ── */
+@keyframes word-in {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+@keyframes word-out {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(100%); opacity: 0; }
+}
+.word-in  { animation: word-in  0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
+.word-out { animation: word-out 0.35s cubic-bezier(0.22,1,0.36,1) forwards; }

@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Experience from './components/Experience';
 import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetail';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
 
@@ -21,31 +19,20 @@ function ScrollToTop() {
   return null;
 }
 
-function HomeRedirect() {
-  const navigate = useNavigate();
-  useEffect(() => { navigate('/', { replace: true }); }, [navigate]);
-  return null;
-}
-
 function App() {
+  const { pathname } = useLocation();
+
   return (
     <div className="App">
       <ScrollProgress />
       <Navbar />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={
-          <>
-            <Hero />
-            <Projects />
-            <Experience />
-            <Contact />
-          </>
-        } />
+        <Route path="/" element={<><Hero /><Projects /></>} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
-        <Route path="*" element={<HomeRedirect />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <Footer />
+      {!pathname.startsWith('/project/') && <Footer />}
     </div>
   );
 }
