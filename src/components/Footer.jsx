@@ -16,15 +16,20 @@ const CountUp = ({ value, suffix }) => {
 
   useEffect(() => {
     if (!inView) return;
-    let start = 0;
-    const duration = 1200;
-    const step = Math.ceil(value / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= value) { setCount(value); clearInterval(timer); }
-      else setCount(start);
-    }, 16);
-    return () => clearInterval(timer);
+    const duration = 4500;
+    const startTime = performance.now();
+    let raf;
+    const tick = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * value));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+      else setCount(value);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [inView, value]);
 
   return <span ref={ref}>{count}{suffix}</span>;
