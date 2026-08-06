@@ -1,6 +1,34 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 import PixelBtn from './PixelBtn';
 import { Email, LinkedIn, GitHub, Download } from './Icons';
+
+const METRICS = [
+  { value: 23, suffix: "+", label: "Projects" },
+  { value: 13, suffix: "+", label: "Clients" },
+  { value: 5,  suffix: "+", label: "Countries" },
+];
+
+const CountUp = ({ value, suffix }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    let start = 0;
+    const duration = 1200;
+    const step = Math.ceil(value / (duration / 16));
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= value) { setCount(value); clearInterval(timer); }
+      else setCount(start);
+    }, 16);
+    return () => clearInterval(timer);
+  }, [inView, value]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
 
 const contacts = [
   { href: "mailto:artariq.dev.1@gmail.com", label: "Email", value: "artariq.dev.1@gmail.com", icon: Email, bg: "bg-blue-600" },
@@ -99,20 +127,17 @@ const Footer = () => {
               Based online, working with clients worldwide.
             </p>
             <div className="flex gap-6">
-              <div>
-                <p className="text-2xl font-extrabold text-white">23+</p>
-                <p className="text-[10px] uppercase tracking-widest text-gray-500">Projects</p>
-              </div>
-              <div className="w-px bg-gray-800" />
-              <div>
-                <p className="text-2xl font-extrabold text-white">13+</p>
-                <p className="text-[10px] uppercase tracking-widest text-gray-500">Clients</p>
-              </div>
-              <div className="w-px bg-gray-800" />
-              <div>
-                <p className="text-2xl font-extrabold text-white">5+</p>
-                <p className="text-[10px] uppercase tracking-widest text-gray-500">Countries</p>
-              </div>
+              {METRICS.map((m, i) => (
+                <>
+                  {i > 0 && <div key={`div-${i}`} className="w-px bg-gray-800" />}
+                  <div key={m.label}>
+                    <p className="text-2xl font-extrabold text-white">
+                      <CountUp value={m.value} suffix={m.suffix} />
+                    </p>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-500">{m.label}</p>
+                  </div>
+                </>
+              ))}
             </div>
           </div>
 
