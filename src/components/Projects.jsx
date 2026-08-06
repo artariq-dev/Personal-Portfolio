@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import useFadeIn from "../hooks/useFadeIn";
 import { coreProjects } from "./projectsData";
 
 const ALL = "All";
@@ -65,7 +64,6 @@ const ProjectCard = ({ p, index }) => {
 };
 
 const Projects = () => {
-  const ref = useFadeIn();
   const location = useLocation();
   const [active, setActive] = useState(() => {
     const param = new URLSearchParams(location.search).get("filter");
@@ -84,7 +82,13 @@ const Projects = () => {
 
   return (
     <section id="case-studies" className="bg-white dark:bg-gray-900">
-      <div ref={ref} className="max-w-5xl mx-auto px-6 pt-20 pb-10 opacity-0 translate-y-6 transition-all duration-700">
+      <motion.div
+        className="max-w-5xl mx-auto px-6 pt-20 pb-10"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mb-10">
           <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Case Studies</span>
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-3">
@@ -137,7 +141,7 @@ const Projects = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
     </section>
   );
 };

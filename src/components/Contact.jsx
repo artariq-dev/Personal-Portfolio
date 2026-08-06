@@ -1,4 +1,4 @@
-import useFadeIn from '../hooks/useFadeIn';
+import { motion } from 'framer-motion';
 import PixelBtn from './PixelBtn';
 import { Email, LinkedIn, GitHub, Download } from './Icons';
 
@@ -22,12 +22,16 @@ const ContactBtn = ({ href, label, value, icon: Icon, bg }) => (
   </PixelBtn>
 );
 
-const Contact = () => {
-  const ref = useFadeIn();
-  return (
-    <section id="contact" className="py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 relative overflow-hidden">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div ref={ref} className="max-w-5xl mx-auto px-6 opacity-0 translate-y-6 transition-all duration-700 relative">
+const Contact = () => (
+  <section id="contact" className="py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 relative overflow-hidden">
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+    <motion.div
+      className="max-w-5xl mx-auto px-6 relative"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
         <div className="max-w-sm flex flex-col space-y-4">
           <h2 className="text-2xl font-bold text-blue-600 leading-tight">
             Let's talk.
@@ -46,9 +50,8 @@ const Contact = () => {
             Based in Pakistan (UTC+5) · Available for remote engagements worldwide
           </p>
         </div>
-      </div>
-    </section>
-  );
-};
+    </motion.div>
+  </section>
+);
 
 export default Contact;
