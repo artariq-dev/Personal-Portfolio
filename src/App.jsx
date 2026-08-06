@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigationType, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
@@ -8,14 +8,13 @@ import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
 
 function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
+  const navType = useNavigationType();
+
   useEffect(() => {
-    if (hash) {
-      setTimeout(() => document.getElementById(hash.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' }), 50);
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [pathname, hash]);
+    if (navType !== 'POP') window.scrollTo(0, 0);
+  }, [pathname]); // intentionally excludes navType
+
   return null;
 }
 
