@@ -178,14 +178,14 @@ const Footer = () => {
         className="footer-name relative z-10 px-4 pb-0 select-none"
       >
         <span
-          className="block w-full text-transparent font-extrabold leading-none cursor-default hover:text-white transition-colors duration-500"
+          className="block w-full text-transparent font-extrabold leading-none cursor-default hover:text-white transition-colors duration-500 font-display"
           style={{
             WebkitTextStroke: "1px rgba(255,255,255,0.18)",
             fontSize: "clamp(4rem, 22vw, 18rem)",
             letterSpacing: "-0.04em",
           }}
         >
-          artariq
+          artariq.
         </span>
       </div>
 

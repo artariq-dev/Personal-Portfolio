@@ -45,8 +45,8 @@ const Navbar = () => {
             className="font-semibold text-xs sm:font-bold sm:text-sm tracking-tight shrink-0"
           >
             <span className="text-gray-500 dark:text-gray-400">[</span>
-            <span className="text-white dark:text-gray-900">ar</span>
-            <span className="text-gray-500 dark:text-gray-400">tariq</span>
+            <span className="text-white dark:text-gray-900 font-display">ar</span>
+            <span className="text-gray-500 dark:text-gray-400 font-display">tariq.</span>
             <span className="text-gray-500 dark:text-gray-400">]</span>
           </button>
 
