@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import useFadeIn from "../hooks/useFadeIn";
 import { coreProjects } from "./projectsData";
 
@@ -55,7 +55,17 @@ const ProjectCard = ({ p }) => {
 
 const Projects = () => {
   const ref = useFadeIn();
-  const [active, setActive] = useState(ALL);
+  const location = useLocation();
+  const [active, setActive] = useState(() => {
+    const param = new URLSearchParams(location.search).get("filter");
+    return param && FILTERS.includes(param) ? param : ALL;
+  });
+
+  // Sync filter when URL search param changes (e.g. navbar click)
+  useEffect(() => {
+    const param = new URLSearchParams(location.search).get("filter");
+    if (param && FILTERS.includes(param)) setActive(param);
+  }, [location.search]);
 
   const filtered = useMemo(
     () => active === ALL ? coreProjects : coreProjects.filter((p) => p.filters?.includes(active)),
