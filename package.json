@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://artariq.dev",
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^11.3.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
