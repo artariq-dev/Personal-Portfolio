@@ -115,9 +115,26 @@ const ProjectDetail = () => {
           </div>
         )}
 
+        {project.diagramSimple && (
+          <div className="mt-6">
+            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Architecture Overview</h4>
+            <div className="w-full rounded border border-gray-800 cursor-pointer hover:scale-[1.01] transition-transform bg-gray-950 overflow-hidden"
+              onClick={() => setLightbox({ src: project.diagramSimple, alt: `${project.title} Architecture Overview`, invert: false })}>
+              <object
+                data={project.diagramSimple}
+                type="image/svg+xml"
+                className="w-full pointer-events-none"
+                aria-label={`${project.title} Architecture Overview`}
+              >
+                <img src={project.diagramSimple} alt={`${project.title} Architecture Overview`} className="w-full" />
+              </object>
+            </div>
+          </div>
+        )}
+
         {project.diagram && (
           <div className="mt-6">
-            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Architecture Diagram</h4>
+            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">{project.diagramSimple ? 'Details Diagram' : 'Architecture Diagram'}</h4>
             <div className="w-full rounded border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-[1.01] transition-transform"
               onClick={() => setLightbox({ src: project.diagram, alt: `${project.title} Architecture`, invert: true })}>
               <img src={project.diagram} alt={`${project.title} Architecture`}

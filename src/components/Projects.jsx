@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { coreProjects } from "./projectsData";
+import { iconUrl } from "./techIcons";
 
 const ALL = "All";
 
@@ -23,8 +24,9 @@ const cardVariants = {
 };
 
 const ProjectCard = ({ p, index }) => {
-  const imgSrc = p.cover || p.images?.[0] || p.diagram;
-  const imgClass = p.diagram && !p.cover ? "object-contain p-2" : "object-contain";
+  const imgSrc = p.cover || p.images?.[0] || p.diagramSimple || p.diagram;
+  const isSimpleDiagram = !p.cover && !p.images?.[0] && p.diagramSimple;
+  const imgClass = (!p.cover && !p.images?.[0] && (p.diagramSimple || p.diagram)) ? "object-contain p-2" : "object-contain";
 
   return (
     <motion.div
@@ -41,8 +43,17 @@ const ProjectCard = ({ p, index }) => {
         className="cursor-pointer bg-gray-900 border-2 border-gray-700 rounded p-2 transition-all duration-200 shadow-[4px_4px_0px_#374151] hover:shadow-[8px_8px_0px_#1e3a5f] hover:border-blue-500 hover:-translate-x-1 hover:-translate-y-1 flex flex-col"
       >
         {imgSrc && (
-          <div className="relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden bg-white">
-            <img src={imgSrc} alt={p.title} className={`w-full h-full ${imgClass}`} loading="lazy" />
+          <div className={`relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden ${isSimpleDiagram ? 'bg-gray-950' : 'bg-white'}`}>
+            {isSimpleDiagram ? (
+              <object
+                data={imgSrc}
+                type="image/svg+xml"
+                className="w-full h-full pointer-events-none"
+                aria-label={p.title}
+              />
+            ) : (
+              <img src={imgSrc} alt={p.title} className={`w-full h-full ${imgClass}`} loading="lazy" />
+            )}
             <span className={NICHE_TAG_CLASS}>{p.niche || p.tag.split(" · ")[0]}</span>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-3 pt-6 pb-2.5">
               <h3 className="text-sm font-bold text-white leading-snug mb-1">{p.title}</h3>
@@ -55,7 +66,20 @@ const ProjectCard = ({ p, index }) => {
             </div>
           </div>
         )}
-        <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start mx-5 mb-2">
+        {p.techs && p.techs.length > 0 && (
+          <div className="flex items-center gap-1.5 px-2 py-1.5 mb-2 mt-1">
+            {p.techs.slice(0, 6).map((tech) => {
+              const url = iconUrl(tech);
+              return url ? (
+                <img key={tech} src={url} alt={tech} className="w-5 h-5 object-contain bg-white rounded p-0.5" loading="lazy" />
+              ) : null;
+            })}
+            {p.techs.length > 6 && (
+              <span className="text-[10px] font-bold text-gray-400 ml-0.5">+{p.techs.length - 6}</span>
+            )}
+          </div>
+        )}
+        <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider px-3 py-1.5 bg-blue-600 text-white shadow-[2px_2px_0px_#1d4ed8] hover:shadow-[4px_4px_0px_#1d4ed8] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 mt-auto self-start mx-2 mb-2">
           Details →
         </span>
       </Link>
