@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="12" fill="#0E6B6B"/>
+  <!-- Magnifying glass -->
+  <circle cx="36" cy="36" r="14" fill="none" stroke="white" stroke-width="3"/>
+  <line x1="46" y1="46" x2="58" y2="58" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Bug/vuln crosshair inside -->
+  <line x1="28" y1="36" x2="44" y2="36" stroke="white" stroke-width="2"/>
+  <line x1="36" y1="28" x2="36" y2="44" stroke="white" stroke-width="2"/>
+  <circle cx="36" cy="36" r="4" fill="white" opacity="0.9"/>
+</svg>

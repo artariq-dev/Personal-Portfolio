@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="12" fill="#1A7B8C"/>
+  <!-- Document shape -->
+  <path d="M22 16 L48 16 L58 26 L58 64 L22 64 Z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Folded corner -->
+  <polyline points="48,16 48,26 58,26" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+  <!-- List lines (SBOM contents) -->
+  <line x1="30" y1="36" x2="50" y2="36" stroke="white" stroke-width="2"/>
+  <line x1="30" y1="43" x2="50" y2="43" stroke="white" stroke-width="2"/>
+  <line x1="30" y1="50" x2="44" y2="50" stroke="white" stroke-width="2"/>
+  <!-- Bullet dots -->
+  <circle cx="27" cy="36" r="1.5" fill="white"/>
+  <circle cx="27" cy="43" r="1.5" fill="white"/>
+  <circle cx="27" cy="50" r="1.5" fill="white"/>
+</svg>

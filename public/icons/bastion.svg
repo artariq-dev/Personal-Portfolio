@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="12" fill="#1A6EA8"/>
+  <!-- Shield outline -->
+  <path d="M40 16 L58 24 L58 42 Q58 56 40 64 Q22 56 22 42 L22 24 Z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Server lines inside shield -->
+  <rect x="30" y="30" width="20" height="6" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="30" y="40" width="20" height="6" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <circle cx="46" cy="33" r="1.5" fill="white"/>
+  <circle cx="46" cy="43" r="1.5" fill="white"/>
+</svg>

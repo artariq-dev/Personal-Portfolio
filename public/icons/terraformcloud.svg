@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="12" fill="#5C4EE5"/>
+  <!-- Terraform T shape (simplified HCL/TF logo style) -->
+  <polygon points="22,20 22,45 29,49 29,28 29,28" fill="white"/>
+  <polygon points="32,28 32,53 39,57 39,32" fill="white" opacity="0.85"/>
+  <polygon points="42,20 42,45 49,49 49,24" fill="white"/>
+  <!-- Cloud at top -->
+  <path d="M52 26 Q50 22 54 20 Q58 18 60 22 Q63 20 64 24 Q66 24 66 27 Q66 30 63 30 L52 30 Q49 30 49 27 Q49 24 52 26Z" fill="white" opacity="0.7"/>
+</svg>

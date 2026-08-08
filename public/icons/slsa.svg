@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="12" fill="#1B6B3A"/>
+  <!-- Three linked nodes representing provenance chain -->
+  <circle cx="20" cy="40" r="7" fill="none" stroke="white" stroke-width="2.5"/>
+  <circle cx="40" cy="28" r="7" fill="none" stroke="white" stroke-width="2.5"/>
+  <circle cx="60" cy="40" r="7" fill="none" stroke="white" stroke-width="2.5"/>
+  <!-- Links between nodes -->
+  <line x1="27" y1="37" x2="33" y2="31" stroke="white" stroke-width="2"/>
+  <line x1="47" y1="31" x2="53" y2="37" stroke="white" stroke-width="2"/>
+  <!-- Verified tick at bottom -->
+  <polyline points="30,58 37,65 50,50" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

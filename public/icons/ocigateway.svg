@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <rect width="80" height="80" rx="12" fill="#C74634"/>
+  <!-- Globe circle -->
+  <circle cx="40" cy="36" r="16" fill="none" stroke="white" stroke-width="2.5"/>
+  <!-- Latitude lines -->
+  <path d="M24 36 Q32 30 40 36 Q48 42 56 36" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Vertical center line -->
+  <line x1="40" y1="20" x2="40" y2="52" stroke="white" stroke-width="2"/>
+  <!-- Arrow down -->
+  <line x1="40" y1="55" x2="40" y2="65" stroke="white" stroke-width="2.5"/>
+  <polyline points="34,60 40,66 46,60" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>
