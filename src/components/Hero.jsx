@@ -82,7 +82,7 @@ const Hero = () => (
               <AuditDot />
             </div>
             <div>
-              <div className="text-sm font-semibold text-white dark:text-gray-900 group-hover:text-blue-400 dark:group-hover:text-blue-600 transition-colors">Let's figure out your system's cracks.</div>
+              <div className="text-sm font-semibold text-white dark:text-gray-900 group-hover:text-blue-400 dark:group-hover:text-blue-600 transition-colors">Let's figure out your software tech debt.</div>
               <div className="text-xs text-gray-300 dark:text-gray-500 font-medium mt-0.5">A quick audit · Instant report</div>
             </div>
             <ArrowUpRight className="w-3.5 h-3.5 ml-auto shrink-0 text-white dark:text-gray-900" />
