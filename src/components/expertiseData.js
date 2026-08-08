@@ -10,6 +10,46 @@ export const groups = [
     ],
   },
   {
+    label: "Cloud Services",
+    tags: [
+      // AWS Compute & Networking
+      { label: "EC2",          key: "amazonec2" },
+      { label: "EKS",          key: "amazoneks" },
+      { label: "VPC",          key: "amazonvpc" },
+      { label: "NLB",          key: "awsnlb" },
+      { label: "NAT Gateway",  key: "awsnatgateway" },
+      { label: "CloudFront",   key: "amazoncloudfront" },
+      { label: "Route 53",     key: "amazonroute53" },
+      { label: "WAF",          key: "awswaf" },
+      // AWS Storage & Data
+      { label: "S3",           key: "amazons3" },
+      { label: "RDS",          key: "amazonrds" },
+      { label: "DynamoDB",     key: "amazondynamodb" },
+      // AWS Security
+      { label: "IAM",          key: "awsiam" },
+      { label: "KMS",          key: "awskms" },
+      { label: "GuardDuty",    key: "amazonguardduty" },
+      { label: "CloudTrail",   key: "awscloudtrail" },
+      { label: "Security Hub", key: "awssecurityhub" },
+      { label: "AWS Config",   key: "awsconfig" },
+      { label: "Organizations",key: "awsorganizations" },
+      // AWS Observability
+      { label: "CloudWatch",   key: "amazoncloudwatch" },
+      { label: "EventBridge",  key: "amazoneventbridge" },
+      { label: "SNS",          key: "amazonsns" },
+      // Azure
+      { label: "AKS",          key: "azureaks" },
+      { label: "ACR",          key: "azureacr" },
+      { label: "Key Vault",    key: "azurekeyvault" },
+      { label: "VNet",         key: "azurevnet" },
+      { label: "Azure VM",     key: "azurevm" },
+      // OCI
+      { label: "OCI Compute",  key: "ocicompute" },
+      { label: "OCI VCN",      key: "ocivcn" },
+      { label: "OpenVPN",      key: "openvpn" },
+    ],
+  },
+  {
     label: "Full-Stack",
     tags: [
       { label: "React",        key: "react" },
