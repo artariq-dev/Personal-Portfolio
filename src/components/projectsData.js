@@ -298,6 +298,7 @@ export const coreProjects = [
       `${process.env.PUBLIC_URL}/projects/kamerat/04.jpg`,
       `${process.env.PUBLIC_URL}/projects/kamerat/05.jpg`,
       `${process.env.PUBLIC_URL}/projects/kamerat/06.jpg`,
+      `${process.env.PUBLIC_URL}/projects/kamerat/07.jpg`,
     ],
     problem: "Aspiring photographers had no structured, mobile-first way to learn at their own pace. Existing solutions were desktop-heavy, scattered across YouTube tutorials, or expensive in-person workshops that didn't fit around busy schedules.",
     solution: "Built a full-stack mobile learning platform — available on iOS and Android — where users progress through structured video courses on camera operation, composition, lighting, colour theory, and visual perception. An in-app tracker keeps learners on track, and a monthly Instagram photo competition keeps the community engaged.",
