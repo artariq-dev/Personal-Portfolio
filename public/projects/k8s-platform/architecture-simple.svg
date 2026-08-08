@@ -1,0 +1,208 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="520" fill="#0f172a"/>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/></marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10b981"/></marker>
+    <marker id="arr-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f97316"/></marker>
+    <marker id="arr-r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker>
+    <marker id="arr-p" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8b5cf6"/></marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#f1f5f9">Production-Grade Kubernetes Platform</text>
+  <text x="450" y="48" text-anchor="middle" font-size="11" fill="#94a3b8">AWS · Azure · DigitalOcean · Self-Managed HA · kubeadm · 6 Nodes</text>
+
+  <!-- ══ ROW 1: GitOps source ══ -->
+  <rect x="20" y="62" width="72" height="72" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="56" y="98" text-anchor="middle" font-size="22" fill="#f1f5f9">👤</text>
+  <text x="56" y="121" text-anchor="middle" font-size="9" fill="#94a3b8">Developer</text>
+
+  <line x1="92" y1="98" x2="118" y2="98" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="118" y="62" width="72" height="72" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/githubactions.svg" x="144" y="74" width="28" height="28"/>
+  <text x="154" y="117" text-anchor="middle" font-size="9" fill="#94a3b8">GitHub</text>
+  <text x="154" y="128" text-anchor="middle" font-size="9" fill="#94a3b8">Actions</text>
+
+  <line x1="190" y1="98" x2="216" y2="98" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="216" y="62" width="72" height="72" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/terraform.svg" x="242" y="74" width="28" height="28"/>
+  <text x="252" y="117" text-anchor="middle" font-size="9" fill="#94a3b8">Terraform</text>
+  <text x="252" y="128" text-anchor="middle" font-size="8" fill="#64748b">43 resources</text>
+
+  <line x1="288" y1="98" x2="314" y2="98" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="314" y="62" width="72" height="72" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/argo.svg" x="340" y="74" width="28" height="28"/>
+  <text x="350" y="117" text-anchor="middle" font-size="9" fill="#94a3b8">ArgoCD</text>
+  <text x="350" y="128" text-anchor="middle" font-size="8" fill="#64748b">GitOps sync</text>
+
+  <!-- Cloud providers badge -->
+  <rect x="420" y="62" width="460" height="72" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+  <text x="650" y="82" text-anchor="middle" font-size="9" font-weight="bold" fill="#94a3b8">Multi-Cloud — same platform, zero vendor lock-in</text>
+  <image href="/icons/aws.svg" x="450" y="92" width="28" height="28"/>
+  <text x="464" y="132" text-anchor="middle" font-size="8" fill="#64748b">AWS</text>
+  <image href="/icons/azure.svg" x="540" y="92" width="28" height="28"/>
+  <text x="554" y="132" text-anchor="middle" font-size="8" fill="#64748b">Azure</text>
+  <image href="/icons/digitalocean.svg" x="630" y="92" width="28" height="28"/>
+  <text x="644" y="132" text-anchor="middle" font-size="8" fill="#64748b">DigitalOcean</text>
+
+  <!-- ══ ROW 2: AWS Infra ══ -->
+  <rect x="20" y="155" width="870" height="110" rx="8" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="35" y="171" font-size="9" font-weight="bold" fill="#f97316">AWS Infrastructure — us-east-1 · VPC 10.0.0.0/16</text>
+
+  <rect x="35" y="178" width="66" height="78" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <image href="/icons/amazonvpc.svg" x="57" y="188" width="24" height="24"/>
+  <text x="68" y="226" text-anchor="middle" font-size="8" fill="#94a3b8">VPC</text>
+  <text x="68" y="237" text-anchor="middle" font-size="7" fill="#64748b">6 subnets</text>
+  <text x="68" y="248" text-anchor="middle" font-size="7" fill="#64748b">pub + priv</text>
+
+  <line x1="101" y1="217" x2="117" y2="217" stroke="#f97316" stroke-width="1.5" marker-end="url(#arr-o)"/>
+
+  <rect x="117" y="178" width="66" height="78" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <image href="/icons/awsnlb.svg" x="139" y="188" width="24" height="24"/>
+  <text x="150" y="226" text-anchor="middle" font-size="8" fill="#94a3b8">NLB</text>
+  <text x="150" y="237" text-anchor="middle" font-size="7" fill="#64748b">API :6443</text>
+  <text x="150" y="248" text-anchor="middle" font-size="7" fill="#64748b">cross-zone</text>
+
+  <line x1="183" y1="217" x2="199" y2="217" stroke="#f97316" stroke-width="1.5" marker-end="url(#arr-o)"/>
+
+  <!-- Control Plane nodes (3) -->
+  <rect x="199" y="175" width="155" height="84" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <text x="276" y="188" text-anchor="middle" font-size="7" font-weight="bold" fill="#f59e0b">Control Plane ×3</text>
+  <image href="/icons/amazonec2.svg" x="213" y="192" width="22" height="22"/>
+  <image href="/icons/amazonec2.svg" x="247" y="192" width="22" height="22"/>
+  <image href="/icons/amazonec2.svg" x="281" y="192" width="22" height="22"/>
+  <text x="276" y="228" text-anchor="middle" font-size="7" fill="#94a3b8">etcd · API Server · Scheduler</text>
+  <text x="276" y="239" text-anchor="middle" font-size="7" fill="#64748b">t3a.medium · 50GB gp3</text>
+  <text x="276" y="250" text-anchor="middle" font-size="7" fill="#64748b">us-east-1a/b/c</text>
+
+  <line x1="354" y1="217" x2="370" y2="217" stroke="#f97316" stroke-width="1.5" marker-end="url(#arr-o)"/>
+
+  <!-- Worker nodes (3) -->
+  <rect x="370" y="175" width="145" height="84" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <text x="442" y="188" text-anchor="middle" font-size="7" font-weight="bold" fill="#f59e0b">Workers ×3</text>
+  <image href="/icons/amazonec2.svg" x="388" y="192" width="22" height="22"/>
+  <image href="/icons/amazonec2.svg" x="422" y="192" width="22" height="22"/>
+  <image href="/icons/amazonec2.svg" x="456" y="192" width="22" height="22"/>
+  <text x="442" y="228" text-anchor="middle" font-size="7" fill="#94a3b8">containerd · kubelet</text>
+  <text x="442" y="239" text-anchor="middle" font-size="7" fill="#64748b">t3a.medium · 100GB gp3</text>
+
+  <rect x="525" y="178" width="66" height="78" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <image href="/icons/awsnatgateway.svg" x="547" y="188" width="24" height="24"/>
+  <text x="558" y="226" text-anchor="middle" font-size="8" fill="#94a3b8">NAT GW</text>
+  <text x="558" y="237" text-anchor="middle" font-size="7" fill="#64748b">private →</text>
+  <text x="558" y="248" text-anchor="middle" font-size="7" fill="#64748b">internet</text>
+
+  <rect x="601" y="178" width="66" height="78" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/bastion.svg" x="623" y="188" width="24" height="24"/>
+  <text x="634" y="226" text-anchor="middle" font-size="8" fill="#94a3b8">Bastion</text>
+  <text x="634" y="237" text-anchor="middle" font-size="7" fill="#64748b">SSH jump</text>
+  <text x="634" y="248" text-anchor="middle" font-size="7" fill="#64748b">t3a.micro</text>
+
+  <!-- ══ ROW 3: Kubernetes ══ -->
+  <rect x="20" y="280" width="870" height="110" rx="8" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="35" y="296" font-size="9" font-weight="bold" fill="#3b82f6">Kubernetes Cluster — kubeadm · Calico CNI · 12 Microservices (Hipster Shop)</text>
+
+  <rect x="35" y="304" width="66" height="72" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/kubernetes.svg" x="57" y="314" width="24" height="24"/>
+  <text x="68" y="350" text-anchor="middle" font-size="8" fill="#94a3b8">kubeadm</text>
+  <text x="68" y="361" text-anchor="middle" font-size="7" fill="#64748b">K8s 1.29</text>
+
+  <line x1="101" y1="340" x2="117" y2="340" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="117" y="304" width="66" height="72" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <image href="/icons/istio.svg" x="139" y="314" width="24" height="24"/>
+  <text x="150" y="350" text-anchor="middle" font-size="8" fill="#94a3b8">Istio</text>
+  <text x="150" y="361" text-anchor="middle" font-size="7" fill="#64748b">mTLS STRICT</text>
+
+  <line x1="183" y1="340" x2="199" y2="340" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="199" y="304" width="66" height="72" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/helm.svg" x="221" y="314" width="24" height="24"/>
+  <text x="232" y="350" text-anchor="middle" font-size="8" fill="#94a3b8">Helm</text>
+  <text x="232" y="361" text-anchor="middle" font-size="7" fill="#64748b">charts</text>
+
+  <line x1="265" y1="340" x2="281" y2="340" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Workloads block -->
+  <rect x="281" y="300" width="200" height="82" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="381" y="316" text-anchor="middle" font-size="8" font-weight="bold" fill="#3b82f6">12 Microservices</text>
+  <text x="381" y="329" text-anchor="middle" font-size="7.5" fill="#94a3b8">frontend · cart · checkout</text>
+  <text x="381" y="342" text-anchor="middle" font-size="7.5" fill="#94a3b8">payment · email · catalog</text>
+  <text x="381" y="355" text-anchor="middle" font-size="7.5" fill="#64748b">currency · shipping · ads</text>
+  <text x="381" y="368" text-anchor="middle" font-size="7.5" fill="#64748b">HPA · VPA · PDB</text>
+
+  <!-- ══ ROW 4: Observability + Security ══ -->
+
+  <!-- Observability -->
+  <rect x="20" y="405" width="430" height="100" rx="8" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="35" y="421" font-size="9" font-weight="bold" fill="#10b981">Observability</text>
+
+  <rect x="35" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/prometheus.svg" x="55" y="440" width="24" height="24"/>
+  <text x="65" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Prometheus</text>
+
+  <line x1="95" y1="460" x2="115" y2="460" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="115" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/grafana.svg" x="135" y="440" width="24" height="24"/>
+  <text x="145" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Grafana</text>
+
+  <line x1="175" y1="460" x2="195" y2="460" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="195" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/jaeger.svg" x="215" y="440" width="24" height="24"/>
+  <text x="225" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Jaeger</text>
+
+  <line x1="255" y1="460" x2="275" y2="460" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="275" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/velero.svg" x="295" y="440" width="24" height="24"/>
+  <text x="305" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Velero</text>
+  <text x="305" y="487" text-anchor="middle" font-size="7" fill="#64748b">S3 backup</text>
+
+  <rect x="355" y="430" width="85" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+  <text x="397" y="454" text-anchor="middle" font-size="8" fill="#94a3b8">Loki + Promtail</text>
+  <text x="397" y="467" text-anchor="middle" font-size="7" fill="#64748b">centralized logs</text>
+  <text x="397" y="480" text-anchor="middle" font-size="7" fill="#64748b">Alertmanager</text>
+
+  <!-- Security -->
+  <rect x="465" y="405" width="420" height="100" rx="8" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="480" y="421" font-size="9" font-weight="bold" fill="#ef4444">Security</text>
+
+  <rect x="480" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+  <image href="/icons/falco.svg" x="500" y="440" width="24" height="24"/>
+  <text x="510" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Falco</text>
+  <text x="510" y="487" text-anchor="middle" font-size="7" fill="#64748b">runtime</text>
+
+  <rect x="555" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+  <image href="/icons/trivy.svg" x="575" y="440" width="24" height="24"/>
+  <text x="585" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Trivy</text>
+  <text x="585" y="487" text-anchor="middle" font-size="7" fill="#64748b">image scan</text>
+
+  <rect x="630" y="430" width="60" height="60" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+  <image href="/icons/calico.svg" x="650" y="440" width="24" height="24"/>
+  <text x="660" y="476" text-anchor="middle" font-size="8" fill="#94a3b8">Calico</text>
+  <text x="660" y="487" text-anchor="middle" font-size="7" fill="#64748b">CNI + netpol</text>
+
+  <rect x="705" y="430" width="80" height="60" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="745" y="454" text-anchor="middle" font-size="8" fill="#94a3b8">Pod Security</text>
+  <text x="745" y="467" text-anchor="middle" font-size="7" fill="#64748b">PSS Restricted</text>
+  <text x="745" y="480" text-anchor="middle" font-size="7" fill="#64748b">NetworkPolicy</text>
+
+  <rect x="800" y="430" width="70" height="60" rx="8" fill="#1e293b" stroke="#eab308" stroke-width="1.2"/>
+  <text x="835" y="454" text-anchor="middle" font-size="8" fill="#94a3b8">Kubecost</text>
+  <text x="835" y="467" text-anchor="middle" font-size="7" fill="#64748b">cost/ns</text>
+  <text x="835" y="480" text-anchor="middle" font-size="7" fill="#64748b">Chaos Mesh</text>
+
+  <!-- ArgoCD → K8s -->
+  <line x1="350" y1="134" x2="350" y2="275" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr-g)"/>
+  <!-- Cluster → Observability -->
+  <line x1="200" y1="390" x2="200" y2="405" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-g)"/>
+  <!-- Cluster → Security -->
+  <line x1="600" y1="390" x2="600" y2="405" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arr-r)"/>
+
+</svg>

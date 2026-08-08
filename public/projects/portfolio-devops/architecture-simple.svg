@@ -1,0 +1,161 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="480" fill="#0f172a"/>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/></marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10b981"/></marker>
+    <marker id="arr-y" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#eab308"/></marker>
+    <marker id="arr-r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker>
+    <marker id="arr-p" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8b5cf6"/></marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#f1f5f9">Azure DevOps Pipeline with OPA Policy Enforcement</text>
+  <text x="450" y="48" text-anchor="middle" font-size="11" fill="#94a3b8">AKS · ACR · Key Vault · OPA · Ansible · GitHub Actions</text>
+
+  <!-- ══ ROW 1: Dev → GitHub ══ -->
+  <rect x="20" y="68" width="72" height="72" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="56" y="104" text-anchor="middle" font-size="22" fill="#f1f5f9">👤</text>
+  <text x="56" y="127" text-anchor="middle" font-size="9" fill="#94a3b8">Developer</text>
+  <text x="56" y="138" text-anchor="middle" font-size="8" fill="#64748b">git push</text>
+
+  <line x1="92" y1="104" x2="118" y2="104" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="118" y="68" width="72" height="72" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/githubactions.svg" x="144" y="80" width="28" height="28"/>
+  <text x="154" y="123" text-anchor="middle" font-size="9" fill="#94a3b8">GitHub</text>
+  <text x="154" y="134" text-anchor="middle" font-size="9" fill="#94a3b8">Actions</text>
+
+  <!-- 4 arrows down from GitHub to pipelines -->
+  <line x1="154" y1="140" x2="154" y2="165" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="154" y1="165" x2="100" y2="185" stroke="#3b82f6" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="154" y1="165" x2="300" y2="185" stroke="#3b82f6" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="154" y1="165" x2="500" y2="185" stroke="#3b82f6" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="154" y1="165" x2="700" y2="185" stroke="#3b82f6" stroke-width="1" marker-end="url(#arr)"/>
+
+  <!-- label -->
+  <text x="155" y="160" font-size="8" fill="#64748b">path triggers →</text>
+
+  <!-- ══ ROW 2: 4 Parallel Pipelines ══ -->
+
+  <!-- Pipeline 1: Infrastructure -->
+  <rect x="20" y="183" width="215" height="130" rx="8" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <text x="35" y="198" font-size="8" font-weight="bold" fill="#f59e0b">① Infrastructure</text>
+
+  <rect x="30" y="204" width="60" height="60" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <image href="/icons/terraform.svg" x="50" y="214" width="24" height="24"/>
+  <text x="60" y="248" text-anchor="middle" font-size="8" fill="#94a3b8">tf plan</text>
+
+  <line x1="90" y1="234" x2="108" y2="234" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr-y)"/>
+
+  <!-- OPA check box - prominent -->
+  <rect x="108" y="204" width="118" height="60" rx="6" fill="#1a1400" stroke="#eab308" stroke-width="2"/>
+  <text x="167" y="222" text-anchor="middle" font-size="9" font-weight="bold" fill="#eab308">OPA Check</text>
+  <text x="167" y="234" text-anchor="middle" font-size="7.5" fill="#94a3b8">no public AKS</text>
+  <text x="167" y="244" text-anchor="middle" font-size="7.5" fill="#94a3b8">mandatory tags</text>
+  <text x="167" y="254" text-anchor="middle" font-size="7.5" fill="#94a3b8">naming rules</text>
+
+  <!-- PASS/FAIL -->
+  <rect x="110" y="270" width="55" height="18" rx="3" fill="#1e293b" stroke="#22c55e" stroke-width="1"/>
+  <text x="137" y="282" text-anchor="middle" font-size="8" fill="#22c55e">✓ PASS → apply</text>
+  <rect x="170" y="270" width="50" height="18" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+  <text x="195" y="282" text-anchor="middle" font-size="8" fill="#ef4444">✗ FAIL block</text>
+
+  <!-- Pipeline 2: App Build -->
+  <rect x="250" y="183" width="205" height="130" rx="8" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <text x="265" y="198" font-size="8" font-weight="bold" fill="#3b82f6">② App Build</text>
+
+  <rect x="260" y="204" width="60" height="60" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <image href="/icons/docker.svg" x="280" y="214" width="24" height="24"/>
+  <text x="290" y="248" text-anchor="middle" font-size="8" fill="#94a3b8">Docker</text>
+  <text x="290" y="258" text-anchor="middle" font-size="7" fill="#64748b">multi-stage</text>
+
+  <line x1="320" y1="234" x2="348" y2="234" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="348" y="204" width="60" height="60" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <image href="/icons/azureacr.svg" x="368" y="214" width="24" height="24"/>
+  <text x="378" y="248" text-anchor="middle" font-size="8" fill="#94a3b8">ACR</text>
+  <text x="378" y="258" text-anchor="middle" font-size="7" fill="#64748b">push :$SHA</text>
+
+  <!-- Pipeline 3: Config/Ansible -->
+  <rect x="470" y="183" width="190" height="130" rx="8" fill="none" stroke="#8b5cf6" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <text x="485" y="198" font-size="8" font-weight="bold" fill="#8b5cf6">③ Config</text>
+
+  <rect x="485" y="204" width="60" height="60" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <image href="/icons/ansible.svg" x="505" y="214" width="24" height="24"/>
+  <text x="515" y="248" text-anchor="middle" font-size="8" fill="#94a3b8">Ansible</text>
+  <text x="515" y="258" text-anchor="middle" font-size="7" fill="#64748b">playbook</text>
+
+  <line x1="545" y1="234" x2="573" y2="234" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arr-p)"/>
+
+  <rect x="573" y="204" width="60" height="60" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <image href="/icons/bastion.svg" x="593" y="214" width="24" height="24"/>
+  <text x="603" y="248" text-anchor="middle" font-size="8" fill="#94a3b8">Bastion</text>
+  <text x="603" y="258" text-anchor="middle" font-size="7" fill="#64748b">VM config</text>
+
+  <!-- Pipeline 4: Security -->
+  <rect x="675" y="183" width="210" height="130" rx="8" fill="none" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <text x="690" y="198" font-size="8" font-weight="bold" fill="#ef4444">④ Security Scan</text>
+
+  <rect x="700" y="204" width="60" height="60" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+  <image href="/icons/trivy.svg" x="720" y="214" width="24" height="24"/>
+  <text x="730" y="248" text-anchor="middle" font-size="8" fill="#94a3b8">Trivy</text>
+  <text x="730" y="258" text-anchor="middle" font-size="7" fill="#64748b">image scan</text>
+
+  <text x="780" y="234" text-anchor="middle" font-size="8" fill="#64748b">runs</text>
+  <text x="780" y="246" text-anchor="middle" font-size="8" fill="#64748b">independent</text>
+
+  <!-- ══ ROW 3: Azure Resource Group ══ -->
+  <rect x="20" y="332" width="865" height="130" rx="8" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="35" y="348" font-size="9" font-weight="bold" fill="#10b981">Azure Resource Group — rg-portfolio-dev · eastus</text>
+
+  <rect x="35" y="358" width="72" height="72" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/azurevnet.svg" x="61" y="370" width="28" height="28"/>
+  <text x="71" y="413" text-anchor="middle" font-size="9" fill="#94a3b8">VNet</text>
+  <text x="71" y="424" text-anchor="middle" font-size="7" fill="#64748b">10.0.0.0/16</text>
+
+  <line x1="107" y1="394" x2="133" y2="394" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="133" y="358" width="72" height="72" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <image href="/icons/azureaks.svg" x="159" y="370" width="28" height="28"/>
+  <text x="169" y="413" text-anchor="middle" font-size="9" fill="#94a3b8">AKS</text>
+  <text x="169" y="424" text-anchor="middle" font-size="7" fill="#64748b">aks-portfolio-dev</text>
+
+  <line x1="205" y1="394" x2="231" y2="394" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+  <rect x="231" y="358" width="72" height="72" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <image href="/icons/azureacr.svg" x="257" y="370" width="28" height="28"/>
+  <text x="267" y="413" text-anchor="middle" font-size="9" fill="#94a3b8">ACR</text>
+  <text x="267" y="424" text-anchor="middle" font-size="7" fill="#64748b">image pull</text>
+
+  <rect x="333" y="358" width="72" height="72" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <image href="/icons/azurekeyvault.svg" x="359" y="370" width="28" height="28"/>
+  <text x="369" y="413" text-anchor="middle" font-size="9" fill="#94a3b8">Key Vault</text>
+  <text x="369" y="424" text-anchor="middle" font-size="7" fill="#64748b">secrets</text>
+
+  <rect x="433" y="358" width="72" height="72" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <image href="/icons/azurevm.svg" x="459" y="370" width="28" height="28"/>
+  <text x="469" y="413" text-anchor="middle" font-size="9" fill="#94a3b8">Bastion VM</text>
+  <text x="469" y="424" text-anchor="middle" font-size="7" fill="#64748b">Node Exporter</text>
+
+  <!-- Terraform Cloud state -->
+  <rect x="560" y="358" width="130" height="72" rx="8" fill="#1e293b" stroke="#5C4EE5" stroke-width="1.5"/>
+  <image href="/icons/terraformcloud.svg" x="580" y="370" width="28" height="28"/>
+  <text x="625" y="413" text-anchor="middle" font-size="9" fill="#94a3b8">Terraform Cloud</text>
+  <text x="625" y="424" text-anchor="middle" font-size="7" fill="#64748b">remote state</text>
+
+  <!-- Zero manual steps badge -->
+  <rect x="710" y="370" width="155" height="54" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+  <text x="787" y="390" text-anchor="middle" font-size="9" font-weight="bold" fill="#22c55e">0 manual steps</text>
+  <text x="787" y="404" text-anchor="middle" font-size="8" fill="#64748b">commit → running on AKS</text>
+  <text x="787" y="418" text-anchor="middle" font-size="8" fill="#64748b">4 pipelines · 1 git push</text>
+
+  <!-- Arrow: OPA → AKS (terraform apply after pass) -->
+  <line x1="154" y1="313" x2="154" y2="330" stroke="#eab308" stroke-width="1.5" marker-end="url(#arr-y)"/>
+  <!-- ACR → AKS image pull -->
+  <line x1="267" y1="313" x2="267" y2="340" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="267" y1="340" x2="205" y2="358" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr-p)"/>
+  <!-- Ansible → Bastion -->
+  <line x1="603" y1="313" x2="469" y2="358" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr-p)"/>
+
+</svg>
