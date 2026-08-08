@@ -4,7 +4,7 @@ import { iconUrl } from "./techIcons";
 import { groups } from "./expertiseData";
 
 // Only show these 3 categories in the hero
-const HERO_CATEGORIES = ["Cloud", "Full-Stack", "DevOps"];
+const HERO_CATEGORIES = ["Cloud", "Cloud Services", "Full-Stack", "DevOps"];
 const filtered = groups.filter((g) => HERO_CATEGORIES.includes(g.label));
 
 const StackBar = () => {
