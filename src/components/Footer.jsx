@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import PixelBtn from './PixelBtn';
-import { Email, LinkedIn, GitHub, Download } from './Icons';
+import { Email, LinkedIn, GitHub, Download, XIcon } from './Icons';
 
 const METRICS = [
   { value: 23, suffix: "+", label: "Projects" },
@@ -167,6 +167,16 @@ const Footer = () => {
             >
               <Download size="md" />
               Download Resume
+            </PixelBtn>
+            <PixelBtn
+              as="a"
+              href="https://x.com/artariq_X/with_replies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 w-full p-3 mt-2 bg-white hover:bg-gray-100 text-gray-900 text-sm font-semibold shadow-[3px_3px_0px_#9ca3af] hover:shadow-[5px_5px_0px_#9ca3af] transition-colors"
+            >
+              <XIcon className="w-8 h-8" />
+              Let&apos;s hang on X — Check out my replies on other people&apos;s posts. ↗
             </PixelBtn>
           </div>
         </div>
