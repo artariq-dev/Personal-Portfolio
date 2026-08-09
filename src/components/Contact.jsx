@@ -40,7 +40,7 @@ const Contact = () => (
             I work with founders of <span className="font-semibold text-gray-800 dark:text-gray-200">Tech, SaaS, marketplaces, e-commerce etc</span> — dozen+ projects shipped worldwide.
           </p>
           {contacts.map((c, i) => <ContactBtn key={i} {...c} />)}
-          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/dev-artariq-resume.pdf`} download="dev-artariq-resume.pdf"
+          <PixelBtn as="a" href={`${process.env.PUBLIC_URL}/resume-abdurrehman-2026.pdf`} download="resume-abdurrehman-2026.pdf"
             className="flex items-center justify-center gap-2 w-full p-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-[3px_3px_0px_#1d4ed8] dark:shadow-[3px_3px_0px_#93c5fd] hover:shadow-[5px_5px_0px_#1d4ed8] dark:hover:shadow-[5px_5px_0px_#93c5fd] transition-colors"
           >
             <Download size="md" />
