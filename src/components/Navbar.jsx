@@ -42,12 +42,14 @@ const Navbar = () => {
           {/* Logo */}
           <button
             onClick={() => { window.location.href = '/'; }}
-            className="font-semibold text-xs sm:font-bold sm:text-sm tracking-tight shrink-0"
+            className="shrink-0"
+            aria-label="Go to home"
           >
-            <span className="text-gray-500 dark:text-gray-400">[</span>
-            <span className="text-white dark:text-gray-900 font-display">ar</span>
-            <span className="text-gray-500 dark:text-gray-400 font-display">tariq.</span>
-            <span className="text-gray-500 dark:text-gray-400">]</span>
+            <img
+              src="/portfolio.jpeg"
+              alt="AR Tariq"
+              className="w-8 h-8 object-cover border-2 border-white/20 dark:border-black/20 hover:border-white/50 dark:hover:border-black/50 transition-colors"
+            />
           </button>
 
           {divider}
