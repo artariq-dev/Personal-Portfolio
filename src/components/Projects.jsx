@@ -36,7 +36,6 @@ const ProjectCard = ({ p, index }) => {
       initial="hidden"
       animate="show"
       exit="exit"
-      layout
     >
       <Link
         to={`/project/${p.slug}`}
@@ -44,16 +43,7 @@ const ProjectCard = ({ p, index }) => {
       >
         {imgSrc && (
           <div className={`relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden ${isSimpleDiagram ? 'bg-gray-950' : 'bg-white'}`}>
-            {isSimpleDiagram ? (
-              <object
-                data={imgSrc}
-                type="image/svg+xml"
-                className="w-full h-full pointer-events-none"
-                aria-label={p.title}
-              />
-            ) : (
-              <img src={imgSrc} alt={p.title} className={`w-full h-full ${imgClass}`} loading="lazy" />
-            )}
+            <img src={imgSrc} alt={p.title} className={`w-full h-full ${imgClass}`} loading="lazy" />
             <span className={NICHE_TAG_CLASS}>{p.niche || p.tag.split(" · ")[0]}</span>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-3 pt-6 pb-2.5">
               <h3 className="text-sm font-bold text-white leading-snug mb-1">{p.title}</h3>

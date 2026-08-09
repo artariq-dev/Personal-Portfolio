@@ -7,7 +7,8 @@ export const techNames = {
   githubactions: "GitHub Actions", helm: "Helm", amazonwebservices: "AWS",
   cloudflare: "Cloudflare", kustomize: "Kustomize", go: "Go",
   cosign: "Cosign", kyverno: "Kyverno", microsoftazure: "Azure",
-  openpolicyagent: "OPA", nginx: "Nginx", mysql: "MySQL", paypal: "PayPal", ansible: "Ansible", k3s: "K3s",
+  openpolicyagent: "OPA",   nginx: "Nginx", mysql: "MySQL", paypal: "PayPal", ansible: "Ansible", k3s: "K3s",
+  algolia: "Algolia", mapbox: "Mapbox",
   nuxt: "Nuxt.js", strapi: "Strapi", tailwindcss: "Tailwind CSS",
   cloudflareworkers: "Cloudflare Workers", vuedotjs: "Vue.js", unocss: "UnoCSS",
   magento: "Magento", graphql: "GraphQL", firebase: "Firebase", stripe: "Stripe",
@@ -92,6 +93,7 @@ const iconFiles = {
   react:"react.svg", nextdotjs:"nextdotjs.svg", javascript:"javascript.svg",
   typescript:"typescript.svg", nodedotjs:"nodedotjs.svg", express:"express.svg",
   mongodb:"mongodb.svg", rabbitmq:"rabbitmq.svg",
+  algolia:"algolia.svg", mapbox:"mapbox.svg",
   // AWS services
   amazonec2:"amazonec2.svg",
   amazons3:"amazons3.svg",

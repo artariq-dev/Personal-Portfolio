@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 // Node positions in a 400x500 viewBox
 const NODES = [
@@ -31,67 +31,143 @@ const EDGES = [
 // Look up node by id
 const n = (id) => NODES.find((node) => node.id === id);
 
-// Animated edge line
-const Edge = ({ from, to, delay }) => {
+// Pre-compute random packet pause lengths once so they don't change on re-render
+const PACKET_DELAYS = EDGES.map(() => Math.random() * 4 + 2);
+
+// ── CSS keyframes, generated once at module load ──────────────────────────────
+// All loops animate transform (translate/scale) + opacity → compositor thread,
+// near-zero main-thread cost. One-shot draw-in uses `forwards` fill.
+
+function buildAnimationCSS() {
+  const parts = [];
+
+  // Edge draw-in (dash-draw)
+  EDGES.forEach(([from, to], i) => {
+    parts.push(`
+      @keyframes edge-in-${i} {
+        from { stroke-dashoffset: 1; }
+        to   { stroke-dashoffset: 0; }
+      }
+      .edge-${i} {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: edge-in-${i} 0.6s ease-out ${(0.2 + i * 0.06).toFixed(2)}s forwards;
+      }`);
+  });
+
+  // Data packets — travel, then hold invisibly for the repeat delay
+  EDGES.forEach(([from, to], i) => {
+    const a = n(from);
+    const b = n(to);
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const travel = 1.4;
+    const total = travel + PACKET_DELAYS[i];
+    const endPct = (travel / total) * 100;
+    const delay = 1.5 + i * 0.3;
+    parts.push(`
+      @keyframes pkt-${i} {
+        0%   { transform: translate(0, 0); opacity: 0; }
+        10%  { opacity: 1; }
+        55%  { opacity: 1; }
+        ${endPct.toFixed(2)}% { transform: translate(${dx}px, ${dy}px); opacity: 0; }
+        100% { transform: translate(${dx}px, ${dy}px); opacity: 0; }
+      }
+      .pkt-${i} {
+        animation: pkt-${i} ${total.toFixed(2)}s ease-in-out ${delay.toFixed(2)}s infinite;
+      }`);
+  });
+
+  parts.push(`
+    @keyframes glow-pulse {
+      0%, 100% { transform: scale(1);    opacity: 0.15; }
+      50%      { transform: scale(1.25); opacity: 0.05; }
+    }
+    .glow { animation: glow-pulse 3s ease-in-out infinite; }
+
+    @keyframes node-in {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .node-in { animation: node-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .fade-in-500 {
+      opacity: 0;
+      animation: fade-in 0.5s ease-out forwards;
+    }
+
+    @keyframes svg-fade {
+      from { opacity: 0; }
+      to   { opacity: 0.8; }
+    }
+    .svg-fade {
+      opacity: 0;
+      animation: svg-fade 1s ease-out 0.3s forwards;
+    }
+
+    /* Pause infinite loops when the illustration is off-screen */
+    .is-paused [class*="pkt-"],
+    .is-paused .glow {
+      animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .svg-fade     { opacity: 0.8; animation: none; }
+      [class*="edge-"] { stroke-dashoffset: 0; animation: none !important; }
+      .node-in      { animation: none !important; }
+      .fade-in-500  { opacity: 1; animation: none !important; }
+      .glow         { animation: none !important; opacity: 0.15; }
+      [class*="pkt-"] { animation: none !important; opacity: 0; }
+    }`);
+
+  return parts.join("\n");
+}
+
+const ANIMATION_CSS = buildAnimationCSS();
+
+// ── SVG elements ──────────────────────────────────────────────────────────────
+
+// Animated edge line (drawn in once)
+const Edge = ({ from, to, i }) => {
   const a = n(from);
   const b = n(to);
   return (
-    <motion.line
+    <line
       x1={a.x} y1={a.y} x2={b.x} y2={b.y}
       stroke="rgba(100,116,139,0.4)"
       strokeWidth="1"
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={{ pathLength: 1, opacity: 1 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      pathLength={1}
+      className={`edge-${i}`}
     />
   );
 };
 
-// Pre-compute random delays once so they don't change on re-render
-const PACKET_DELAYS = EDGES.map(() => Math.random() * 4 + 2);
-
-// Animated data packet travelling along an edge
-const Packet = ({ from, to, delay, color, repeatDelay }) => {
+// Data packet travelling along an edge (CSS transform → compositor)
+const Packet = ({ from, to, i, color }) => {
   const a = n(from);
-  const b = n(to);
   return (
-    <motion.circle
-      r="2.5"
-      fill={color}
-      initial={{ x: a.x, y: a.y, opacity: 0 }}
-      animate={{
-        x: [a.x, b.x, b.x],
-        y: [a.y, b.y, b.y],
-        opacity: [0, 1, 0],
-      }}
-      transition={{
-        duration: 1.4,
-        delay,
-        repeat: Infinity,
-        repeatDelay,
-        ease: "easeInOut",
-      }}
-    />
+    <circle r="2.5" fill={color} cx={a.x} cy={a.y} className={`pkt-${i}`} />
   );
 };
 
 // Node box
-const Node = ({ id, x, y, label, sub, color, delay }) => (
-  <motion.g
-    initial={{ opacity: 0, scale: 0.6 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }}
-    style={{ originX: `${x}px`, originY: `${y}px` }}
+const Node = ({ id, x, y, label, sub, color, index }) => (
+  <g
+    className={`node-in node-${index}`}
+    style={{ transformOrigin: `${x}px ${y}px` }}
   >
     {/* Outer glow ring — pulses idle */}
-    <motion.circle
+    <circle
       cx={x} cy={y} r="18"
       fill="none"
       stroke={color}
       strokeWidth="1"
-      opacity={0.15}
-      animate={{ r: [18, 22, 18], opacity: [0.15, 0.05, 0.15] }}
-      transition={{ duration: 3, repeat: Infinity, delay: delay + 1, ease: "easeInOut" }}
+      className="glow"
+      style={{ transformOrigin: `${x}px ${y}px`, animationDelay: `${index + 1}s` }}
     />
 
     {/* Node circle */}
@@ -122,16 +198,14 @@ const Node = ({ id, x, y, label, sub, color, delay }) => (
     >
       {sub}
     </text>
-  </motion.g>
+  </g>
 );
 
 // Corner bracket decoration
 const Corner = ({ x, y, rotate, delay }) => (
-  <motion.g
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 0.5, delay }}
-    style={{ transform: `rotate(${rotate}deg)`, transformOrigin: `${x}px ${y}px` }}
+  <g
+    className="fade-in-500"
+    style={{ animationDelay: delay, transform: `rotate(${rotate}deg)`, transformOrigin: `${x}px ${y}px` }}
   >
     <path
       d={`M ${x + 10} ${y} L ${x} ${y} L ${x} ${y + 10}`}
@@ -139,69 +213,79 @@ const Corner = ({ x, y, rotate, delay }) => (
       stroke="rgba(59,130,246,0.6)"
       strokeWidth="1.5"
     />
-  </motion.g>
+  </g>
 );
 
-const IllustrationSVG = ({ className = "" }) => (
-  <motion.svg
-    viewBox="0 0 400 500"
-    className={`w-[340px] xl:w-[400px] opacity-80 ${className}`}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 0.8 }}
-    transition={{ duration: 1, delay: 0.3 }}
-  >
-    {/* Edges — draw in first */}
-    {EDGES.map(([from, to], i) => (
-      <Edge key={`${from}-${to}`} from={from} to={to} delay={0.2 + i * 0.06} />
-    ))}
+const IllustrationSVG = ({ className = "" }) => {
+  const svgRef = useRef(null);
 
-    {/* Data packets travelling along edges */}
-    {EDGES.map(([from, to], i) => (
-      <Packet
-        key={`pkt-${from}-${to}`}
-        from={from} to={to}
-        delay={1.5 + i * 0.3}
-        color={n(from).color}
-        repeatDelay={PACKET_DELAYS[i]}
-      />
-    ))}
+  // Pause the infinite loops when the hero scrolls off-screen
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver((entries) => {
+      el.classList.toggle("is-paused", !entries[0].isIntersecting);
+    }, { rootMargin: "100px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
-    {/* Nodes — appear after edges */}
-    {NODES.map((node, i) => (
-      <Node key={node.id} {...node} delay={0.5 + i * 0.08} />
-    ))}
+  return (
+    <>
+      <style>{ANIMATION_CSS}</style>
+      <svg
+        ref={svgRef}
+        viewBox="0 0 400 500"
+        className={`w-[340px] xl:w-[400px] svg-fade ${className}`}
+        role="img"
+        aria-label="System architecture illustration"
+      >
+        {/* Edges — draw in first */}
+        {EDGES.map(([from, to], i) => (
+          <Edge key={`${from}-${to}`} from={from} to={to} i={i} />
+        ))}
 
-    {/* Corner brackets */}
-    <Corner x={10}  y={10}  rotate={0}   delay={1.2} />
-    <Corner x={390} y={10}  rotate={90}  delay={1.3} />
-    <Corner x={10}  y={490} rotate={270} delay={1.4} />
-    <Corner x={390} y={490} rotate={180} delay={1.5} />
+        {/* Data packets travelling along edges */}
+        {EDGES.map(([from, to], i) => (
+          <Packet key={`pkt-${from}-${to}`} from={from} to={to} i={i} color={n(from).color} />
+        ))}
 
-    {/* Coordinate labels */}
-    <motion.text
-      x="14" y="498"
-      fill="rgba(59,130,246,0.6)"
-      fontSize="6"
-      fontFamily="ui-monospace, monospace"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.6 }}
-    >
-      SYS.ARCH v2.4
-    </motion.text>
-    <motion.text
-      x="310" y="498"
-      fill="rgba(59,130,246,0.6)"
-      fontSize="6"
-      fontFamily="ui-monospace, monospace"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.7 }}
-    >
-      PROD · LIVE
-    </motion.text>
-  </motion.svg>
-);
+        {/* Nodes — appear after edges */}
+        {NODES.map((node, i) => (
+          <Node key={node.id} {...node} index={i} />
+        ))}
+
+        {/* Corner brackets */}
+        <Corner x={10}  y={10}  rotate={0}   delay="1.2s" />
+        <Corner x={390} y={10}  rotate={90}  delay="1.3s" />
+        <Corner x={10}  y={490} rotate={270} delay="1.4s" />
+        <Corner x={390} y={490} rotate={180} delay="1.5s" />
+
+        {/* Coordinate labels */}
+        <text
+          x="14" y="498"
+          fill="rgba(59,130,246,0.6)"
+          fontSize="6"
+          fontFamily="ui-monospace, monospace"
+          className="fade-in-500"
+          style={{ animationDelay: "1.6s" }}
+        >
+          SYS.ARCH v2.4
+        </text>
+        <text
+          x="310" y="498"
+          fill="rgba(59,130,246,0.6)"
+          fontSize="6"
+          fontFamily="ui-monospace, monospace"
+          className="fade-in-500"
+          style={{ animationDelay: "1.7s" }}
+        >
+          PROD · LIVE
+        </text>
+      </svg>
+    </>
+  );
+};
 
 const HeroIllustration = () => (
   <div className="absolute inset-0 pointer-events-none select-none hidden lg:flex items-center justify-end pr-8 xl:pr-16">

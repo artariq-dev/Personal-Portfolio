@@ -20,49 +20,9 @@ h1, h2, h3 {
 
 a, button, a *, button * { cursor: pointer; }
 
-/* Tech strip */
-.tech-strip .rfm-marquee-container {
-  background-color: #f3f4f6;
-  padding: 8px 0;
-}
-.dark .tech-strip .rfm-marquee-container {
-  background-color: #1f2937;
-}
-
 /* Square corners everywhere — robotic theme */
 [class*="rounded"]:not(.rounded-full):not([class*="rounded-full"]) {
   border-radius: 0 !important;
-}
-
-/* Hexagonal Ajrak-style rotating bg */
-@keyframes hex-spin {
-  from { transform: rotate(0deg) scale(1.5); }
-  to   { transform: rotate(360deg) scale(1.5); }
-}
-.hero-grid {
-  --hex: rgba(156,163,175,0.25);
-  --accent: rgba(155,27,48,0.2);
-  animation: hex-spin 90s linear infinite;
-  background-image:
-    /* hexagon grid - 3 intersecting line sets */
-    linear-gradient(60deg, transparent 49.5%, var(--hex) 49.5%, var(--hex) 50.5%, transparent 50.5%),
-    linear-gradient(-60deg, transparent 49.5%, var(--hex) 49.5%, var(--hex) 50.5%, transparent 50.5%),
-    linear-gradient(180deg, transparent 49.5%, var(--hex) 49.5%, var(--hex) 50.5%, transparent 50.5%),
-    /* red accent lines */
-    linear-gradient(60deg, transparent 24.5%, var(--accent) 24.5%, var(--accent) 25.5%, transparent 25.5%),
-    linear-gradient(-60deg, transparent 24.5%, var(--accent) 24.5%, var(--accent) 25.5%, transparent 25.5%),
-    linear-gradient(180deg, transparent 24.5%, var(--accent) 24.5%, var(--accent) 25.5%, transparent 25.5%),
-    /* nodes at intersections */
-    radial-gradient(circle at 50% 0%, var(--hex) 2px, transparent 2px),
-    radial-gradient(circle at 50% 100%, var(--hex) 2px, transparent 2px),
-    radial-gradient(circle at 0% 50%, var(--hex) 2px, transparent 2px),
-    radial-gradient(circle at 100% 50%, var(--hex) 2px, transparent 2px),
-    radial-gradient(circle at 50% 50%, var(--hex) 3px, transparent 3px);
-  background-size: 6rem 5.2rem;
-}
-.dark .hero-grid {
-  --hex: rgba(107,114,128,0.25);
-  --accent: rgba(220,70,90,0.15);
 }
 
 /* Pixel / robotic buttons */
@@ -79,15 +39,3 @@ a, button, a *, button * { cursor: pointer; }
   transform: translate(1px, 1px);
   box-shadow: none !important;
 }
-
-/* ── Cycling word animations ── */
-@keyframes word-in {
-  from { transform: translateY(-100%); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
-}
-@keyframes word-out {
-  from { transform: translateY(0);    opacity: 1; }
-  to   { transform: translateY(100%); opacity: 0; }
-}
-.word-in  { animation: word-in  0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
-.word-out { animation: word-out 0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
