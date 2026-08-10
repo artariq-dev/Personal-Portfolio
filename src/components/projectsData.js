@@ -138,7 +138,7 @@ export const coreProjects = [
     filters: ["Full-Stack", "E-Commerce"],
     niche: "Full-Stack Storefront",
     tag: "Full Stack · Headless Commerce · Magento 2",
-    title: "PaperFisher — Magento 2 Storefront",
+    title: "Papierfischer — Magento 2 Storefront",
     techs: ["magento", "graphql", "nuxt", "vuedotjs", "nginx", "mysql", "paypal"],
     subtitle: "Headless Commerce · Magento 2 GraphQL · Nuxt 2 · Vue Storefront 2",
     live: "https://www.papierfischer.de/",
