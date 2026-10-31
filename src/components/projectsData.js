@@ -3,7 +3,7 @@ export const coreProjects = [
   {
     slug: "find24",
     category: "fullstack",
-    filters: ["Web / Platform", "Live"],
+    filters: ["Live Web"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Algolia · Mapbox",
     title: "Find-24 — Hire a Local Pro in 3 Steps",
@@ -43,7 +43,7 @@ export const coreProjects = [
   {
     slug: "solar-pv-crm",
     category: "fullstack",
-    filters: ["Web / Platform"],
+    filters: ["Platform"],
     niche: "Full-Stack CRM",
     tag: "Full Stack · Django · AI · CRM",
     title: "Solar CRM That Quotes, Follows Up & Invoices Itself",
@@ -91,7 +91,7 @@ export const coreProjects = [
   {
     slug: "django-clinical-crm",
     category: "fullstack",
-    filters: ["Web / Platform"],
+    filters: ["Platform"],
     niche: "Full-Stack CRM",
     tag: "Full Stack · Django · CRM · AdTech",
     title: "Clinical CRM That Cuts Cost Per Lead by 38%",
@@ -135,7 +135,7 @@ export const coreProjects = [
   {
     slug: "agency-papierfischer",
     category: "fullstack",
-    filters: ["Web / Platform", "Live"],
+    filters: ["Live Web"],
     niche: "Full-Stack Storefront",
     tag: "Full Stack · Headless Commerce · Magento 2",
     title: "Papierfischer — Faster Browsing on Magento 2",
@@ -169,7 +169,7 @@ export const coreProjects = [
   {
     slug: "agency-kitchenz",
     category: "fullstack",
-    filters: ["Web / Platform", "Live"],
+    filters: ["Live Web"],
     niche: "Full-Stack E-Commerce",
     tag: "Full Stack · Nuxt.js · Vue.js · UnoCSS",
     title: "Kitchenz — Configure Your Kitchen in Real Time",
@@ -202,7 +202,7 @@ export const coreProjects = [
   {
     slug: "yearpeek",
     category: "fullstack",
-    filters: ["Web / Platform"],
+    filters: ["Platform"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Vue 3 · SaaS",
     title: "YearPeek — Your Entire Year on One Screen",
@@ -247,7 +247,7 @@ export const coreProjects = [
   {
     slug: "agency-birdie",
     category: "fullstack",
-    filters: ["Web / Platform", "Live"],
+    filters: ["Live Web"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Firebase · Stripe",
     title: "Birdie — Agency Site That Captures Leads & Takes Payments",
@@ -281,7 +281,7 @@ export const coreProjects = [
   {
     slug: "kamerat",
     category: "fullstack",
-    filters: ["Web / Platform", "Live"],
+    filters: ["Live Web"],
     niche: "Full-Stack SaaS",
     tag: "Full Stack · Nuxt 3 · Node.js · Mobile Learning Platform",
     title: "Kamerat — Learn Photography on Your Phone",
@@ -329,7 +329,7 @@ export const coreProjects = [
   {
     slug: "agency-021",
     category: "fullstack",
-    filters: ["Web / Platform", "Live"],
+    filters: ["Live Web"],
     niche: "Full-Stack CMS",
     tag: "Full Stack · Nuxt 3 · Strapi CMS · Cloudflare",
     title: "021 — Publish Content Without a Developer",
