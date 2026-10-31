@@ -20,7 +20,7 @@ const item = {
 const Hero = () => (
   <section
     id="hero"
-    className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-slate-100 dark:bg-gradient-to-br dark:from-gray-950 dark:via-gray-950 dark:to-gray-950"
+    className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-slate-100 dark:from-gray-950 dark:via-gray-950 dark:to-gray-950"
   >
     <HeroIllustration />
 
@@ -28,18 +28,12 @@ const Hero = () => (
     <div
       aria-hidden
       className="absolute inset-0 pointer-events-none dark:hidden"
-      style={{
-        backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.18) 1.5px, transparent 1.5px)",
-        backgroundSize: "28px 28px",
-      }}
+      style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.18) 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }}
     />
     <div
       aria-hidden
       className="absolute inset-0 pointer-events-none hidden dark:block"
-      style={{
-        backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.25) 1.5px, transparent 1.5px)",
-        backgroundSize: "28px 28px",
-      }}
+      style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.25) 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }}
     />
 
     <motion.div
@@ -52,7 +46,7 @@ const Hero = () => (
 
         {/* Eyebrow */}
         <motion.p variants={item} className="text-xs font-bold tracking-[0.3em] text-gray-500 dark:text-gray-400 mb-4 inline-flex px-3 py-1 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
-          CLOUD x FULL-STACK
+          CLOUD x FULL-STACK x AI
         </motion.p>
 
         {/* Heading */}
@@ -67,7 +61,7 @@ const Hero = () => (
 
         {/* Bio */}
         <motion.p variants={item} className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-          Websites, apps and cloud infrastructure — plus the systems, pipelines and architecture that keep them running. One engineer, end-to-end stack.
+          Sites, apps, AI and cloud infra — So your business platform actually retains and converts.
         </motion.p>
 
         {/* Stack bar */}
