@@ -7,7 +7,7 @@ import { iconUrl } from "./techIcons";
 const ALL = "All";
 
 const FILTERS = [
-  ALL, "Cloud", "Web / Platform", "Automation", "Live",
+  ALL, "Live Web", "Automation", "Platform", "Cloud",
 ];
 
 const NICHE_TAG_CLASS =
