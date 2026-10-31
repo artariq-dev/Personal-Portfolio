@@ -1,11 +1,9 @@
-import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useDarkMode from '../hooks/useDarkMode';
 import { Sun, Moon } from './Icons';
 
 const SERVICES = [
-  "Full-Stack", "Cloud", "SaaS", "CRM",
-  "E-Commerce", "CMS", "Automation", "DevOps",
+  "Cloud", "Web / Platform", "Automation",
 ];
 
 const DarkToggle = ({ dark, onToggle }) => (

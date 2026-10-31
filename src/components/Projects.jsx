@@ -7,8 +7,7 @@ import { iconUrl } from "./techIcons";
 const ALL = "All";
 
 const FILTERS = [
-  ALL, "Full-Stack", "Cloud", "SaaS", "CRM",
-  "E-Commerce", "CMS", "Automation", "DevOps",
+  ALL, "Cloud", "Web / Platform", "Automation",
 ];
 
 const NICHE_TAG_CLASS =
@@ -25,12 +24,10 @@ const cardVariants = {
 
 const ProjectCard = ({ p, index }) => {
   const imgSrc = p.cover || p.images?.[0] || p.diagramSimple || p.diagram;
-  const isSimpleDiagram = !p.cover && !p.images?.[0] && p.diagramSimple;
-  const imgClass = (!p.cover && !p.images?.[0] && (p.diagramSimple || p.diagram)) ? "object-contain p-2" : "object-contain";
+  const isDiagramOnly = !p.cover && !p.images?.[0] && (p.diagramSimple || p.diagram);
 
   return (
     <motion.div
-      key={p.slug}
       custom={index}
       variants={cardVariants}
       initial="hidden"
@@ -42,8 +39,8 @@ const ProjectCard = ({ p, index }) => {
         className="cursor-pointer bg-gray-900 border-2 border-gray-700 rounded p-2 transition-all duration-200 shadow-[4px_4px_0px_#374151] hover:shadow-[8px_8px_0px_#1e3a5f] hover:border-blue-500 hover:-translate-x-1 hover:-translate-y-1 flex flex-col"
       >
         {imgSrc && (
-          <div className={`relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden ${isSimpleDiagram ? 'bg-gray-950' : 'bg-white'}`}>
-            <img src={imgSrc} alt={p.title} className={`w-full h-full ${imgClass}`} loading="lazy" />
+          <div className={`relative w-full aspect-video mb-3 rounded border border-gray-200 dark:border-gray-700 overflow-hidden ${isDiagramOnly ? 'bg-gray-950' : 'bg-white'}`}>
+            <img src={imgSrc} alt={p.title} className={`w-full h-full ${isDiagramOnly ? 'object-contain p-2' : 'object-contain'}`} loading="lazy" />
             <span className={NICHE_TAG_CLASS}>{p.niche || p.tag.split(" · ")[0]}</span>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-3 pt-6 pb-2.5">
               <h3 className="text-sm font-bold text-white leading-snug mb-1">{p.title}</h3>
