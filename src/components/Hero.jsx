@@ -61,7 +61,7 @@ const Hero = () => (
 
         {/* Bio */}
         <motion.p variants={item} className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-          Sites, apps, AI and cloud.<br />Let's make your business platform heart striking and intelligent with AI that actually retains and converts users ;)
+          Sites, apps, AI and cloud.<br />Let's make your business platform heart striking and intelligent with AI that actually retains and converts users.
         </motion.p>
 
         {/* Stack bar */}
