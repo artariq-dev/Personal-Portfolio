@@ -53,15 +53,15 @@ const Hero = () => (
         <motion.h1
           variants={item}
           className="font-extrabold text-gray-900 dark:text-white mb-8"
-          style={{ fontSize: "clamp(4rem, 12vw, 8rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}
+          style={{ fontSize: "clamp(3rem, 9vw, 6rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}
         >
-          <span className="block"><span className="text-blue-600">i</span> <CyclingWord /></span>
-          <span className="block text-gray-900 dark:text-white whitespace-nowrap">with you</span>
+          <span className="block"><CyclingWord /></span>
+          <span className="block text-gray-900 dark:text-white whitespace-nowrap">business easy</span>
         </motion.h1>
 
         {/* Bio */}
         <motion.p variants={item} className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-          Sites, apps, AI and cloud infra — So your business platform actually retains and converts.
+          Sites, apps, AI and cloud.<br />Let's make your business platform heart striking and intelligent with AI that actually retains and converts users ;)
         </motion.p>
 
         {/* Stack bar */}

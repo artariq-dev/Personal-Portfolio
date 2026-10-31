@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const WORDS = ["design", "code", "build"];
+const WORDS = ["make", "grow", "automate"];
 const TYPE_SPEED  = 80;
 const ERASE_SPEED = 50;
 const PAUSE       = 1800;
