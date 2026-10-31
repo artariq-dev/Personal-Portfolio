@@ -3,7 +3,7 @@ import useDarkMode from '../hooks/useDarkMode';
 import { Sun, Moon } from './Icons';
 
 const SERVICES = [
-  "Cloud", "Web / Platform", "Automation",
+  "Cloud", "Web / Platform", "Automation", "Live",
 ];
 
 const DarkToggle = ({ dark, onToggle }) => (
