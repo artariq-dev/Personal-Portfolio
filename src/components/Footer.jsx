@@ -1,39 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import PixelBtn from './PixelBtn';
 import { Email, LinkedIn, GitHub, Download, XIcon } from './Icons';
-
-const METRICS = [
-  { value: 23, suffix: "+", label: "Projects" },
-  { value: 13, suffix: "+", label: "Clients" },
-  { value: 5,  suffix: "+", label: "Countries" },
-];
-
-const CountUp = ({ value, suffix }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "0px" });
-
-  useEffect(() => {
-    if (!inView) return;
-    const duration = 4500;
-    const startTime = performance.now();
-    let raf;
-    const tick = (now) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * value));
-      if (progress < 1) raf = requestAnimationFrame(tick);
-      else setCount(value);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, value]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-};
 
 const contacts = [
   { href: "mailto:artariq.dev.1@gmail.com", label: "Email", value: "artariq.dev.1@gmail.com", icon: Email, bg: "bg-blue-600" },
@@ -122,28 +89,18 @@ const Footer = () => {
                   <span className="text-base text-white font-bold">r</span>ehman{" "}
                   <span className="text-base text-white font-bold">tariq</span>
                 </h3>
-                <p className="text-xs font-semibold text-gray-400 tracking-wide">6 yrs · cloud x full-stack</p>
+                <p className="text-xs font-semibold text-gray-400 tracking-wide">6 yrs · cloud x full-stack x ai</p>
               </div>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed mb-4">
-              I'm Abdur Rehman, a cloud engineer and full-stack developer who builds digital products end to end. From web apps and APIs to cloud infrastructure and CI/CD pipelines, I handle the full stack — so everything ships production-ready and stays running.
+              I'm Abdur Rehman, a cloud engineer and full-stack developer who builds digital solutions end to end. From Web apps to AI automations and APIs plus Cloud infra, I handle the full stack.
+            </p>
+            <p className="text-sm text-gray-300 leading-relaxed mb-4">
+              Let's make your business platform heart striking that actually retains and converts users ;)
             </p>
             <p className="text-sm font-semibold text-white mb-6">
               Based online, working with clients worldwide.
             </p>
-            <div className="flex gap-6">
-              {METRICS.map((m, i) => (
-                <div key={m.label} className="flex items-center gap-6">
-                  {i > 0 && <div className="w-px h-8 bg-gray-800" />}
-                  <div>
-                    <p className="text-2xl font-extrabold text-white">
-                      <CountUp value={m.value} suffix={m.suffix} />
-                    </p>
-                    <p className="text-[10px] uppercase tracking-widest text-gray-500">{m.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right — buttons */}
